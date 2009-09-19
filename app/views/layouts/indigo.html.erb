@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Blackfoot - <%= $area.titleize %></title>
+	<meta name="Author" content="Ben Mills, Rean Studios">
+	<meta name="viewport" content="width=1024">
+	
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost/blackfoot/rss/jobs.php">
+	<%= stylesheet_link_tag "indigo" %>
+	<%= stylesheet_link_tag "nav" %>
+	<script type="text/javascript" src="/javascripts/prototype.js"></script>
+	<script type="text/javascript" src="/javascripts/effects.js"></script>
+</head>
+<body id="<%= $area %>">
+<div id="globalheader" class="<%= $area %>">
+	<ul id="gnav">
+		<li id="gnav-home"><a href="/">Home</a></li>
+		<li id="gnav-estimates"><a href="/estimates/">Estimates</a></li>
+		<li id="gnav-jobs"><a href="/jobs/">Jobs</a></li>
+		<li id="gnav-customers"><a href="/invoices/">Invoices</a></li>
+		<li id="gnav-customers"><a href="/customers/">Customers</a></li>
+		<li id="gnav-support"><a href="/support/">Support</a></li>
+		<li id="gnav-admin"><a href="/admin/">Admin</a></li>
+		
+		<% if logged_in? %>
+		  <li id="gnav-admin"><%= link_to 'Logout', logout_path %></li>
+		<% else %>
+		  <li id="gnav-admin"><%= link_to 'Login', login_path %></li>
+		<% end %>	
+	</ul>
+	
+	<div style="float:right; padding-top:6px; color:#999; font-size:10px;">Logged in as <%=h @current_user.firstname+' '+@current_user.lastname %></div>
+<div class="clearer"></div>
+</div>
+<div id="header"><img src="/images/CenturyRoofingLogo.png" width="150" height="48"></div>
+<div id="container">
+	<div id="main">
+		<div id="sectionheader"></div>
+		<div id="content">
+		
+		<% for notice in flash %>
+	<div id="alert-banner" class='<%= notice.first %>'>
+		<img src="/images/AlertIcon.tif" width="32" height="32" />
+		<%= notice.last %>
+	</div>
+<% end %>
+	<script type="text/javascript">
+		setTimeout("new Effect.Fade('alert-banner');", 2500)
+	</script>
+			
+			
+
+			<%= yield %>
+		</div>
+		<div id="contentfooter" class="hide"></div>
+	</div>
+</div>
+<div id="globalfooter">
+	<p class="gf-links"><a href="/sitemap/">BlackFoot Home</a> | <a href="/hotnews/">InSite</a> | <a href="/rss/">Corporate Site</a> | <a href="/contact/">RSS Feeds</a></p>
+<p class="gf-sosumi">Copyright © 2008 JL Digital Image Inc. All rights reserved. <a href="/legal/terms/site.html">Terms of Use</a> | <a href="/legal/privacy/">Privacy Policy</a></p>
+</div>
+</body>
+</html>
