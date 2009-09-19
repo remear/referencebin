@@ -1,0 +1,9 @@
+body { background:#000; color:#fff; }
+a:link { color:#fff; }
+#container { margin-top:200px; width:100%; min-height:428px; background:url(/images/bg_logingradient_2.png) repeat-x bottom; }
+#loginpanel { width:350px; margin:auto; }
+input[type="text"],input[type="password"] { color:#333; width:150px; border:#54bcff 2px solid; }
+input[type="checkbox"] { margin:1 0 0 0; width:13px; height:13px; }
+
+table tr td { padding:3px 5px 3px 5px; }
+.login { cursor:pointer; background : url(../images/button_login_green.png); width:60px; height:20px; border:0px; }

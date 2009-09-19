@@ -1,4 +1,22 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  #map.resources :bookmarks
+  map.resources :bookmarks, :except => :show
+
+  map.bookmarks_language '/bookmarks/:lang', :controller => 'bookmarks', :action => 'index'
+  
+  map.with_options :controller => "bookmarks" do |bookmarks|
+   bookmarks.bookmark '/bookmarks/:lang/:bookmark_name/', :action => "show", :conditions => {:method => :get}
+  end
+  
+  map.resources :users
+
+  map.resource :session
+
+  map.resources :languages
+
+  map.resources :categories
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -38,6 +56,8 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
+  
+  map.root :controller => 'bookmarks'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

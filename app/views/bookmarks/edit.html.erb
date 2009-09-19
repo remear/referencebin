@@ -1,0 +1,17 @@
+<% content_for(:section) do %>Editing Bookmark<% end %>
+<% content_for(:toolbar) do %>
+  <%= link_to 'Show', bookmark_path(:lang => language_name(@bookmark.language_id), :bookmark_name => @bookmark.permalink) %> |
+  <%= link_to 'Back', bookmarks_path %>
+<% end %>
+
+<% form_for(@bookmark, :url => bookmarks_path) do |f| %>
+  <%= f.error_messages %>
+
+  <p class="tag green"><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+  
+  <p class="tag green"><%= f.label :url %></p>
+  <p><%= f.text_field :url %></p>
+  
+  <p><%= f.submit 'Update' %></p>
+<% end %>

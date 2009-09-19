@@ -1,0 +1,14 @@
+<% content_for(:section) do %>Create Language<% end %>
+<% content_for(:toolbar) do %>
+  <%= link_to 'Back', languages_path %>
+<% end %>
+
+<% form_for(@language) do |f| %>
+  <%= f.error_messages %>
+
+  <p class="tag green">Name</p>
+  <p><%= f.text_field :name %></p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

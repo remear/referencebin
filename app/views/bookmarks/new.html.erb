@@ -1,0 +1,21 @@
+<% content_for(:section) do %>Create Bookmark<% end %>
+<% content_for(:toolbar) do %><%= link_to 'Cancel', bookmarks_path %><% end %>
+
+<% form_for(@bookmark) do |f| %>
+  <%= f.error_messages %>
+
+  <p class="tag green"><%= f.label :language %></p>
+  <p><%= select("bookmark", :language_id, Language.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Language...'}) %></p>
+  
+  <p class="tag green"><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+
+  <p class="tag green"><%= f.label :url %></p>
+  <p><%= f.text_field :url %></p>
+  
+  
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+

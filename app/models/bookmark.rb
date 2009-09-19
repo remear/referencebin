@@ -1,0 +1,11 @@
+class Bookmark < ActiveRecord::Base
+  belongs_to :language
+  before_save :generate_permalink
+  
+  private
+    def generate_permalink
+        title_based_permalink = self.title.gsub(" ", "-")
+        title_based_permalink = title_based_permalink.match('([A-Za-z0-9\-])+').to_s
+        self.permalink = title_based_permalink.downcase
+    end
+end

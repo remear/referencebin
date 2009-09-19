@@ -1,0 +1,15 @@
+<% content_for(:section) do %>Listing bookmarks<% end %>
+<% content_for(:toolbar) do %><%= link_to 'New bookmark', new_bookmark_path %><% end %>
+
+<% @bookmarks.in_groups_of(20, false) do |row_bookmarks| %>
+<div class="category" style="width:230px; float:left;">
+  <ul style="padding:0px; margin:0px -20px;">
+    <% for bookmark in row_bookmarks %>
+      <li class="item"><span><%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %></span></li>
+  	<% end %>
+  </ul>
+</div>
+<% end %>
+<div class="clearer"></div>
+
+<p id="position"><%= will_paginate @articles, :id => 'pagination' %></p>
