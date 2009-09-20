@@ -36,7 +36,7 @@
 					<div id="subnav"> 
 						<div class="type" id="tour"> 
 							<h2 style="color:#c100c8">Languages</h2> 
-							<div class="column first"> 
+							<div class="column"> 
 								<div class="category"> 
 									<ul>
 									  <%= render :partial => 'languages/side_nav' %>
@@ -45,8 +45,10 @@
 							</div><!--/column--> 
 						</div><!--/tour-->	
 						<div class="type" id="tips">
-						  <h2 style="color:#0055c8"><%= yield :section %> <div id="toolbar" style="font-size:10px;"><ul><%= yield :toolbar %></ul></div></h2>
-							<div id="material" style="padding-left:25px; min-height:450px;"><%= yield %></div>
+						  <h2 style="color:#0055c8"><%= yield :section %> <div id="actionbar" style="font-size:10px;"><ul><%= yield :actionbar %></ul></div></h2>
+						  <div id="toolbar"><%= yield :toolbar %></div>
+						  <div class="clearer"></div>
+							<div id="material" style="margin:10px 20px; min-height:450px;"><%= yield %></div>
 					</div> 
 					<div class="clear cap bottom"></div> 
 				</div><!--/swap-container--> 

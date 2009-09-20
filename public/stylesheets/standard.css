@@ -1,4 +1,4 @@
-body { font-size:10px; }
+body { font-size:10px; background:#f7f7f7 url(/images/backgroundbody20060707.jpg) top; }
  
 /* header, localnav
 --------------------------------------*/
@@ -101,26 +101,28 @@ body.tips.index1#entourage ul li.index1 a, body.tips.index2#entourage ul li.inde
  #main p.pillbutton a b, x:-moz-any-link, x:default { top:0; margin-top:0; } /* this is to reset IE7 because it was reading the above */
  #main p.pillbutton a:hover { color:#e6e6e6; cursor:pointer; }
 
+ul a { font-size:11px; }
+p.description { color:gray; border-bottom:1px solid #E0E0E0; padding:10px 0 20px 0; margin-bottom:10px; }
+
  /* swapper styles
  -------------------------------------*/
  /* default state */
  #main #swap { position:relative; height:160px; background:#dcdbdb url(/images/bg_splash_dark.jpg) no-repeat; }
 
  /* bottom part (nav) */
- #main #subnav { background-color:#f7f7f7; border-left:1px solid #e6e6e6; border-right:1px solid #e6e6e6; _zoom:1; }
+ #main #subnav { background-color:#FFFFFF; border-left:1px solid #e6e6e6; border-right:1px solid #e6e6e6; _zoom:1; }
  #main #subnav:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
 
  #main #subnav .type { float:left; display:inline; width:978px; border-top:1px solid #fff; }
- #main #subnav .type#tour { width:220px; float:left; }
- #main #subnav .type#tips { width:757px; border-left:1px solid #ccc; }
+ #main #subnav .type#tour { width:190px; float:left; }
+ 
+ #main #subnav .type#tips { width:787px; border-left:1px solid #ccc; }
+
 
  #main #subnav .column .grid3col { width:690px; }
  #main #subnav .column .grid3col .column { width:210px; }
 
  #main #subnav h2 { height:30px; line-height:30px; text-indent:24px; color:#595959; font-size:12px; font-weight:normal; background:#fff url(/images/subnav_header_bg.gif) repeat-x; }
- #main #subnav .type#video h2,
- #main #subnav .type#text h2 { margin-bottom:.6em; }
- #main #subnav .type#text h2 { border-left:1px solid #fff; }
 
  #main #subnav h3 { margin:0 0 .3em 26px; color:#333; font-size:12px; line-height:1.3em; }
  #main #subnav h3.maintitle { margin:.6em 0 .6em 26px; color:#555; font-size:17px; line-height:1.3em; }
