@@ -9,7 +9,7 @@ class BookmarksController < ApplicationController
     end
     
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @bookmarks }
     end
   end
