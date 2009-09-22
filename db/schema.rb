@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(:version => 20090919031149) do
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
     t.string   "url"
+    t.string   "permalink",   :limit => 3000
+    t.string   "description", :limit => 3000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "language_id"
@@ -27,9 +29,10 @@ ActiveRecord::Schema.define(:version => 20090919031149) do
   end
 
   create_table "languages", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",                       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink",  :limit => 3000
   end
 
   create_table "users", :force => true do |t|
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20090919031149) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 512
     t.datetime "remember_token_expires_at"
-    t.string   "nickname",                                 :null => false
+    t.string   "nickname"
   end
 
 end
