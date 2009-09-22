@@ -1,7 +1,20 @@
 <% content_for(:section) do %>Listing bookmarks<% end %>
 <% content_for(:actionbar) do %><%= link_to 'New bookmark', new_bookmark_path %><% end %>
-<% content_for(:toolbar) do %>- a   A +<% end %>
+<% content_for(:toolbar) do %>
+  <% if session[:bookmark_content_length] == 0 %>
+    <%= link_to_remote("+", :url => { :action => "inc_content_length" }, :collection => @bookmarks) %>
+  <% elsif session[:bookmark_content_length] == 1 %>
+    <%= link_to_remote("-", :url => { :action => "dec_content_length" }, :collection => @bookmarks) %>
+    <%= link_to_remote("+", :url => { :action => "inc_content_length" }, :collection => @bookmarks) %>
+  <% else %>
+    <%= link_to_remote("-", :url => { :action => "dec_content_length" }, :collection => @bookmarks) %>
+    <span>+</span>
+  <% end %>
+<% end %>
 
-<%= render :partial => 'brief' %>
 
-<p id="position"><%= will_paginate @articles, :id => 'pagination' %></p>
+<div id="list">
+  <%= render :partial => 'list' %>
+</div>
+
+<p id="position"><%= will_paginate @bookmarks, :id => 'pagination' %></p>

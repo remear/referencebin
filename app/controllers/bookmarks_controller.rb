@@ -1,5 +1,7 @@
 class BookmarksController < ApplicationController
   layout "bookmarks"
+  before_filter :login_required, :only => [ 'new', 'edit', 'update', 'destroy' ]
+  
   def index
     if params[:lang]
       @lang = Language.find_by_permalink(params[:lang])
@@ -26,6 +28,36 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def dec_content_length
+    session[:bookmark_content_length] -= 1
+    
+    #if params[:lang]
+      #@lang = Language.find_by_permalink(params[:lang])
+      @bookmarks = Bookmark.paginate :conditions => ["language_id = #{@lang.id}"], :per_page => per_page(60), :page => params[:page]
+    #else
+    #  @bookmarks = Bookmark.paginate :per_page => per_page(60), :page => params[:page]
+    #end
+    
+    respond_to do |format|
+      format.js { render :action => 'content_length.rjs' }
+    end
+  end
+  
+  def inc_content_length
+    session[:bookmark_content_length] += 1
+    
+    if params[:lang]
+      @lang = Language.find_by_permalink(params[:lang])
+      @bookmarks = Bookmark.paginate :conditions => ["language_id = #{@lang.id}"], :per_page => per_page(60), :page => params[:page]
+    else
+      @bookmarks = Bookmark.paginate :per_page => per_page(60), :page => params[:page]
+    end
+    
+    respond_to do |format|
+      format.js { render :action => 'content_length.rjs' }
+    end
+  end
+  
   def new
     @bookmark = Bookmark.new
 
@@ -60,7 +92,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
         flash[:notice] = 'Bookmark was successfully updated.'
-        format.html { redirect_to(@bookmark) }
+        format.html { redirect_to bookmark_path(:lang => @bookmark.language.permalink, :bookmark_name => @bookmark.permalink) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

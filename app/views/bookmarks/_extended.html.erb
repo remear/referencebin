@@ -2,7 +2,7 @@
 <% for bookmark in @bookmarks %>
   <li class="item">
     <%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %>
-    <p class="description"><%= truncate(bookmark.description, :omission => "...", :length => 30) %></p>
+    <p class="description"><%= truncate(bookmark.description) %></p>
   </li>
 <% end %>
 </ul>

@@ -1,6 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.register '/register', :controller => 'users', :action => 'create'
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.resources :users
+
+  map.resource :session
+
   
   #map.resources :bookmarks
+  map.connect '/bookmarks/inc_content_length', :controller => 'bookmarks', :action => 'inc_content_length'
+  map.connect '/bookmarks/dec_content_length', :controller => 'bookmarks', :action => 'dec_content_length'
   map.resources :bookmarks, :except => :show
 
   map.bookmarks_language '/bookmarks/:lang', :controller => 'bookmarks', :action => 'index'
@@ -9,13 +19,12 @@ ActionController::Routing::Routes.draw do |map|
    bookmarks.bookmark '/bookmarks/:lang/:bookmark_name/', :action => "show", :conditions => {:method => :get}
   end
   
-  map.resources :users
-
-  map.resource :session
-
   map.resources :languages
 
   map.resources :categories
+  
+  map.login '/login',  :controller => 'session', :action => 'new'
+  map.logout '/logout', :controller => 'session', :action => 'destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

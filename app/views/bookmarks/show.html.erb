@@ -1,6 +1,6 @@
 <% content_for(:section) do %>Viewing Bookmark<% end %>
-<% content_for(:toolbar) do %>
-  <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |
+<% content_for(:actionbar) do %>
+  <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> | 
   <%= link_to 'Back', bookmarks_path %>
 <% end %>
 
@@ -10,5 +10,7 @@
 <p class="tag green">Url</p>
 <p><%= link_to @bookmark.url, @bookmark.url %></p>
 
-<p class="tag green">Permalink</p>
-<p><%= @bookmark.permalink %></p>
+<% if @bookmark.description %>
+<p class="tag green">Description</p>
+<p><%= @bookmark.description %></p>
+<% end %>

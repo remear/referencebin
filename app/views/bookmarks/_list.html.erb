@@ -1,0 +1,7 @@
+<% if session[:bookmark_content_length] == 0 %>
+  <%= render :partial => 'single' %>
+<% elsif session[:bookmark_content_length] == 1 %>
+  <%= render :partial => 'brief' %>
+<% else %>
+  <%= render :partial => 'extended' %>
+<% end %>
