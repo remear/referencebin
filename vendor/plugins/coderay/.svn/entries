@@ -1,0 +1,57 @@
+8
+
+dir
+355
+http://svn.rubychan.de/coderay/trunk/lib
+http://svn.rubychan.de/coderay
+
+
+
+2009-07-08T20:11:28.523767Z
+355
+murphy
+has-props
+
+svn:special svn:externals svn:needs-lock
+svn:externals
+
+
+
+
+
+
+
+
+
+
+282260fa-4eda-c845-a9f0-6527b7353f92
+
+coderay
+dir
+
+coderay.rb
+file
+
+
+
+
+2009-08-08T16:53:40.000000Z
+90f68f7d2dae6b26d1967f7b4e997bce
+2009-02-20T17:38:23.706376Z
+306
+murphy
+has-props
+
+README
+file
+
+
+
+
+2009-08-08T16:53:40.000000Z
+f958bdbf9f18bbdcf4dd723333a2b756
+2009-06-09T10:41:06.944530Z
+345
+murphy
+has-props
+

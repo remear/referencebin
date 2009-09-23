@@ -1,0 +1,42 @@
+<div style="text-align:right"><a href="#comment_form" rel="facebox">Post Comment</a></div>
+<% if not @bookmark.comments.empty? %>
+  <% for comment in @bookmark.comments.reverse %>
+    <div class="comment <%= comment.importance %>">
+      <div class="author" style="width:100px; float:left; text-align:center">
+        <%= image_tag comment.user.photo(:tiny) %>
+      </div>
+      <div>
+        <p class="info">
+          Posted <strong><%= comment.created_at.to_s(:long) %></strong> by 
+          <strong><%= comment.user.firstname %> <%= comment.user.lastname %></strong>
+        </p>
+        <p class="title"><%= comment.title %></p>
+        <p class="body"><%= comment.body %></p>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  <% end %>
+<% else %>
+  <p class="sosumi">Bookmark has no comments</p>
+<% end %>
+
+<div id="comment_form" style="display:none; width:700px;">  
+  <% form_for :comment, :url => { :controller => "comments", :action => "create"} do |f| %>
+    <p class="sosumi green"><strong>Title</strong></p>
+    <p><%= f.text_field :title %></p><br />
+    
+    <p class="sosumi green"><strong>Importance</strong></p>
+    <p>
+      <%= f.select( :importance, { "High" => "high", "Normal" => "normal", "Low" => "low"}, 
+        {:selected => "normal" }) %>
+    </p><br />
+    
+    <p class="sosumi green"><strong>Message</strong></p>
+    <p><%= f.text_area :body, :cols => "95" %></p><br />
+    
+    <%= hidden_field_tag (:user_id, current_user.id) %>
+    <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>
+    <p class="text-align:right"><%= image_submit_tag ("/images/buttons/flat_submit.gif") %></p>
+    
+  <% end %>
+</div>

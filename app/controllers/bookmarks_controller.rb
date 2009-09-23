@@ -18,7 +18,7 @@ class BookmarksController < ApplicationController
 
   def show
     lang = Language.find_by_permalink(params[:lang])
-    @bookmark = Bookmark.find_by_permalink(params[:bookmark_name], :conditions => {:language_id => lang.id})
+    @bookmark = Bookmark.find_by_permalink(params[:bookmark_name], :conditions => {:language_id => lang.id}, :include => "comments")
     #@bookmark = Bookmark.find(params[:id])
     #@bookmark = Bookmark.find_by_title(params[:title])
 

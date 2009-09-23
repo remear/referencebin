@@ -1,0 +1,15 @@
+<%= CodeRay.scan(@comment.body, :ruby).div(:line_numbers => :table)  %>
+
+<p>
+  <b>Title:</b>
+  <%= @comment.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @comment.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

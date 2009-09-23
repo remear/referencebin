@@ -1,5 +1,7 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :language
+  belongs_to :user
+  has_many :comments
   before_save :generate_permalink
   
   private
