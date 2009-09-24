@@ -1,0 +1,10 @@
+<% content_for(:section) do %>Viewing Code<% end %>
+<% content_for(:actionbar) do %>
+  <%= link_to 'Edit', edit_code_path(@code) %> |
+  <%= link_to 'Back', codes_path %>
+<% end %>
+
+<p class="tag green">Language</p>
+<p><%= @code.language.name %></p>
+
+<p><%= CodeRay.scan(@code.body, highlight_lang(@code.language.permalink)).div(:line_numbers => :table)  %></p>

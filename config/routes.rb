@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :comments
+  map.resources :codes
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
+  map.resources :comments
   
   #map.resources :bookmarks
   map.connect '/bookmarks/inc_content_length', :controller => 'bookmarks', :action => 'inc_content_length'

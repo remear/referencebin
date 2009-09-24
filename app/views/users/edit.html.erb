@@ -1,0 +1,37 @@
+<h2>Editing User</h2>
+
+<%= error_messages_for :user %>
+	
+<% form_for @user, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+	
+	<p><%= @user.nickname %></p>
+	<br />
+	<table>
+		<tr>
+			<td style="width:500px; vertical-align:top;">
+				<p><label for="email">Email</label><br/>
+				<%= f.text_field :email, :class => 'textfield' %></p>
+
+				<p><label for="password">Password</label><br/>
+				<%= f.password_field :password, :class => 'textfield' %></p>
+
+				<p><label for="password_confirmation">Confirm Password</label><br/>
+				<%= f.password_field :password_confirmation, :class => 'textfield' %></p>
+			</td>
+			<td>
+				<div style="float:right">
+				  <a id="photo_edit" href="#" onclick="$('#imageupload').show('slow'); $('#photo_edit').hide('fast'); return false;">Edit</a>
+				</div>
+				<div id="imageupload" style="float:right; display:none">
+					<br />
+					<p>
+			  		<%= f.file_field :profile %>
+					</p>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<p><%= submit_tag 'Sign up' %></p>
+<% end %>

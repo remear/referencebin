@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
+  layout "bookmarks"
   include AuthenticatedSystem
   
 
@@ -8,6 +9,34 @@ class UsersController < ApplicationController
     @user = User.new
   end
  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+	
+	  respond_to do |format|
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'User was successfully updated.'
+        format.html { redirect_to(@user) }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+	
+  end
+  
+  def show
+	  @page_section = "users"
+	  @user = User.find(params[:id])
+		
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @job }
+    end
+  end
+  
   def create
     logout_keeping_session!
     @user = User.new(params[:user])

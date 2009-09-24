@@ -2,6 +2,7 @@
   background-color: #f8f8f8;
   border: 1px solid silver;
   font-family: 'Courier New', 'Terminal', monospace;
+  font-size:11px;
   color: #000;
 }
 .CodeRay pre { margin: 0px }
@@ -16,17 +17,20 @@ table.CodeRay td { padding: 2px 4px; vertical-align: top }
 .CodeRay .line_numbers, .CodeRay .no {
   background-color: #def;
   color: gray;
-  text-align: right;
+  text-align: center;
+  padding:0 10px 0 10px;
+  min-width:25px;
 }
-.CodeRay .line_numbers tt { font-weight: bold }
+
+.CodeRay .line_numbers tt { font-weight:bold; }
 .CodeRay .line_numbers .highlighted { color: red }
 .CodeRay .no { padding: 0px 4px }
-.CodeRay .code { width: 100% }
+.CodeRay .code { width: 100%;  }
 
 ol.CodeRay { font-size: 10pt }
 ol.CodeRay li { white-space: pre }
 
-.CodeRay .code pre { overflow: auto }
+.CodeRay .code pre { overflow: auto; padding-left:10px;}
 
 .CodeRay .debug { color:white ! important; background:blue ! important; }
 

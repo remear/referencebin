@@ -3,7 +3,7 @@
 <table>
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= CodeRay.scan(comment.body, :ruby).div(:line_numbers => :table)  %></td>
+    <td><%= simple_format(comment.body) %></td>
   </tr>
 <% end %>
 </table>

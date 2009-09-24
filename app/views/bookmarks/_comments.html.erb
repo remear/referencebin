@@ -1,20 +1,22 @@
-<div style="text-align:right"><a href="#comment_form" rel="facebox">Post Comment</a></div>
+<div style="text-align:right"><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></div>
+<br />
+
 <% if not @bookmark.comments.empty? %>
   <% for comment in @bookmark.comments.reverse %>
     <div class="comment <%= comment.importance %>">
-      <div class="author" style="width:100px; float:left; text-align:center">
-        <%= image_tag comment.user.photo(:tiny) %>
-      </div>
-      <div>
+      <div style="width:620px; float:left; padding:0 0 0 20px;">
         <p class="info">
-          Posted <strong><%= comment.created_at.to_s(:long) %></strong> by 
-          <strong><%= comment.user.firstname %> <%= comment.user.lastname %></strong>
+          <span class="title"><%= comment.title %></span> Posted <strong><%= comment.created_at.to_s(:long) %></strong> by 
+          <strong><%= comment.user.nickname %></strong>
         </p>
-        <p class="title"><%= comment.title %></p>
-        <p class="body"><%= comment.body %></p>
+        <%= markdown(comment.body) %>
       </div>
+      <div class="author" style="width:80px; float:left; text-align:center; border:1px solid lightgray; -webkit-border-radius:5px; -moz-border-radius:5px">
+        <%= image_tag comment.user.profile(:tiny) %>
+      </div>
+      <div class="clearer"></div>
     </div>
-    <div class="clearer"></div>
+    
   <% end %>
 <% else %>
   <p class="sosumi">Bookmark has no comments</p>
@@ -25,18 +27,19 @@
     <p class="sosumi green"><strong>Title</strong></p>
     <p><%= f.text_field :title %></p><br />
     
-    <p class="sosumi green"><strong>Importance</strong></p>
-    <p>
-      <%= f.select( :importance, { "High" => "high", "Normal" => "normal", "Low" => "low"}, 
-        {:selected => "normal" }) %>
-    </p><br />
+    <p class="sosumi green">
+      <strong>Importance</strong>
+      <%= f.select( :importance, { "High" => "high", "Normal" => "normal", "Low" => "low" }, { :selected => "normal" }) %>
+    </p>
+    
+    <br />
     
     <p class="sosumi green"><strong>Message</strong></p>
-    <p><%= f.text_area :body, :cols => "95" %></p><br />
+    <%= f.text_area :body, :cols => "95" %>
+    <p><%= link_to 'Insert Code', '#', :onclick => "$('#facebox #comment_body').append('[code=#{highlight_lang(@bookmark.language.permalink)}][/code]'); $('#facebox #comment_body').focus();" %></p>
     
-    <%= hidden_field_tag (:user_id, current_user.id) %>
     <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>
-    <p class="text-align:right"><%= image_submit_tag ("/images/buttons/flat_submit.gif") %></p>
-    
+    <p style="text-align:right"><%= image_submit_tag ("/images/buttons/flat_submit.gif") %></p>
   <% end %>
+  
 </div>
