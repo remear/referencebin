@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<title>standard.html</title>
+	<title>Programmer Reference Bin</title>
 	<%= stylesheet_link_tag 'base' %>
 	<%= stylesheet_link_tag 'new' %>
 	<%= stylesheet_link_tag 'new_nav' %>
@@ -35,6 +35,7 @@
     </div>
     <div id="toolbar">
       <ul id="breadcrumbs">
+        <li class="home"><% link_to do %><%= image_tag '/images/icon_home.png' %><% end %></li>
         <%= yield :breadcrumbs %>
       </ul>
       <ul id="actions">

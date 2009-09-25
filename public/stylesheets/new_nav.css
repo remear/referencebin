@@ -10,6 +10,9 @@
 #col-content { padding:20px; }
 
 #breadcrumbs { float:left; }
+#breadcrumbs li { color:#666666; background:url(/images/breadcrumb_sep.png) -1px left no-repeat; padding:9px 10px 9px 20px; display:inline; }
+#breadcrumbs a { text-decoration:none; }
+
 #actions { float:right; }
 #actions a { color:#666666; text-decoration:none; }
 #actions a:hover { color:#000000; }
