@@ -19,8 +19,8 @@
 #breadcrumbs a { color: #444; text-decoration: none; padding: 10px 5px 10px 5px; _cursor: hand; }
 #breadcrumbs a:hover { color:green; text-decoration: none !important; }
 #breadcrumbs a.home { position:relative; margin: 0; width: 15px; height: 0; padding-top: 35px; overflow: hidden; background:url(/images/icon_home.png) 0 25px no-repeat; }
-#breadcrumbs li { color:green; background:url(/images/breadcrumb_sep.png) left no-repeat; padding:9px 10px 9px 20px; display:inline; }
-#breadcrumbs li#home { background:none; margin-left:-15px; }
+#breadcrumbs li { color:green; background:url(/images/breadcrumb_sep.png) left no-repeat; padding:9px 5px 9px 20px; display:inline; }
+#breadcrumbs li#home { background:none; margin-left:-20px; }
 
 #breadcrumbsspan { float: left; width: 9px; margin: 0 10px 0 0; position: relative; height: 0; padding-top: 34px; margin-top: 1px; overflow: hidden; background: url(/images/breadcrumb_sep.png) no-repeat; behavior: url(/includes/iepngfix.htc); }
 
