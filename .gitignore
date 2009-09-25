@@ -3,5 +3,6 @@ log/*.log
 config/database.yml
 db/*.sqlite3
 tmp/restart.txt
+public/assets
 *.sql
 tmp/**/*

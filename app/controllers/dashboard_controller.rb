@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  layout "corporate"
+  layout "standard"
   
   def index
   end

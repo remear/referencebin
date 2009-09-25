@@ -9,11 +9,11 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* LAYOUT */
 .clear { clear:both; }
 .clearer { clear: both; display: block; margin: 0; padding: 0; height: 0; line-height: 1px; font-size: 1px; }
- 
+
+a { font-size:10px; }
 a, a:link { color:#0033cc; }
 a, a:link { color:#0085cf; }
 a:active,a:hover { color:green }
-
 
 
 img { behavior:url(/stylesheets/iepngfix.htc); }
@@ -106,6 +106,8 @@ h2.section { border-bottom:1px solid #ccc; }
 /* colors */
 .gray { color:gray; }
 .green { color:green; }
+.red { color:red; }
+.offred { color:#e13030; }
 
 /* field tags */
 p.tag { margin-bottom:10px !important; }
@@ -118,7 +120,7 @@ p.tag { margin-bottom:10px !important; }
 #main position { font-weight: bold; }
 #main .more { text-align: right; }
  
-#main ul { margin-bottom: 18px; list-style: none outside; }
+#main ul { list-style: none outside; }
 #main ol { margin-bottom: 18px; list-style: decimal; margin-left: 2.2em; }
 #main ul.square,
 #main ul.circle { margin-left: 2em; }
@@ -137,7 +139,8 @@ p.tag { margin-bottom:10px !important; }
 #main a.zip { background: url(http://images.apple.com/global/elements/icons/globaliconzip12x12.gif) 0 0.4em no-repeat; display: block; padding-left: 20px; }
 #main a.keynote { background: url(http://images.apple.com/global/elements/icons/globaliconkeynote12x12.gif) 0 0.4em no-repeat; display: block; padding-left: 20px; }
 #main a.audio { background: url(http://images.apple.com/global/elements/icons/globaliconaudio12x12.gif) 0 0.4em no-repeat; display: block; padding-left: 20px; }
- 
+a.comment { background:url(/images/icon_comment.gif) 0.7em right no-repeat; padding-right: 20px; }
+
 #main .sidebar { font-size: 10px; line-height: 18px; color:#686868; }
 #main .callout { font-size: 11px; line-height: 18px; margin-bottom: 18px; }
 #main .last { margin-bottom: 0; }

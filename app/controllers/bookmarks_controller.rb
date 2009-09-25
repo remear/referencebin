@@ -6,8 +6,6 @@ class BookmarksController < ApplicationController
     if params[:lang]
       @lang = Language.find_by_permalink(params[:lang])
       @bookmarks = Bookmark.paginate :conditions => ["language_id = #{@lang.id}"], :per_page => per_page(60), :page => params[:page]
-    else
-      @bookmarks = Bookmark.paginate :per_page => per_page(60), :page => params[:page]
     end
     
     respond_to do |format|
@@ -22,6 +20,9 @@ class BookmarksController < ApplicationController
     #@bookmark = Bookmark.find(params[:id])
     #@bookmark = Bookmark.find_by_title(params[:title])
 
+    @curl = %x{ curl -I #{@bookmark.url} | grep HTTP }
+    @curl = @curl[/\d\d\d/]
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @bookmark }

@@ -1,6 +1,7 @@
 class Language < ActiveRecord::Base
   has_many :bookmarks
   before_save :generate_permalink
+  has_many :comments
   
   private
     def generate_permalink

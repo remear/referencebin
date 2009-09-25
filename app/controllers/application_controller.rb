@@ -12,4 +12,6 @@ class ApplicationController < ActionController::Base
   def per_page(default = 30)
 		params[:perpage].to_i > 0 ? params[:perpage].to_i : default
 	end
+	
+	
 end

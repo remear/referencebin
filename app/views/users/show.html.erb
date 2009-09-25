@@ -1,0 +1,31 @@
+
+<div id="timestampbox">
+	Created : <%= @user.created_at.to_s(:long) %><br>
+	Updated : <%= @user.updated_at.to_s(:long) %>
+</div>
+
+<table>
+	<tr>
+		<td style="width:500px; vertical-align:top;">
+		  <p>
+				<b class="sosumi">ID</b><br />
+				<%= @user.id %>
+			</p><br />
+			<p>
+				<b class="sosumi">Name</b><br />
+				<%= @user.name %>
+			</p><br />
+			<p>
+				<b class="sosumi">Email</b><br />
+				<a href="mailto:<%= @user.email %>"><%= @user.email %></a>
+			</p>
+		</td>
+		<td>
+			<% if @user.profile_file_name == "NULL" %>
+				<%= image_tag '/images/photos/user_medium.png', :style => 'float:right;' %>
+			<% else %>
+				<%= image_tag @user.profile.url(:medium), :style => 'float:right;' %>
+			<% end %>
+		</td>
+	</tr>
+</table>

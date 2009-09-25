@@ -1,81 +1,51 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Blackfoot</title>
-	<meta name="Author" content="Ben Mills, Rean Studios">
-	<meta name="viewport" content="width=1024">
-	
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://dhcp120.jl-digital-image.com/blackfoot/rss/jobs.php">
-	<%= stylesheet_link_tag "base" %>
-	<%= stylesheet_link_tag "main" %>
-	<%= stylesheet_link_tag "nav" %>
-	<%= stylesheet_link_tag "sectionheader" %>
-	<%= stylesheet_link_tag "standard" %>
+	<title>standard.html</title>
+	<%= stylesheet_link_tag 'base' %>
+	<%= stylesheet_link_tag 'new' %>
+	<%= stylesheet_link_tag 'new_nav' %>
+	<%= stylesheet_link_tag 'coderay' %>
 </head>
 <body>
+  <div id="wrap">
+    <div id="header">
+      <div id="logo"></div>
+      <div id="sessioninfo">
+        <% if current_user %>
+          Logged in : <strong><%= current_user.name %></strong>
+        <% else %>
+          <p class="sosumi">Not logged in</p>
+        <% end %>
+      </div>
+      <div class="clearer"></div>
+      <div id="gnav">
+        <ul>
+          <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+          <% if current_user %>
+            <li><%= link_to 'Logout', logout_path %></li>
+          <% else %>
+            <li><%= link_to 'Login', login_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div id="toolbar"></div>
+  	<div id="main" class="clearfix">
+      <div id="content">
+        <%= yield %>
+      </div>
+  	</div>
 
-<div id="globalheader" class="home">
-  <ul id="globalnav">
-		<li id="gnav-home"><a href="/blackfoot/">Home</a></li>
-		<li id="gnav-time"><a href="/blackfoot/time/">Time</a></li>
-		<li id="gnav-jobs"><a href="/blackfoot/jobs/">Jobs</a></li>
-		<li id="gnav-orders"><a href="/blackfoot/orders/">Orders</a></li>
-		<li id="gnav-estimates"><a href="/blackfoot/estimates/">Estimates</a></li>
-		<li id="gnav-customers"><a href="/blackfoot/customers/">Customers</a></li>
-		<li id="gnav-admin"><a href="/blackfoot/admin/">Admin</a></li>
-	</ul>
-    
- 	<div id="globalsearch">
-		<form action="http://searchcgi.apple.com/cgi-bin/sp/nph-searchpre11.pl" method="POST" class="search" id="g-search">
-			<input type="hidden" value="utf-8" name="oe" id="search-oe"/>
-			<input type="hidden" value="p" name="access" id="search-access"/>
-			<input type="hidden" value="us_only" name="site" id="search-site"/>
-			<input type="hidden" value="lang_en" name="lr" id="search-lr"/>
-			<label for="sp-searchtext"><span class="prettyplaceholder">Search</span><input type="search" name="q" id="sp-searchtext" class="g-prettysearch applesearch" accesskey="s"></label>
-		</form>
-		<div id="sp-results"><div class="inside"></div></div>
-	</div>
+  </div>
+
+<div id="footer">
+  <span style="float:left">use prb for good, not evil!</span>
+  <span>provided by <a href="http://reanstudios.com">Rean Studios</a></span>
 </div>
 
-	<div id="container">
-		<div id="main">
-			<div id="sectionheader">
-                <h1><a href="index.php">Jobs</a></h1>
-                <a class="rss" href="#">RSS</a>
-                <ul id="sectionnav" class="<? echo $view; ?>">
-                    <li><a href="create-step1.php" class="command">Create Job</a></li>
-                    <li id="views_active"><a href="#">Active</a></li>
-                    <li id="views_completed"><a href="index.php?view=completed">Completed</a></li>
-                    <li id="views_invoiced"><a href="index.php?view=invoiced">Invoiced</a></li>
-                    <li id="views_archived"><a href="index.php?view=archived">Archived</a></li>
-                </ul>
-			</div><!--/sectiontheader-->
-		<div id="headerspacer"></div>
-			<div id="content" class="grid2colb" style="min-height:400px">
-                <div id="viewsheader"> 
-                    <ul id="localnav" class="all"> 
-                        <li id="localnav_all"><a href="#">All</a></li> 
-                        <li id="localnav_print"><a href="viewprint.php">Print</a></li> 
-                        <li id="localnav_prepress"><a href="viewprepress.php">Prepress</a></li>
-                        <li id="localnav_web"><a href="viewweb.php">Web</a></li> 
-                    </ul> 
-                </div><!--/viewsheader--> 
-				
-                	
-					<%= link_to 'Jobs', "/jobs/" %>
-					<%= yield %>
-					
-					<br><br>
-				
-                
-				<div class="clearer">&nbsp;</div>
-			</div><!--/content.grid2colb-->
-				<div id="contentfooter" class="hide"></div>
-		</div><!--/main-->
-	</div><!--/container-->
-	<div id="globalfooter" class="gf-980">
-	
-	</div><!--/globalfooter-->
 </body>
 </html>

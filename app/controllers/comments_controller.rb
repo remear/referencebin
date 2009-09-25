@@ -42,11 +42,13 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @comment = Comment.new(params[:comment])
-
+    @comment.bookmark_id = params[:bookmark_id]
+    @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'
-        format.html { redirect_to(@comment) }
+        format.html { redirect_to :back }
+        #format.html { redirect_to(@comment) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }

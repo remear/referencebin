@@ -1,5 +1,8 @@
-<% content_for(:section) do %>Listing bookmarks<% end %>
-<% content_for(:actionbar) do %><%= link_to 'New bookmark', new_bookmark_path %><% end %>
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+<% end %>
+
+<% content_for(:actions) do %><%= link_to 'New bookmark', new_bookmark_path %><% end %>
 <% content_for(:toolbar) do %>
   <% if session[:bookmark_content_length] == 0 %>
     <%= link_to_remote("+", :url => { :action => "inc_content_length" }, :collection => @bookmarks) %>
@@ -12,9 +15,16 @@
   <% end %>
 <% end %>
 
+<% if ! @bookmarks.nil? %>
+
+<h1>Listing bookmarks</h1>
 
 <div id="list">
   <%= render :partial => 'list' %>
 </div>
 
 <p id="position"><%= will_paginate @bookmarks, :id => 'pagination' %></p>
+
+<% else %>
+<p class="gray" style="font-size:16px; width:350px; text-align:left; margin:100px auto 0 auto;">Select a category from the right</p>
+<% end %>

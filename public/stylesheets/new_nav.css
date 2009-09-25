@@ -1,0 +1,15 @@
+#header #gnav { margin:40px 0 0 250px; }
+#header #gnav ul li { color:#FFFFFF; display:inline; list-style:none; font-size:12px; margin-left:30px; }
+#header #gnav a { color:#FFFFFF; text-decoration:none; font-size:12px; }
+#header #gnav a:hover { color:#FFFFFF; text-decoration:underline; }
+
+#col-nav { width:125px; float:right; padding:10px 20px 15px 20px; border:1px solid #EEE; margin:20px; -webkit-border-radius:10px; -moz-border-radius:10px; background:#EFEFEF; }
+#col-nav ul li { padding-top:5px; }
+#col-nav ul a { text-decoration:none; }
+
+#col-content { padding:20px; }
+
+#breadcrumbs { float:left; }
+#actions { float:right; }
+#actions a { color:#666666; text-decoration:none; }
+#actions a:hover { color:#000000; }

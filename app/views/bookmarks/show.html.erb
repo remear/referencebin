@@ -8,11 +8,19 @@
 <p><%=h @bookmark.title %></p>
 
 <p class="tag green">Url</p>
-<p><%= link_to @bookmark.url, @bookmark.url %></p>
+<p>
+  <%= link_to @bookmark.url, @bookmark.url %>
+  
+  <% if @curl == "200" %>
+    <span class="green" style="margin-left:30px; font-weight:bold">WORKING</span>
+  <% else %>
+    <span class="red" style="margin-left:30px; font-weight:bold">PROBLEM</span>
+  <% end %>
+</p>
 
 <% if @bookmark.description %>
 <p class="tag green">Description</p>
-<p><%= @bookmark.description %></p>
+<p><%= markdown(@bookmark.description) %></p>
 <% end %>
 
 <%= render :partial => "comments" %>

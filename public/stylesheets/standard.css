@@ -64,7 +64,28 @@ body#video #main p.pillbutton a b { position:absolute; width:43px; top:0; right:
 body#video #main p.pillbutton a b, x:-moz-any-link { top:inherit; margin-top:-15px; } /* this is for firefox because it's dumb when it comes to inline-block */
 body#video #main p.pillbutton a b, x:-moz-any-link, x:default { top:0; margin-top:0; } /* this is to reset IE7 because it was reading the above */
 body#video #main p.pillbutton a:hover { color:#e6e6e6; cursor:pointer; }
- 
+
+
+/* comments */
+.comment { width:735px; min-height:75px; padding:10px 10px 10px 0; margin-bottom:10px; -webkit-border-radius:5px; -moz-border-radius:5px }
+.comment a { font-size:10px; }
+.comment .info { color:#76797c; font-size: 10px !important; }
+.comment .CodeRay, .comment .CodeRay .code { width:600px; max-width:550px; }
+.comment .CodeRay .line_numbers { padding:0 3px 0 3px; }
+
+.comment.normal { background:#eef4f9; }
+.comment.normal .info strong { color:#519ef5; }
+.comment.normal .title { color:#2186f7; font-weight:bold; }
+
+.comment.high { background:#fbdbdc; }
+.comment.high .info strong { color:#fa5757; }
+.comment.high .title { color:red; font-weight:bold; }
+
+.comment.low { background:#eee; }
+.comment.low .info strong { color:#444; }
+.comment.low .title { color:#333; font-weight:bold; }
+
+#tiny.comment { width:98%; margin:auto; min-height:0px; padding:0px; }
  
 /* tips */
 body.tips #main h2 { color:#303030; margin-left:6px; }

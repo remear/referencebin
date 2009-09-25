@@ -1,0 +1,78 @@
+* {margin:0;padding:0;} 
+html, body, #wrap {height: 100%;}
+
+body > #wrap { height: auto; min-height: 100%; }
+
+#main { padding-bottom: 50px; }  /* must be same height as the footer */
+
+#footer { color:#FFFFFF; background:#333333; position:relative; margin-top:-50px; height:50px; text-align:right; padding:0 20px 0 20px; clear:both; font-size:10px; line-height:5em; } 
+#footer a { color:#F3F3F3; }
+/* CLEAR FIX*/
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%;}
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
+#header { height:140px; width:100%; background:#333333 url(/images/logo_prb.png) 30px 10px no-repeat; }
+#header #sessioninfo { float:right; color:#FFFFFF; padding:10px 20px 0 0; }
+#header #logo { height:60px; width:50px; background:#FFFFFF url(/images/logo_rean.png) no-repeat center; float:right; margin-right:30px; }
+#toolbar { height:30px; background:#CCCCCC; line-height:3em; padding:0 20px 0 20px; }
+
+/* comments */
+.comment { width:735px; min-height:75px; padding:10px 10px 10px 0; margin-bottom:10px; -webkit-border-radius:5px; -moz-border-radius:5px }
+.comment a { font-size:10px; }
+.comment .info { color:#76797c; font-size: 10px !important; }
+.comment .CodeRay, .comment .CodeRay .code { width:600px; max-width:550px; }
+.comment .CodeRay .line_numbers { padding:0 3px 0 3px; }
+
+.comment.normal { background:#eef4f9; }
+.comment.normal .info strong { color:#519ef5; }
+.comment.normal .title { color:#2186f7; font-weight:bold; }
+
+.comment.high { background:#fbdbdc; }
+.comment.high .info strong { color:#fa5757; }
+.comment.high .title { color:red; font-weight:bold; }
+
+.comment.low { background:#eee; }
+.comment.low .info strong { color:#444; }
+.comment.low .title { color:#333; font-weight:bold; }
+
+/* errors */
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

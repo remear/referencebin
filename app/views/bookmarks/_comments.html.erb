@@ -2,7 +2,8 @@
 <br />
 
 <% if not @bookmark.comments.empty? %>
-  <% for comment in @bookmark.comments.reverse %>
+  <% #for comment in @bookmark.comments.reverse %>
+  <% for comment in @bookmark.comments %>
     <div class="comment <%= comment.importance %>">
       <div style="width:620px; float:left; padding:0 0 0 20px;">
         <p class="info">
@@ -11,7 +12,7 @@
         </p>
         <%= markdown(comment.body) %>
       </div>
-      <div class="author" style="width:80px; float:left; text-align:center; border:1px solid lightgray; -webkit-border-radius:5px; -moz-border-radius:5px">
+      <div class="author" style="width:80px; float:left; text-align:center; background:#FFFFFF; border:1px solid lightgray; -webkit-border-radius:5px; -moz-border-radius:5px">
         <%= image_tag comment.user.profile(:tiny) %>
       </div>
       <div class="clearer"></div>
@@ -36,10 +37,12 @@
     
     <p class="sosumi green"><strong>Message</strong></p>
     <%= f.text_area :body, :cols => "95" %>
-    <p><%= link_to 'Insert Code', '#', :onclick => "$('#facebox #comment_body').append('[code=#{highlight_lang(@bookmark.language.permalink)}][/code]'); $('#facebox #comment_body').focus();" %></p>
+    <p>
+      <% link_to 'Insert Code', '#', :onclick => "$('#facebox #comment_body').append('[code=#{highlight_lang(@bookmark.language.permalink)}][/code]'); $('#facebox #comment_body').focus();" %>
+    </p>
     
     <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>
-    <p style="text-align:right"><%= image_submit_tag ("/images/buttons/flat_submit.gif") %></p>
+    <p style="text-align:right; margin-top:10px;"><%= image_submit_tag ("/images/buttons/flat_submit.gif") %></p>
   <% end %>
   
 </div>

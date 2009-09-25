@@ -7,11 +7,5 @@
 <p><b>Body:</b></p>
 <%= markdown(@comment.body) %>
 
-<p><b>Code:</b></p>
-<%= markdown(@comment.code) %>
-
-<p><b>Code</b></p>
-<%= CodeRay.scan(@comment.code, highlight_lang(@comment.language.permalink)).div(:line_numbers => :table)  %>
-
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>
