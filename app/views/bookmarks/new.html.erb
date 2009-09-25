@@ -5,8 +5,7 @@
   <%= f.error_messages %>
 
   <p class="tag green"><%= f.label :language %></p>
-  <p><%= select("bookmark", :language_id, Language.all.collect {|p| [ p.name, p.id ] }, { :prompt => 'Select Language...' }) %></p>
-  
+  <p><%= collection_select :bookmark, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></p>
   <p class="tag green"><%= f.label :title %></p>
   <p><%= f.text_field :title %></p>
 

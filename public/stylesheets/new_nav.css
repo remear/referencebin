@@ -9,9 +9,20 @@
 
 #col-content { padding:20px; }
 
-#breadcrumbs { float:left; }
-#breadcrumbs li { color:#666666; background:url(/images/breadcrumb_sep.png) -1px left no-repeat; padding:9px 10px 9px 20px; display:inline; }
+
+
 #breadcrumbs a { text-decoration:none; }
+
+
+/* NEW BREADCRUMBS */
+#breadcrumbs { font-size: 11px; color: #444; overflow: hidden; height: 32px; line-height: 32px; font-weight: bold; text-shadow: 2px 2px 1px #fff; float:left; }
+#breadcrumbs a { color: #444; text-decoration: none; padding: 10px 5px 10px 5px; _cursor: hand; }
+#breadcrumbs a:hover { color:green; text-decoration: none !important; }
+#breadcrumbs a.home { position:relative; margin: 0; width: 15px; height: 0; padding-top: 35px; overflow: hidden; background:url(/images/icon_home.png) 0 25px no-repeat; }
+#breadcrumbs li { color:green; background:url(/images/breadcrumb_sep.png) left no-repeat; padding:9px 10px 9px 20px; display:inline; }
+#breadcrumbs li#home { background:none; margin-left:-15px; }
+
+#breadcrumbsspan { float: left; width: 9px; margin: 0 10px 0 0; position: relative; height: 0; padding-top: 34px; margin-top: 1px; overflow: hidden; background: url(/images/breadcrumb_sep.png) no-repeat; behavior: url(/includes/iepngfix.htc); }
 
 #actions { float:right; }
 #actions a { color:#666666; text-decoration:none; }

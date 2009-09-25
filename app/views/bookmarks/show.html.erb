@@ -1,5 +1,5 @@
-<% content_for(:section) do %>Viewing Bookmark<% end %>
-<% content_for(:actionbar) do %>
+<h2>Viewing Bookmark</h2>
+<% content_for(:actions) do %>
   <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> | 
   <%= link_to 'Back', bookmarks_path %>
 <% end %>

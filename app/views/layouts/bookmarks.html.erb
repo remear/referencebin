@@ -35,7 +35,7 @@
     </div>
     <div id="toolbar">
       <ul id="breadcrumbs">
-        <li class="home"><% link_to do %><%= image_tag '/images/icon_home.png' %><% end %></li>
+        <li id="home"><%= link_to '&nbsp;', root_url, :class => 'home' %></li>
         <%= yield :breadcrumbs %>
       </ul>
       <ul id="actions">

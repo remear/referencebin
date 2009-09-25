@@ -139,7 +139,8 @@ p.tag { margin-bottom:10px !important; }
 #main a.zip { background: url(http://images.apple.com/global/elements/icons/globaliconzip12x12.gif) 0 0.4em no-repeat; display: block; padding-left: 20px; }
 #main a.keynote { background: url(http://images.apple.com/global/elements/icons/globaliconkeynote12x12.gif) 0 0.4em no-repeat; display: block; padding-left: 20px; }
 #main a.audio { background: url(http://images.apple.com/global/elements/icons/globaliconaudio12x12.gif) 0 0.4em no-repeat; display: block; padding-left: 20px; }
-a.comment { background:url(/images/icon_comment.gif) 0.7em right no-repeat; padding-right: 20px; }
+a.comment { background:url(/images/icon_comment.gif) 0.7em left no-repeat; padding-left: 20px; }
+a.comment.right { background:url(/images/icon_comment.gif) 0.7em right no-repeat; padding-right: 20px; }
 
 #main .sidebar { font-size: 10px; line-height: 18px; color:#686868; }
 #main .callout { font-size: 11px; line-height: 18px; margin-bottom: 18px; }
