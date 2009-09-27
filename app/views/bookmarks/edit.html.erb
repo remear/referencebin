@@ -16,5 +16,8 @@
   <p class="tag green"><%= f.label :description %></p>
   <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
   
+  <%= f.label :tag_list %>
+  <%= f.text_field :tag_list, :size => 80 %>
+    
   <p><%= f.submit 'Update' %></p>
 <% end %>

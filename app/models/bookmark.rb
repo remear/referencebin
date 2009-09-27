@@ -4,6 +4,8 @@ class Bookmark < ActiveRecord::Base
   has_many :comments
   before_save :generate_permalink
   
+  acts_as_taggable
+  
   private
     def generate_permalink
         title_based_permalink = self.title.gsub(" ", "-")

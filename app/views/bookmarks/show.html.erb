@@ -18,6 +18,9 @@
   <% end %>
 </p>
 
+<p class="tag green">Tags</p>
+<p class="sosumi"><%= @bookmark.tag_list %></p>
+
 <% if @bookmark.description %>
 <p class="tag green">Description</p>
 <p><%= markdown(@bookmark.description) %></p>
