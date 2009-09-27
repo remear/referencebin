@@ -17,8 +17,10 @@
       <td><%=h bookmark.url %></td>
     </tr>
   <% end %>
+  
+  
 </table>
-
+  <%= will_paginate @bookmarks %>
 <% else %>
   <p class="sosumi">You have no bookmarks to sanitize. <%= link_to "Import bookmarks", bookmark_import_path %></p>
 <% end %>

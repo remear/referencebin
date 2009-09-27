@@ -3,7 +3,8 @@ class BookmarkImportsController < ApplicationController
   before_filter :login_required
   
   def index
-    @bookmark_imports = BookmarkImport.all
+    #@bookmark_imports = BookmarkImport.all
+    @bookmark_imports = BookmarkImport.paginate :page => params[:page]
   end
   
   def show
