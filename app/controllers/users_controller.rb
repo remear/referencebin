@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   layout "bookmarks"
   include AuthenticatedSystem
-  
+  before_filter :login_required
 
   # render new.rhtml
   def new
