@@ -29,6 +29,10 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def tag_cloud
+    @tags = Bookmark.tag_counts
+  end
+      
   def dec_content_length
     session[:bookmark_content_length] -= 1
     
