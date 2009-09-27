@@ -1,3 +1,8 @@
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li><%= @bookmark.language.name %></li>
+  <li>Bookmarks</li>
+<% end %>
 <h2>Viewing Bookmark</h2>
 <% content_for(:actions) do %>
   <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> | 

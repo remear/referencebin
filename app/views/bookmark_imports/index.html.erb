@@ -1,0 +1,24 @@
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li>Imported Bookmarks</li>
+<% end %>
+
+<h2>Imported Bookmarks</h2>
+
+<% if ! @bookmark_imports.empty? || ! @bookmark_imports.nil? %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+  </tr>
+  <% for bookmark in @bookmark_imports %>
+    <tr>
+      <td><%=h bookmark.title %></td>
+      <td><%=h bookmark.url %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% else %>
+  <p class="sosumi">You have no bookmarks to sanitize. <%= link_to "Import bookmarks", bookmark_import_path %></p>
+<% end %>

@@ -33,6 +33,7 @@
         <ul>
           <li><%= link_to 'Bookmarks', bookmarks_path %></li>
           <% if current_user %>
+            <li><%= link_to 'Import Bookmarks', bookmark_import_path %></li>
             <li><%= link_to 'Logout', logout_path %></li>
           <% else %>
             <li><%= link_to 'Login', login_path %></li>
@@ -55,7 +56,24 @@
           <%= render :partial => 'languages/side_nav' %>
         </ul>
       </div>
-      <div id="col-content"><%= yield %></div>
+      <div id="col-content">
+        <% if flash[:warning] or flash[:notice] %>
+  		      <div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
+          		<%= flash[:warning] || flash[:notice] %>
+              </div>
+              <script type="text/javascript">
+                $('#notice').delay(1200, function(){
+                  $("#notice").fadeTo("slow", 0.01, function(){ //fade
+                               $(this).slideUp("#notice", function() { //slide up
+                                   $(this).remove(); //then remove from the DOM
+                               });
+                           });
+                });
+          	  </script>
+        <% end %>
+        
+        <%= yield %>
+      </div>
   	</div>
 
   </div>

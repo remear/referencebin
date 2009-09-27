@@ -44,3 +44,4 @@ end
 
 require 'will_paginate'
 require 'open-uri'
+require 'fastercsv'

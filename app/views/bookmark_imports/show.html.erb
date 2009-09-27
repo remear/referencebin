@@ -1,0 +1,28 @@
+<h2>Bookmark Import</h2>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @bookmark_import.title %>
+</p>
+<p>
+  <strong>Url:</strong>
+  <%=h @bookmark_import.url %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @bookmark_import.user_id %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @bookmark_import.description %>
+</p>
+<p>
+  <strong>Language:</strong>
+  <%=h @bookmark_import.language_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_bookmark_import_path(@bookmark_import) %> |
+  <%= link_to "Destroy", @bookmark_import, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", bookmark_imports_path %>
+</p>

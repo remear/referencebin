@@ -1,0 +1,7 @@
+<h2>Import Bookmarks</h2>
+<% form_for :do_import, :url => { :controller => "bookmark_imports", :action => 'do_import' }, :html => { :multipart => true } do |f| %>
+	<p class="tag green">CSV File</p>
+	<p><%= f.file_field :file %></p>
+	<br />
+	<p><%= image_submit_tag '/images/buttons/submit.png' %></p>
+<% end %>

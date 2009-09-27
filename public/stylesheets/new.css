@@ -39,6 +39,7 @@ body > #wrap { height: auto; min-height: 100%; }
 .comment.low .info strong { color:#444; }
 .comment.low .title { color:#333; font-weight:bold; }
 
+table th { color:blue; font-size:12px; height:20px; vertical-align:top; }
 /* errors */
 
 .fieldWithErrors {

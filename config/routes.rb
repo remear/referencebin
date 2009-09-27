@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.bookmark_import '/bookmarks/import', :controller => 'bookmark_imports', :action => 'import'
+  map.do_bookmark_import '/bookmark_imports/do_import', :controller => 'bookmark_imports', :action => 'do_import'
+  map.resources :bookmark_imports
+
   map.resources :codes
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
