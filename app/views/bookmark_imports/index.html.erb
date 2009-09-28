@@ -6,13 +6,19 @@
 <h2>Imported Bookmarks</h2>
 
 <% if ! @bookmark_imports.empty? || ! @bookmark_imports.nil? %>
-<table>
+<table style="font-size:12px;">
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Url</th>
   </tr>
   <% for bookmark in @bookmark_imports %>
-    <tr>
+    <tr id="row<%= bookmark.id %>">
+      <td style="width:50px; vertical-align:center">
+        <%= link_to_remote image_tag("/images/icons/delete15x15.jpg"), :url => {:controller => "bookmark_imports", :action => "destroy", :id => bookmark }, :method => :delete %>
+
+        
+      </td>
       <td><%=h bookmark.title %></td>
       <td><%=h bookmark.url %></td>
     </tr>

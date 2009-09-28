@@ -61,7 +61,13 @@ class BookmarkImportsController < ApplicationController
   def destroy
     @bookmark_import = BookmarkImport.find(params[:id])
     @bookmark_import.destroy
-    flash[:notice] = "Successfully destroyed bookmark import."
-    redirect_to bookmark_imports_url
+    
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "Successfully destroyed bookmark import."
+        redirect_to bookmark_imports_url
+      end
+      format.js
+    end
   end
 end
