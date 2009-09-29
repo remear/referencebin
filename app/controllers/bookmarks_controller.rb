@@ -6,10 +6,8 @@ class BookmarksController < ApplicationController
     if params[:lang]
       @lang = Language.find_by_permalink(params[:lang])
       @bookmarks = Bookmark.paginate_by_language_id @lang.id, :page => params[:page]
-    end
-    
-    if params[:tag]
-      @bookmarks = Bookmark.paginate_by_language_id @lang.id, :page => params[:page]
+    else
+      @tags = Bookmark.tag_counts
     end
     
     respond_to do |format|

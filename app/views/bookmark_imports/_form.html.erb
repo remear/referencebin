@@ -1,24 +1,19 @@
 <% form_for @bookmark_import do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :language_id %><br />
-    <%= f.text_field :language_id %>
-  </p>
+  <p class="tag green"><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+  
+  <p class="tag green"><%= f.label :url %></p>
+  <p><%= f.text_field :url %></p>
+  
+  <p class="tag green">Language</p>
+  <p><%= collection_select :bookmark, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></p>
+  
+  <p class="tag green"><%= f.label :description %></p>
+  <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
+  
+  <p class="tag green"><%= f.label :tag_list %></p>
+  <p><%= f.text_field :tag_list, :size => 80 %></p>
+  
   <p><%= f.submit "Submit" %></p>
 <% end %>

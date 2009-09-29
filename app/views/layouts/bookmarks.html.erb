@@ -23,7 +23,7 @@
       <div id="logo"></div>
       <div id="sessioninfo">
         <% if current_user %>
-          Logged in : <strong><%= current_user.name %></strong>
+          Logged in : <strong><%= current_user.name %> (<%= current_user.nickname %>)</strong>
         <% else %>
           <p class="sosumi">Not logged in</p>
         <% end %>
@@ -52,28 +52,45 @@
     </div>
     <div class="clearer"></div>
   	<div id="main" class="clearfix">
-      <div id="col-nav">
-        <ul>
-          <%= render :partial => 'languages/side_nav' %>
-        </ul>
-      </div>
+
       <div id="col-content">
         <% if flash[:warning] or flash[:notice] %>
-  		      <div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
+  		      <div id="notice">
           		<%= flash[:warning] || flash[:notice] %>
               </div>
               <script type="text/javascript">
-                $('#notice').delay(1200, function(){
+              $('#notice').delay(1200, function(){
+                $("#notice").fadeTo("slow", 0.01, function(){ //fade
+                     $(this).remove(); //then remove from the DOM
+                 });
+              });
+              </script>
+              
+              <script type="text/javascript">
+                /*$('#notice').delay(1200, function(){
                   $("#notice").fadeTo("slow", 0.01, function(){ //fade
                                $(this).slideUp("#notice", function() { //slide up
                                    $(this).remove(); //then remove from the DOM
                                });
                            });
-                });
+                });*/
+                     
+                /*$('#notice').delay(1200, function(){
+                  $("#notice").fadeTo("slow", 0.01, function(){ //fade
+                               $(this).slideUp("slow", function() { //slide up
+                                   $(this).remove(); //then remove from the DOM
+                               });
+                           });
+                });*/
           	  </script>
         <% end %>
         
         <%= yield %>
+      </div>
+      <div id="col-nav">
+        <ul>
+          <%= render :partial => 'languages/side_nav' %>
+        </ul>
       </div>
   	</div>
 

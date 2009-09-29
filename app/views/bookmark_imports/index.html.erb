@@ -2,25 +2,35 @@
   <li><%= link_to 'Bookmarks', bookmarks_path %></li>
   <li>Imported Bookmarks</li>
 <% end %>
+<% content_for(:actions) do %>
+  <li><%= link_to 'Import', import_bookmarks_path %></li>
+<% end %>
 
 <h2>Imported Bookmarks</h2>
-
-<% if ! @bookmark_imports.empty? || ! @bookmark_imports.nil? %>
-<table style="font-size:12px;">
+<% if ! @bookmark_imports.blank? %>
+<table class="bookmark_imports interactive">
   <tr>
     <th></th>
     <th>Title</th>
     <th>Url</th>
+    <th style="text-align:center">Status</th>
   </tr>
   <% for bookmark in @bookmark_imports %>
-    <tr id="row<%= bookmark.id %>">
-      <td style="width:50px; vertical-align:center">
-        <%= link_to_remote image_tag("/images/icons/delete15x15.jpg"), :url => {:controller => "bookmark_imports", :action => "destroy", :id => bookmark }, :method => :delete %>
+    <tr id="row<%= bookmark.id %>" class="<%= cycle('odd', 'even')%>" onclick="location.href='<%= bookmark_import_path(bookmark) %>'">
+      <td style="width:50px; vertical-align:center; text-align:center">
+        <%= link_to_remote 'delete', :url => {:controller => "bookmark_imports", :action => "destroy", :id => bookmark }, :html => {:class => "delete"}, :method => :delete %>
 
         
       </td>
-      <td><%=h bookmark.title %></td>
-      <td><%=h bookmark.url %></td>
+      <td><%=h truncate(bookmark.title, 60, "...") %></td>
+      <td><%=h truncate(bookmark.url, 100, "...") %></td>
+      <td>
+        <% if ! bookmark.title.blank? && ! bookmark.url.blank? && ! bookmark.description.blank? && ! bookmark.tag_list.blank? %>
+          <div style="width:80px; height:20px; background:url(/images/icons/check.png) 50% no-repeat;"></div>
+        <% else %>
+          <div style="width:80px; height:20px; background:url(/images/icons/warning.png) 50% no-repeat;"></div>
+        <% end %>
+      </td>
     </tr>
   <% end %>
   

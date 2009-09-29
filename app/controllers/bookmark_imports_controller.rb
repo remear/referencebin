@@ -4,11 +4,27 @@ class BookmarkImportsController < ApplicationController
   
   def index
     #@bookmark_imports = BookmarkImport.all
-    @bookmark_imports = BookmarkImport.paginate :page => params[:page]
+    @bookmark_imports = BookmarkImport.paginate_by_user_id current_user.id, :page => params[:page]
   end
   
   def show
     @bookmark_import = BookmarkImport.find(params[:id])
+    @errors = Array.new
+    if @bookmark_import.title.blank?
+      @errors << 'Bookmark title cannot be empty'
+    end
+    if @bookmark_import.url.blank?
+      @errors << 'Bookmark url cannot be empty'
+    end
+    if @bookmark_import.tag_list.empty?
+      @errors << 'Tag list cannot be empty'
+    end
+    if @bookmark_import.description.blank?
+      @errors << 'Bookmark description cannot be empty'
+    end
+    
+    @curl = %x{ curl -I #{@bookmark_import.url} --user-agent \"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9\" | grep HTTP }
+    @curl = @curl[/\d\d\d/]
   end
   
   def new
@@ -22,15 +38,21 @@ class BookmarkImportsController < ApplicationController
     file = params[:do_import][:file]
     
     rowcount = 0
+    importcount = 0
     
     BookmarkImport.transaction do
       FasterCSV.parse(file, :row_sep => "\r") do |row|
         title, url = row
-        BookmarkImport.create(:title => title, :url => url)
-        rowcount += 1 
+        @bookmark_pass = Bookmark.all(:conditions => ["BINARY bookmarks.url = ?", url])
+        @bookmark_import_pass = BookmarkImport.all(:conditions => ["BINARY bookmark_imports.url = ?", url])
+        if @pass.blank? && @bookmark_import_pass.blank?
+          BookmarkImport.create(:title => title, :url => url, :user_id => current_user.id)
+          importcount += 1
+        end
+        rowcount += 1
       end
     end
-    flash[:notice] = "Successfully added #{rowcount} bookmarks" 
+    flash[:notice] = "Imported #{importcount} of #{rowcount} bookmarks" 
     redirect_to bookmark_imports_path
   end
   

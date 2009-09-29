@@ -1,28 +1,45 @@
-<h2>Bookmark Import</h2>
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li><%= link_to 'Imported Bookmarks', bookmark_imports_path %></li>
+  <li>Bookmarks</li>
+<% end %>
+<% content_for(:actions) do %>
+  <li><%= link_to "Edit", edit_bookmark_import_path(@bookmark_import) %> |</li>
+  <li><%= link_to "Destroy", @bookmark_import, :confirm => 'Are you sure?', :method => :delete %> |</li>
+  <li><%= link_to "View All", bookmark_imports_path %></li>
+<% end %>
+<h2>Viewing Imported Bookmark</h2>
 
+<p class="tag green">Title</p>
+<p><%=h @bookmark_import.title %></p>
+<div id="errorExplanation">
+  <h2>Problems detected</h2>
+  <p>The following problems are preventing this bookmark from being made live</p>
+  <ul>
+    <% for error in @errors %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+</div>
+<p class="tag green">Url</p>
 <p>
-  <strong>Title:</strong>
-  <%=h @bookmark_import.title %>
-</p>
-<p>
-  <strong>Url:</strong>
-  <%=h @bookmark_import.url %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%=h @bookmark_import.user_id %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%=h @bookmark_import.description %>
-</p>
-<p>
-  <strong>Language:</strong>
-  <%=h @bookmark_import.language_id %>
+  <%= link_to @bookmark_import.url, @bookmark_import.url %>
+  
+  <% if @curl == "200" %>
+    <span class="green" style="margin-left:30px; font-weight:bold">WORKING</span>
+  <% else %>
+    <span class="red" style="margin-left:30px; font-weight:bold">PROBLEM</span>
+  <% end %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_bookmark_import_path(@bookmark_import) %> |
-  <%= link_to "Destroy", @bookmark_import, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", bookmark_imports_path %>
-</p>
+<p class="tag green">Language</p>
+<%=h @bookmark_import.language_id %>
+
+<p class="tag green">Tags</p>
+<p class="sosumi"><%= @bookmark_import.tag_list %></p>
+
+<% if @bookmark_import.description %>
+<p class="tag green">Description</p>
+<p><%= markdown(@bookmark_import.description) %></p>
+<% end %>
+

@@ -1,3 +1,8 @@
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li>Import Bookmarks</li>
+<% end %>
+
 <h2>Import Bookmarks</h2>
 <% form_for :do_import, :url => { :controller => "bookmark_imports", :action => 'do_import' }, :html => { :multipart => true } do |f| %>
 	<p class="tag green">CSV File</p>

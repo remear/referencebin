@@ -45,3 +45,4 @@ end
 require 'will_paginate'
 require 'open-uri'
 require 'fastercsv'
+require 'bleak_house' if ENV['BLEAK_HOUSE']

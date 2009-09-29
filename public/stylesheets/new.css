@@ -42,6 +42,21 @@ body > #wrap { height: auto; min-height: 100%; }
 table th { color:blue; font-size:12px; height:20px; vertical-align:top; }
 
 #sessioninfo { font-size:10px; }
+
+/* interactive table*/
+table.interactive tr td { cursor:hand; cursor:pointer; }
+table.interactive tr.even { background:#EFEFEF; }
+table.interactive tr:hover { background:#0055c8 !important; color:#FFFFFF; }
+
+
+table.bookmark_imports.interactive tr { line-height:2.5em; }
+
+/* notices */
+#notice { margin:0px auto 20px 20px; }
+#notice.blah { background-color: #bec; border: 1px solid #f00; padding:20px; }
+#notice { background-color: #FFF6BF; border: 1px solid #FFD324; padding:20px; text-align:center; }
+#notice.error { background-color: #fcc; border: 1px solid #f00; padding:20px; }
+
 /* errors */
 
 .fieldWithErrors {

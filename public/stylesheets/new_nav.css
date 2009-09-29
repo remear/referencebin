@@ -7,14 +7,16 @@
 #col-nav ul li { padding-top:5px; }
 #col-nav ul a { text-decoration:none; }
 
-#col-content { padding:20px; }
+#col-content { padding:20px; float:left; }
 
 
 
 #breadcrumbs a { text-decoration:none; }
 
+/* actions */
+#actions li { display:inline; }
 
-/* NEW BREADCRUMBS */
+/* breadcrumbs */
 #breadcrumbs { font-size: 11px; color: #444; overflow: hidden; height: 32px; line-height: 32px; font-weight: bold; text-shadow: 2px 2px 1px #fff; float:left; }
 #breadcrumbs a { color: #444; text-decoration: none; padding: 10px 5px 10px 5px; _cursor: hand; }
 #breadcrumbs a:hover { color:green; text-decoration: none !important; }
