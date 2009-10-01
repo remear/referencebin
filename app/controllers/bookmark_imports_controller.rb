@@ -16,6 +16,9 @@ class BookmarkImportsController < ApplicationController
     if @bookmark_import.url.blank?
       @errors << 'Bookmark url cannot be empty'
     end
+    if @bookmark_import.language_id.blank?
+      @errors << 'A language must be specified'
+    end
     if @bookmark_import.tag_list.empty?
       @errors << 'Tag list cannot be empty'
     end
@@ -23,7 +26,7 @@ class BookmarkImportsController < ApplicationController
       @errors << 'Bookmark description cannot be empty'
     end
     
-    @curl = %x{ curl -I #{@bookmark_import.url} --user-agent \"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9\" | grep HTTP }
+    @curl = %x{ curl -s --connect-timeout 2 -I #{@bookmark_import.url} --user-agent \"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9\" | grep HTTP }
     @curl = @curl[/\d\d\d/]
   end
   
