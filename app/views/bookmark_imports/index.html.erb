@@ -16,19 +16,19 @@
     <th style="text-align:center">Status</th>
   </tr>
   <% for bookmark in @bookmark_imports %>
-    <tr id="row<%= bookmark.id %>" class="<%= cycle('odd', 'even')%>" onclick="location.href='<%= bookmark_import_path(bookmark) %>'">
+    <tr id="row<%= bookmark.id %>" class="<%= cycle('odd', 'even')%>">
       <td style="width:50px; vertical-align:center; text-align:center">
         <%= link_to_remote 'delete', :url => {:controller => "bookmark_imports", :action => "destroy", :id => bookmark }, :html => {:class => "delete"}, :method => :delete %>
 
         
       </td>
-      <td><%=h truncate(bookmark.title, 60, "...") %></td>
-      <td><%=h truncate(bookmark.url, 100, "...") %></td>
+      <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.title, 60, "...") %></td>
+      <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.url, 80, "...") %></td>
       <td>
-        <% if ! bookmark.title.blank? && ! bookmark.url.blank? && ! bookmark.description.blank? && ! bookmark.tag_list.blank? %>
+        <% if ! bookmark.title.blank? && ! bookmark.url.blank? && ! bookmark.language_id.blank? && ! bookmark.description.blank? && ! bookmark.tag_list.blank? %>
           <div style="width:80px; height:20px; background:url(/images/icons/check.png) 50% no-repeat;"></div>
         <% else %>
-          <div style="width:80px; height:20px; background:url(/images/icons/warning.png) 50% no-repeat;"></div>
+          <div style="width:80px; height:20px; background:url(/images/icons/warning.gif) 50% no-repeat;"></div>
         <% end %>
       </td>
     </tr>

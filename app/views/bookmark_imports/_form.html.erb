@@ -4,10 +4,10 @@
   <p><%= f.text_field :title %></p>
   
   <p class="tag green"><%= f.label :url %></p>
-  <p><%= f.text_field :url %></p>
+  <p><%= f.text_field :url, :size => 105 %></p>
   
   <p class="tag green">Language</p>
-  <p><%= collection_select :bookmark, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></p>
+  <p><%= collection_select :bookmark_import, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></p>
   
   <p class="tag green"><%= f.label :description %></p>
   <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
@@ -15,5 +15,9 @@
   <p class="tag green"><%= f.label :tag_list %></p>
   <p><%= f.text_field :tag_list, :size => 80 %></p>
   
-  <p><%= f.submit "Submit" %></p>
+  <% if params[:action] == "new" %>
+  <p><%= image_submit_tag "/images/buttons/create.png" %></p>
+  <% elsif params[:action] == "edit" %>
+  <p><%= image_submit_tag "/images/buttons/update.png" %></p>
+  <% end %>
 <% end %>

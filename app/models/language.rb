@@ -1,8 +1,10 @@
 class Language < ActiveRecord::Base
   has_many :bookmarks
-  before_save :generate_permalink
+  has_many :bookmark_imports
   has_many :comments
   
+  before_save :generate_permalink
+
   private
     def generate_permalink
         name_based_permalink = self.name.gsub(" ", "-")

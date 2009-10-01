@@ -1,4 +1,7 @@
 class BookmarkImport < ActiveRecord::Base
+  belongs_to :language
+  belongs_to :user
+  
   acts_as_taggable
   #attr_accessible :title, :url, :user_id, :description, :language_id
   

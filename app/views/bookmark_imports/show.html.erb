@@ -5,15 +5,14 @@
 <% end %>
 <% content_for(:actions) do %>
   <li><%= link_to "Edit", edit_bookmark_import_path(@bookmark_import) %> |</li>
-  <li><%= link_to "Destroy", @bookmark_import, :confirm => 'Are you sure?', :method => :delete %> |</li>
+  <li><%= link_to "Delete", @bookmark_import, :confirm => 'Are you sure?', :method => :delete %> |</li>
   <li><%= link_to "View All", bookmark_imports_path %></li>
 <% end %>
 <h2>Viewing Imported Bookmark</h2>
 
-<p class="tag green">Title</p>
-<p><%=h @bookmark_import.title %></p>
+<% if ! @errors.blank? %>
 <div id="errorExplanation">
-  <h2>Problems detected</h2>
+  <h2>Problems Detected</h2>
   <p>The following problems are preventing this bookmark from being made live</p>
   <ul>
     <% for error in @errors %>
@@ -21,6 +20,11 @@
     <% end %>
   </ul>
 </div>
+<% end %>
+
+<p class="tag green">Title</p>
+<p><%=h @bookmark_import.title %></p>
+
 <p class="tag green">Url</p>
 <p>
   <%= link_to @bookmark_import.url, @bookmark_import.url %>
@@ -33,13 +37,23 @@
 </p>
 
 <p class="tag green">Language</p>
-<%=h @bookmark_import.language_id %>
+<% if ! @bookmark_import.language.blank? %>
+<p><%=h @bookmark_import.language.name %></p>
+<% else %>
+<p class="sosumi red">No language specified</p>
+<% end %>
 
 <p class="tag green">Tags</p>
+<% if ! @bookmark_import.tag_list.blank? %>
 <p class="sosumi"><%= @bookmark_import.tag_list %></p>
+<% else %>
+<p class="sosumi red">No tags specified</p>
+<% end %>
 
-<% if @bookmark_import.description %>
 <p class="tag green">Description</p>
+<% if @bookmark_import.description %>
 <p><%= markdown(@bookmark_import.description) %></p>
+<% else %>
+<p class="sosumi red">No description specified</p>
 <% end %>
 
