@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091002201245) do
+ActiveRecord::Schema.define(:version => 20091002202014) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20091002201245) do
     t.datetime "updated_at"
     t.string   "permalink",  :limit => 3000
   end
+
+  add_index "languages", ["name"], :name => "index_languages_on_name", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
