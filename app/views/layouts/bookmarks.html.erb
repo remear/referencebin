@@ -69,9 +69,15 @@
         <%= yield %>
       </div>
       <div id="col-nav">
-        <ul>
+        <ul id="categories">
           <%= render :partial => 'languages/side_nav' %>
         </ul>
+        
+        <% if yield :commands %>
+        <ul class="block">
+          <%= yield :commands %>
+        </ul>
+        <% end %>
       </div>
   	</div>
   </div>

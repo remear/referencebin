@@ -143,6 +143,7 @@ p.tag { margin-bottom:10px !important; }
 a.comment { background:url(/images/icons/icon_comment.gif) 0.7em left no-repeat; padding-left: 20px; }
 a.comment.right { background:url(/images/icons/icon_comment.gif) 0.7em right no-repeat; padding-right: 20px; }
 a.delete { background:url(/images/icons/delete15x15.png) 50% no-repeat;  text-indent:-9999px; display:block; }
+a.arrow { background:url(/images/arrow_next.gif) 50% right no-repeat; padding-right: 20px; }
 
 #main .sidebar { font-size: 10px; line-height: 18px; color:#686868; }
 #main .callout { font-size: 11px; line-height: 18px; margin-bottom: 18px; }

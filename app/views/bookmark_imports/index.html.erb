@@ -5,6 +5,9 @@
 <% content_for(:actions) do %>
   <li><%= link_to 'Import', import_bookmarks_path %></li>
 <% end %>
+<% content_for(:commands) do %>
+  <li><%= link_to 'Import Approved', bookmarks_path, :class => 'arrow' %></li>
+<% end %>
 
 <h2>Imported Bookmarks</h2>
 <% if ! @bookmark_imports.blank? %>
