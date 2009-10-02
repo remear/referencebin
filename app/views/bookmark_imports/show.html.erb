@@ -31,6 +31,8 @@
   
   <% if @curl == "200" %>
     <span class="green" style="margin-left:30px; font-weight:bold">WORKING</span>
+  <% elsif @curl == "301" %>
+    <span class="orange" style="margin-left:30px; font-weight:bold">OK</span>
   <% else %>
     <span class="red" style="margin-left:30px; font-weight:bold">PROBLEM</span>
   <% end %>
