@@ -16,7 +16,7 @@
 <p>
   <%= link_to @bookmark.url, @bookmark.url %>
   
-  <% if @curl == "200" %>
+  <% if @url_status == "200" %>
     <span class="green" style="margin-left:30px; font-weight:bold">WORKING</span>
   <% else %>
     <span class="red" style="margin-left:30px; font-weight:bold">PROBLEM</span>

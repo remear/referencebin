@@ -19,9 +19,8 @@ class BookmarksController < ApplicationController
   def show
     lang = Language.find_by_permalink(params[:lang])
     @bookmark = Bookmark.find_by_permalink(params[:bookmark_name], :conditions => {:language_id => lang.id}, :include => "comments")
-
-    @curl = %x{ curl -I #{@bookmark.url} | grep HTTP }
-    @curl = @curl[/\d\d\d/]
+    
+    @url_status = url_lookup(@bookmark.url)
     
     respond_to do |format|
       format.html # show.html.erb

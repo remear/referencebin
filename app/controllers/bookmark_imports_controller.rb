@@ -26,9 +26,7 @@ class BookmarkImportsController < ApplicationController
       @errors << 'Bookmark description cannot be empty'
     end
     
-    @curl = %x{ curl -s --connect-timeout 3 -I #{@bookmark_import.url} --user-agent "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9" | grep HTTP }
-    #RAILS_DEFAULT_LOGGER.info("****#{@curl}****")
-    @curl = @curl[/\d\d\d/]
+    @url_status = url_lookup(@bookmark_import.url)
   end
   
   def new
