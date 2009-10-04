@@ -41,6 +41,7 @@ class BookmarkImportsController < ApplicationController
     @bookmark = Bookmark.new(@bookmark_import.attributes)
     
     if @bookmark.save
+      @bookmark_import.destroy
       flash[:notice] = 'Bookmark was successfully made live.'
       redirect_to bookmark_path(:lang => @bookmark.language.permalink, :bookmark_name => @bookmark.permalink)
     else
