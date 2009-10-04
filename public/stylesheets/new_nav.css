@@ -42,3 +42,47 @@
 .pagination a:active { border: 1px solid #999; color: #666; }
 .pagination .current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #036CB4; font-weight: bold; background-color: #036CB4; color: #FFF; }
 .pagination .disabled { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #EEE; color: #DDD; }
+
+#bookmark_toggle { padding:0 10px 0 0; margin-left:5px; }
+#bookmark_toggle.inactive { background:url(/images/buttons/btn_menu.png) no-repeat; }
+#bookmark_toggle.active { background:url(/images/buttons/btn_menu_active.png) no-repeat; }
+#bookmark_toggle:hover { text-decoration:none !important; }
+
+/* guides */
+
+#guides {
+    width: 400px;
+    display: block;
+    background: #3e3e3e;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-box-shadow: 0.25em 0.25em 1em rgba(0,0,0,0.25);
+    -moz-box-shadow: rgba(0,0,0,0.25) 0.25em 0.25em 1em;
+    color: #76f078;
+    padding: 1.5em 2em;
+    position: absolute;
+    z-index: 10;
+    top: 120px;
+    left: 80px;
+    padding-top: 2em;
+}
+
+#guides dd a { font-size:10px !important; }
+#guides dt, #guides dd {
+    font-weight: normal;
+    font-size: 0.722em;
+    margin: 0;
+    padding: 0;
+}
+#guides dt {padding:0; margin: 0.5em 0 0;}
+#guides a {color: #FFF; background: none;}
+#guides .L, #guides .R {float: left; width: 50%; margin: 0; padding: 0;}
+#guides .R {float: right;}
+#guides hr {
+    display: block;
+    border: none;
+    height: 1px;
+    color: #76f078;
+    background: #76f078;
+}

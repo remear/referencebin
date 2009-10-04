@@ -27,3 +27,15 @@ jQuery.fn.delay = function(time,func){
         setTimeout(func,time);
     });
 };
+
+function guideMenu(){
+  if (document.getElementById('guides').style.display == "none") {
+    $("#bookmark_toggle").removeClass('inactive');
+    $("#bookmark_toggle").addClass('active');
+    document.getElementById('guides').style.display = "block";
+  } else {
+    $("#bookmark_toggle").removeClass('active');
+    $("#bookmark_toggle").addClass('inactive');
+    document.getElementById('guides').style.display = "none";
+  }
+}
