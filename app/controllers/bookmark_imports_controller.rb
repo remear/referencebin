@@ -50,6 +50,25 @@ class BookmarkImportsController < ApplicationController
     end
   end
   
+  def convert_all
+    @bookmark_imports = BookmarkImport.find(:all, :conditions => "description IS NOT NULL and title IS NOT NULL and language_id IS NOT NULL and url IS NOT NULL")
+    
+    importcount = 0
+    
+    Bookmark.transaction do
+      @bookmark_imports.each do |bookmarkimport|
+        @bookmark = Bookmark.new(bookmarkimport.attributes)
+        if @bookmark.save
+          bookmarkimport.destroy
+          importcount += 1
+        end
+      end
+    end
+    
+    flash[:notice] = "Made #{importcount} bookmarks live"
+    redirect_to bookmarks_path
+  end
+  
   def do_import
     file = params[:do_import][:file]
     

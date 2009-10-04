@@ -6,7 +6,7 @@
   <li><%= link_to 'Import', import_bookmarks_path %></li>
 <% end %>
 <% content_for(:commands) do %>
-  <li><%= link_to 'Import Approved', bookmarks_path, :class => 'arrow' %></li>
+  <li><%= link_to 'Import Approved', convert_all_bookmarks_path, :class => 'arrow' %></li>
 <% end %>
 
 <h2>Imported Bookmarks</h2>
