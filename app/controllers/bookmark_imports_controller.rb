@@ -36,6 +36,19 @@ class BookmarkImportsController < ApplicationController
   def import
   end
   
+  def convert
+    @bookmark_import = BookmarkImport.find(params[:id])
+    @bookmark = Bookmark.new(@bookmark_import.attributes)
+    
+    if @bookmark.save
+      flash[:notice] = 'Bookmark was successfully made live.'
+      redirect_to bookmark_path(:lang => @bookmark.language.permalink, :bookmark_name => @bookmark.permalink)
+    else
+      flash[:warning] = 'An error occured while trying to make the bookmark live.'
+      redirect_to :back
+    end
+  end
+  
   def do_import
     file = params[:do_import][:file]
     

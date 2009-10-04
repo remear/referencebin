@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20091002202014) do
     t.string   "title"
     t.string   "url"
     t.integer  "user_id"
-    t.integer  "language_id"
     t.string   "description"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(:version => 20091002202014) do
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
     t.string   "url"
-    t.integer  "user_id"
-    t.integer  "language_id"
     t.string   "permalink",   :limit => 3000
     t.string   "description", :limit => 3000
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "language_id"
+    t.integer  "user_id"
   end
 
   add_index "bookmarks", ["url"], :name => "index_bookmarks_on_url", :unique => true
