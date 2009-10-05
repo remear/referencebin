@@ -1,0 +1,32 @@
+xml.instruct! :xml, :version=>"1.0" 
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title("PRB - Ruby on Rails")
+    xml.link("http://www.reanstudios.org")
+    xml.description("Programmer Reference Bin")
+    xml.language('en-us')
+    for bookmark in @bookmarks
+      xml.item do
+        xml.title(bookmark.title)
+        if File.exist?("#{RAILS_ROOT}/public/images/icons/#{bookmark.language.permalink}.jpg")
+        xml.description("
+        <table>
+          <tr>
+            <td width=\"60\"><img src=\"/images/icons/#{bookmark.language.permalink}.jpg\" /></td>
+            <td>
+              <a href=\"#{bookmark.url}\">#{truncate(bookmark.url,100)}</a>
+              <br /><br />#{bookmark.description}
+            </td>
+          </tr>
+        </table><br />")
+        else
+        xml.description("<a href=\"#{bookmark.url}\">#{truncate(bookmark.url,100)}</a><br /><br />#{bookmark.description}")
+        end
+        xml.author(bookmark.user.nickname)
+        xml.pubDate(bookmark.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
+        xml.link(bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink))
+        xml.guid(bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink))
+      end
+    end
+  }
+}

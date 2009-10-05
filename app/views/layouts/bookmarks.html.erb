@@ -16,6 +16,10 @@
 	
 	<%= javascript_include_tag :defaults %>
 	<%= javascript_include_tag "facebox.js" %>
+	
+	<% if @bookmarks %>
+	<%= auto_discovery_link_tag(:rss, :controller => 'feeds', :action => @bookmarks.first.language.permalink) %>
+	<% end %>
 </head>
 <body>
   <div id="wrap">

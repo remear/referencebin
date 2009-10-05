@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.rubyonrails_feed '/feeds/rubyonrails', :controller => 'feeds', :action => 'rubyonrails'
+  
   map.import_bookmarks '/bookmarks/import', :controller => 'bookmark_imports', :action => 'import'
   map.do_bookmark_import '/bookmark_imports/do_import', :controller => 'bookmark_imports', :action => 'do_import'
   map.resources :bookmark_imports
