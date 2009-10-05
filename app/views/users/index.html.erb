@@ -1,0 +1,13 @@
+<table class="standard" border="0" cellspacing="0" cellpadding="0">
+	<tr class="header"><td>Name</td><td>Username</td><td>&nbsp;</td></tr>
+	<tr class="spacer"><td colspan="3">&nbsp;</td></tr>
+<% for user in @users %>
+	<tr class="<%= cycle("odd", "even") %>" onclick="window.location='<%= user_path(user)%>'">
+		<td style="width:200px;"><%= user.name %></td>
+		<td><%= user.login %></td>
+		<td style="padding-right:0px;">
+			<%= image_tag user.profile.url(:tiny), :style => 'float:right;' %>
+		</td>
+	</tr>
+<% end %>
+</table>

@@ -1,6 +1,6 @@
 <% content_for(:breadcrumbs) do %>
   <li><%= link_to 'Bookmarks', bookmarks_path %></li>
-  <li><%= link_to @bookmark.language.name, bookmarks_path %></li>
+  <li><%= link_to @bookmark.language.name, bookmarks_path + "/#{@bookmark.language.permalink}" %></li>
   <li>Bookmarks</li>
 <% end %>
 <h2>Viewing Bookmark</h2>
