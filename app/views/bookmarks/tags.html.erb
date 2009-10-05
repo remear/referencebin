@@ -1,0 +1,30 @@
+<% if @bookmarks %>
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li><%= link_to 'Tag Cloud', bookmark_tag_cloud_path %></li>
+  <li><%= params[:tag] %></li>
+<% end %>
+<h1>Listing bookmarks</h1>
+
+<div id="list">
+  <%= render :partial => 'list' %>
+</div>
+
+<p id="position"><%= will_paginate @bookmarks, :id => 'pagination' %></p>
+
+<% else %>
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li>Tag Cloud</li>
+<% end %>
+<style type="text/css">
+  .css1 { font-size: 1.0em; }
+  .css2 { font-size: 1.2em; }
+  .css3 { font-size: 1.4em; }
+  .css4 { font-size: 1.6em; }
+</style>
+<% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tags, :tag => tag.name }, :class => css_class %>
+<% end %>
+
+<% end %>

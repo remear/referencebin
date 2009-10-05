@@ -15,6 +15,19 @@ class BookmarksController < ApplicationController
       format.xml  { render :xml => @bookmarks }
     end
   end
+  
+  def tags
+    if params[:tag]
+      @bookmarks = Bookmark.paginate_tagged_with params[:tag], :page => params[:page]
+    else
+      @tags = Bookmark.tag_counts
+    end
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @bookmarks }
+    end
+  end
 
   def show
     lang = Language.find_by_permalink(params[:lang])
