@@ -10,7 +10,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :codes
 
   #users & sessions
-  map.settings '/settings', :controller => 'users', :action => 'settings'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
@@ -18,6 +17,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :path_prefix => '/administration'
   map.resource :session
 
+  #settings
+  map.settings '/settings', :controller => 'settings', :action => 'index'
+  
+  #comments
   map.resources :comments
   
   #bookmarks

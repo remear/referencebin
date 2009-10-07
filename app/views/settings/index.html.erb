@@ -1,0 +1,42 @@
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Administration', administration_path %></li>
+  <li><%= link_to 'Users', users_path %></li>
+  <li><%= @user.name %></li>
+<% end %>
+<h2>Settings</h2>
+<br />
+<% form_for @user, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <table style="width:500px;">
+  	<tr>
+  	  <td style="vertical-align:top; width:400px">
+  			<%= image_tag @user.profile.url(:medium) %>
+  			<p><%= f.file_field :profile %></p>
+  		</td>
+  		<td style="vertical-align:top;">
+  			<p class="tag green">Name</p>
+  			<p><%= @user.name %></p>
+  			
+  			<p class="tag green">Nickname</p>
+  			<p><%= @user.nickname %></p>
+  			
+  			<p class="tag green">Email</p>
+  			<p><%= f.text_field :email %></p>
+  			
+  			<p class="tag green">New Password</p>
+				<p><%= f.password_field :password %></p>
+
+				<p class="tag green">Confirm Password</p>
+				<p><%= f.password_field :password_confirmation %></p>
+				
+  			<div id="timestampbox" style="margin-top:50px">
+        	Created : <%= @user.created_at.to_s(:long) %><br>
+        	Updated : <%= @user.updated_at.to_s(:long) %>
+        </div>
+  		</td>
+  	</tr>
+  	<tr>
+  	  <td colspan="2" style="text-align:right"><%= image_submit_tag '/images/buttons/update.png', :style => "margin-top:20px;" %></td>
+  	</tr>
+  </table>
+<% end %>
