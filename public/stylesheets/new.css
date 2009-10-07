@@ -17,6 +17,7 @@ body > #wrap { height: auto; min-height: 100%; }
 
 #header { height:140px; width:100%; background:#333333 url(/images/logo_prb.png) 30px 10px no-repeat; }
 #header #sessioninfo { float:right; color:#FFFFFF; padding:10px 20px 0 0; }
+#header #sessioninfo a { color:#FFFFFF; }
 #header #logo { height:60px; width:50px; background:#FFFFFF url(/images/logo_rean.png) no-repeat center; float:right; margin-right:30px; }
 #toolbar { height:32px; background:#CCCCCC url(/images/barbg.png); line-height:3em; padding:0 20px 0px 10px; }
 

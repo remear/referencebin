@@ -2,7 +2,7 @@
 <table>
   <tr>
     <td>Logged in : </td>
-    <td><strong><%= current_user.name %> (<%= current_user.nickname %>)</strong></td>
+    <td><strong><%= current_user.name %> (<%= current_user.nickname %>)</strong> | <%= link_to 'Settings', settings_path %></td>
   </tr>
   <tr>
     <td>Release :</td>

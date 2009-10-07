@@ -1,2 +1,7 @@
 h2.dashboard { background:url(/images/headers/dashboard.png) no-repeat; height:60px; width:249px; text-indent:-999px; }
 h2.users { background:url(/images/headers/users.png) no-repeat; height:60px; width:249px; text-indent:-999px; }
+
+#col-nav ul#categories { background:url(/images/bg_box.gif) repeat-x; padding:10px 20px 15px 20px; border:1px solid #DDD; -webkit-border-radius:8px; -moz-border-radius:8px; line-height:2.5em; }
+#col-nav ul#categories li#dashboard a { background: url(/images/icons/dashboard.png) 50% left no-repeat; }
+#col-nav ul#categories li#users a { background: url(/images/icons/users.png) 50% left no-repeat; }
+#col-nav ul#categories li a { padding:0 10px 0 35px; display:block; }

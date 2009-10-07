@@ -1,5 +1,5 @@
 <% content_for(:breadcrumbs) do %>
-  <% if ! @bookmarks.nil? %>
+  <% if ! @bookmarks.empty? %>
   <li><%= link_to 'Bookmarks', bookmarks_path %></li>
   <li><%= @bookmarks.first.language.name %></li>
   <% else %>
@@ -21,13 +21,18 @@
 
 <% if ! @bookmarks.nil? %>
 
-<h1>Listing bookmarks</h1>
+<h2>Listing bookmarks</h2>
 
-<div id="list">
+<% if ! @bookmarks.empty? %>
+<div id="list" style="max-width:800px;">
   <%= render :partial => 'list' %>
 </div>
 
 <p id="position"><%= will_paginate @bookmarks, :id => 'pagination' %></p>
+<% else %>
+<p class="sosumi">No bookmarks yet for <%= params[:lang] %></p>
+<% end %>
+
 
 <% else %>
 

@@ -11,12 +11,9 @@
 #col-nav ul li { padding-top:5px; }
 #col-nav ul a { text-decoration:none; }
 
-#col-nav ul#categories { padding:10px 20px 15px 20px; border:4px solid #DDD; -webkit-border-radius:10px; -moz-border-radius:10px; background:#FAFAFA; }
+#col-nav ul#categories { background:url(/images/bg_box.gif) repeat-x; padding:10px 20px 15px 20px; border:4px solid #DDD; border:1px solid #DDD; -webkit-border-radius:8px; -moz-border-radius:8px; }
+#col-nav ul#categories li a { padding:0 10px 0 10px; display:block; }
 
-#col-nav ul#categories.admin { border:4px solid #85b7f4; line-height:2.5em; }
-#col-nav ul#categories li a { padding-left: 35px; display:block; }
-#col-nav ul#categories li#dashboard a { background: url(/images/icons/dashboard.png) 50% left no-repeat; }
-#col-nav ul#categories li#users a { background: url(/images/icons/users.png) 50% left no-repeat; }
 
 #col-nav ul.block { margin-top:30px; padding:10px 20px 15px 20px; border:4px solid #DDD; -webkit-border-radius:10px; -moz-border-radius:10px; background:#FAFAFA; }
 
