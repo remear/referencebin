@@ -1,13 +1,13 @@
 class BookmarksController < ApplicationController
   layout "bookmarks"
-  before_filter :login_required, :only => [ 'new', 'edit', 'update', 'destroy' ]
+  before_filter :login_required, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
   
   def index
     if params[:lang]
       @lang = Language.find_by_permalink(params[:lang])
       @bookmarks = Bookmark.paginate_by_language_id @lang.id, :page => params[:page]
     else
-      @tags = Bookmark.tag_counts
+      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
     end
     
     respond_to do |format|
