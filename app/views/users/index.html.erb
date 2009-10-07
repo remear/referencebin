@@ -1,13 +1,26 @@
-<table class="standard" border="0" cellspacing="0" cellpadding="0">
-	<tr class="header"><td>Name</td><td>Username</td><td>&nbsp;</td></tr>
-	<tr class="spacer"><td colspan="3">&nbsp;</td></tr>
-<% for user in @users %>
-	<tr class="<%= cycle("odd", "even") %>" onclick="window.location='<%= user_path(user)%>'">
-		<td style="width:200px;"><%= user.name %></td>
-		<td><%= user.login %></td>
-		<td style="padding-right:0px;">
-			<%= image_tag user.profile.url(:tiny), :style => 'float:right;' %>
-		</td>
-	</tr>
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Administration', administration_path %></li>
+  <li>Users</li>
 <% end %>
+<h2 class="users">Users</h2>
+
+<table class="interactive">
+  <thead>
+  	<tr>
+  	  <th style="min-width:80px"></th>
+  	  <th style="min-width:100px;">Name</th>
+  	  <th style="min-width:100px;">Username</th>
+  	  <th style="min-width:250px;">Email</th>
+  	</tr>
+	</thead>
+	<tbody>
+  <% for user in @users %>
+	<tr class="<%= cycle("odd", "even") %>" onclick="window.location='<%= user_path(user)%>'">
+	  <td><%= image_tag user.profile.url(:tiny) %></td>
+		<td><%= user.name %></td>
+		<td><%= user.login %></td>
+		<td><%= user.email %></td>
+	</tr>
+  <% end %>
+  </tbody>
 </table>

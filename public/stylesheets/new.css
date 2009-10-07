@@ -46,10 +46,14 @@ table th { color:blue; font-size:12px; height:20px; vertical-align:top; }
 /* interactive table*/
 table.interactive tr td { cursor:hand; cursor:pointer; }
 table.interactive tr.even { background:#EFEFEF; }
-table.interactive tr:hover { background:#0055c8 !important; color:#FFFFFF; }
-
+table.interactive thead tr { background:#333333 !important; color:#FFFFFF; }
+table.interactive thead tr th { color:#FFFFFF; }
+table.interactive tbody tr:hover { background:#0055c8 !important; color:#FFFFFF; }
 
 table.bookmark_imports.interactive tr { line-height:2.5em; }
+
+/* timestamp box */
+#timestampbox { color:#888888; background:#EEEEEE; -webkit-border-radius:5px; -moz-border-radius:5px; padding:10px; width:200px; }
 
 /* notices */
 #notice { margin:0px auto 20px 20px; }

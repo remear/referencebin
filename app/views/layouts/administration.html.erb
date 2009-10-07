@@ -8,6 +8,7 @@
 	<%= stylesheet_link_tag 'base' %>
 	<%= stylesheet_link_tag 'new' %>
 	<%= stylesheet_link_tag 'new_nav' %>
+	<%= stylesheet_link_tag 'administration' %>
 	<%= stylesheet_link_tag 'coderay' %>
 	<!--[if IE]>
     <%= stylesheet_link_tag "ie.css" %>
@@ -58,8 +59,9 @@
         <%= yield %>
       </div>
       <div id="col-nav">
-        <ul id="categories">
-          <%= render :partial => 'languages/side_nav' %>
+        <ul id="categories" class="admin">
+          <li id="dashboard"><%= link_to 'Dashboard', administration_path %></li>
+          <li id="users"><%= link_to 'Users', users_path %></li>
         </ul>
         
         <% if yield :commands %>

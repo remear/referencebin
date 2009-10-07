@@ -1,0 +1,14 @@
+<% if current_user %>
+<table>
+  <tr>
+    <td>Logged in : </td>
+    <td><strong><%= current_user.name %> (<%= current_user.nickname %>)</strong></td>
+  </tr>
+  <tr>
+    <td>Release :</td>
+    <td><strong><%= File.split(RAILS_ROOT).last %></strong></td>
+  </tr>
+</table>
+<% else %>
+  <p class="sosumi">Not logged in</p>
+<% end %>

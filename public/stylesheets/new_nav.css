@@ -3,11 +3,20 @@
 #header #gnav a { color:#FFFFFF; text-decoration:none; font-size:12px; }
 #header #gnav a:hover { color:#FFFFFF; text-decoration:underline; }
 
+#header #gnav ul.bookmarks li#bookmarks a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
+#header #gnav ul.administration li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
+#header #gnav ul.users li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
+
 #col-nav { width:180px; float:right; margin:20px 20px 20px; }
 #col-nav ul li { padding-top:5px; }
 #col-nav ul a { text-decoration:none; }
 
 #col-nav ul#categories { padding:10px 20px 15px 20px; border:4px solid #DDD; -webkit-border-radius:10px; -moz-border-radius:10px; background:#FAFAFA; }
+
+#col-nav ul#categories.admin { border:4px solid #85b7f4; line-height:2.5em; }
+#col-nav ul#categories li a { padding-left: 35px; display:block; }
+#col-nav ul#categories li#dashboard a { background: url(/images/icons/dashboard.png) 50% left no-repeat; }
+#col-nav ul#categories li#users a { background: url(/images/icons/users.png) 50% left no-repeat; }
 
 #col-nav ul.block { margin-top:30px; padding:10px 20px 15px 20px; border:4px solid #DDD; -webkit-border-radius:10px; -moz-border-radius:10px; background:#FAFAFA; }
 
@@ -35,9 +44,7 @@
 /* pagination */
 
 .pagination { padding: 2px; margin:30px 3px; text-align:center; }
-
 .pagination a { padding: 2px 5px 2px 5px; margin: 0px; border: 1px solid #EEE; text-decoration: none; color: #036CB4; }
-
 .pagination a:hover,
 .pagination a:active { border: 1px solid #999; color: #666; }
 .pagination .current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #036CB4; font-weight: bold; background-color: #036CB4; color: #FFF; }

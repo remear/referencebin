@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  layout "bookmarks"
+  layout "administration"
   include AuthenticatedSystem
   before_filter :login_required
   before_filter :admin_required

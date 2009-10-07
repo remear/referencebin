@@ -1,31 +1,24 @@
-
-<div id="timestampbox">
-	Created : <%= @user.created_at.to_s(:long) %><br>
-	Updated : <%= @user.updated_at.to_s(:long) %>
-</div>
-
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Administration', administration_path %></li>
+  <li><%= link_to 'Users', users_path %></li>
+  <li><%= @user.name %></li>
+<% end %>
+<h2 class="users">Users</h2>
+<br />
 <table>
 	<tr>
-		<td style="width:500px; vertical-align:top;">
-		  <p>
-				<b class="sosumi">ID</b><br />
-				<%= @user.id %>
-			</p><br />
-			<p>
-				<b class="sosumi">Name</b><br />
-				<%= @user.name %>
-			</p><br />
-			<p>
-				<b class="sosumi">Email</b><br />
-				<a href="mailto:<%= @user.email %>"><%= @user.email %></a>
-			</p>
+	  <td style="vertical-align:top; width:300px">
+			<%= image_tag @user.profile.url(:medium) %>
 		</td>
-		<td>
-			<% if @user.profile_file_name == "NULL" %>
-				<%= image_tag '/images/photos/user_medium.png', :style => 'float:right;' %>
-			<% else %>
-				<%= image_tag @user.profile.url(:medium), :style => 'float:right;' %>
-			<% end %>
+		<td style="width:500px; vertical-align:top;">
+			<p class="tag green">Name</p>
+			<p><%= @user.name %></p>
+			<p class="tag green">Email</p>
+			<p><a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
+			<div id="timestampbox" style="margin-top:50px">
+      	Created : <%= @user.created_at.to_s(:long) %><br>
+      	Updated : <%= @user.updated_at.to_s(:long) %>
+      </div>
 		</td>
 	</tr>
 </table>
