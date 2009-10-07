@@ -6,7 +6,7 @@
   <li>Recent Bookmarks</li>
   <% end %>
 <% end %>
-<% content_for(:actions) do %><%= link_to 'New bookmark', new_bookmark_path %><% end %>
+<% content_for(:actions) do %><%= link_to 'Create Bookmark', new_bookmark_path %><% end %>
 <% content_for(:toolbar) do %>
   <% if session[:bookmark_content_length] == 0 %>
     <%= link_to_remote("+", :url => { :action => "inc_content_length" }, :collection => @bookmarks) %>

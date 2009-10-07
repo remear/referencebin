@@ -2,7 +2,7 @@
 <table>
   <tr>
     <td>Logged in : </td>
-    <td><strong><%= current_user.name %> (<%= current_user.nickname %>)</strong> | <%= link_to 'Settings', settings_path %></td>
+    <td><strong><%= current_user.name %> (<%= current_user.nickname %>)</strong> | <%= link_to 'Settings', settings_path %> | <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %></td>
   </tr>
   <tr>
     <td>Release :</td>
@@ -10,5 +10,5 @@
   </tr>
 </table>
 <% else %>
-  <p class="sosumi">Not logged in</p>
+  <p><span class="sosumi">Not logged in |</span> <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %></p>
 <% end %>

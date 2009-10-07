@@ -41,8 +41,21 @@
       </ul>
     </div>
     <div class="clearer"></div>
-  	<div id="main" class="clearfix">
-      <div id="col-content">
+  	<div id="main" class="clearfix">    
+  	  
+  	  <div id="col-nav" style="color:#FFFFFF; background:#333333; width:180px; position:absolute; right:0px; top:20px; height:0px; text-align:left; padding:0 20px 0 20px; clear:both; font-size:10px;">
+        <ul id="categories">
+          <%= render :partial => 'languages/side_nav' %>
+        </ul>
+        
+        <% if yield :commands %>
+        <ul class="block">
+          <%= yield :commands %>
+        </ul>
+        <% end %>
+      </div>
+  	    
+      <div id="col-content" style="max-width:70%">
         <% if flash[:warning] or flash[:notice] %>
   		      <div id="notice">
           		<%= flash[:warning] || flash[:notice] %>
@@ -57,17 +70,9 @@
         <% end %>
         <%= yield %>
       </div>
-      <div id="col-nav">
-        <ul id="categories">
-          <%= render :partial => 'languages/side_nav' %>
-        </ul>
-        
-        <% if yield :commands %>
-        <ul class="block">
-          <%= yield :commands %>
-        </ul>
-        <% end %>
-      </div>
+      
+      
+      
   	</div>
   </div>
   <div id="footer">

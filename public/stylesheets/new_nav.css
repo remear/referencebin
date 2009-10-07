@@ -7,17 +7,17 @@
 #header #gnav ul.administration li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
 #header #gnav ul.users li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
 
-#col-nav { width:180px; float:right; margin:20px 20px 20px; }
+#col-nav { margin:20px 20px 20px; }
 #col-nav ul li { padding-top:5px; }
 #col-nav ul a { text-decoration:none; }
 
 #col-nav ul#categories { background:url(/images/bg_box.gif) repeat-x; padding:10px 20px 15px 20px; border:4px solid #DDD; border:1px solid #DDD; -webkit-border-radius:8px; -moz-border-radius:8px; }
-#col-nav ul#categories li a { padding:0 10px 0 10px; display:block; }
+#col-nav ul#categories li a { padding:0 10px 0 10px; display:block; font-size:11px; line-height:1.5em; }
 
 
 #col-nav ul.block { margin-top:30px; padding:10px 20px 15px 20px; border:4px solid #DDD; -webkit-border-radius:10px; -moz-border-radius:10px; background:#FAFAFA; }
 
-#col-content { padding:20px; float:left; }
+#col-content { padding:20px; }
 
 #breadcrumbs a { text-decoration:none; }
 
@@ -34,9 +34,7 @@
 
 #breadcrumbsspan { float: left; width: 9px; margin: 0 10px 0 0; position: relative; height: 0; padding-top: 34px; margin-top: 1px; overflow: hidden; background: url(/images/breadcrumb_sep.png) no-repeat; behavior: url(/includes/iepngfix.htc); }
 
-#actions { float:right; }
-#actions a { color:#666666; text-decoration:none; }
-#actions a:hover { color:#000000; }
+#actions { float:right; font-weight:bold; }
 
 /* pagination */
 

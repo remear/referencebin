@@ -42,7 +42,7 @@ ActionController::Routing::Routes.draw do |map|
   map.administration '/administration', :controller => 'administration', :action => 'index'
 
   #root
-  map.root :controller => 'dashboard'
+  map.root :controller => 'bookmarks'
   
   #derault routes
   map.connect ':controller/:action/:id'

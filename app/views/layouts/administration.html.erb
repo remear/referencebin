@@ -43,6 +43,18 @@
     </div>
     <div class="clearer"></div>
   	<div id="main" class="clearfix">
+  	  <div id="col-nav">
+        <ul id="categories" class="admin">
+          <li id="dashboard"><%= link_to 'Dashboard', administration_path %></li>
+          <li id="users"><%= link_to 'Users', users_path %></li>
+        </ul>
+        
+        <% if yield :commands %>
+        <ul class="block">
+          <%= yield :commands %>
+        </ul>
+        <% end %>
+      </div>
       <div id="col-content">
         <% if flash[:warning] or flash[:notice] %>
   		      <div id="notice">
@@ -57,18 +69,6 @@
               </script>
         <% end %>
         <%= yield %>
-      </div>
-      <div id="col-nav">
-        <ul id="categories" class="admin">
-          <li id="dashboard"><%= link_to 'Dashboard', administration_path %></li>
-          <li id="users"><%= link_to 'Users', users_path %></li>
-        </ul>
-        
-        <% if yield :commands %>
-        <ul class="block">
-          <%= yield :commands %>
-        </ul>
-        <% end %>
       </div>
   	</div>
   </div>
