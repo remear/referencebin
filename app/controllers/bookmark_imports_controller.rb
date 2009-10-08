@@ -1,7 +1,7 @@
 class BookmarkImportsController < ApplicationController
   layout "bookmarks"
   before_filter :login_required
-  
+  skip_after_filter :add_google_analytics_code
   def index
     #@bookmark_imports = BookmarkImport.all
     @bookmark_imports = BookmarkImport.paginate_by_user_id current_user.id, :page => params[:page]
