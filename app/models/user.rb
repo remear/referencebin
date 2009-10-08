@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
                     :styles => { :medium => "300x300>", :thumb => "100x100>", :tiny =>"70x70>" }
   
   is_gravtastic! :secure => true,
-                 :size => 120
+                 :size => 120,
+                 :default => "wavatar"
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
