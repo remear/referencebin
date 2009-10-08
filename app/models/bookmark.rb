@@ -8,6 +8,10 @@ class Bookmark < ActiveRecord::Base
   
   validates_uniqueness_of :url
   
+  def self.per_page
+    8
+  end
+      
   private
     def generate_permalink
         title_based_permalink = self.title.gsub(" ", "-")
