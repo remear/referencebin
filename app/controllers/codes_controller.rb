@@ -1,4 +1,5 @@
 class CodesController < ApplicationController
+  skip_after_filter :add_google_analytics_code
   layout "bookmarks"
   # GET /codes
   # GET /codes.xml

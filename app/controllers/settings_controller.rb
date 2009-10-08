@@ -1,4 +1,5 @@
 class SettingsController < ApplicationController
+  skip_after_filter :add_google_analytics_code
   layout "standard"
   
   def index

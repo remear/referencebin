@@ -1,5 +1,7 @@
 class LanguagesController < ApplicationController
+  skip_after_filter :add_google_analytics_code
   layout "bookmarks"
+  
   # GET /languages
   # GET /languages.xml
   def index

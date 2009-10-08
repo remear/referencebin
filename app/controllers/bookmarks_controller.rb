@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   layout "bookmarks"
   before_filter :login_required, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
+  skip_after_filter :add_google_analytics_code
   
   def index
     if params[:lang]
