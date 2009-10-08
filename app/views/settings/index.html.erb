@@ -10,8 +10,7 @@
   <table style="width:500px;">
   	<tr>
   	  <td style="vertical-align:top; width:400px">
-  			<%= image_tag @user.profile.url(:medium) %>
-  			<p><%= f.file_field :profile %></p>
+  	    <%= image_tag current_user.gravatar_url(:size => 200) %>
   		</td>
   		<td style="vertical-align:top;">
   			<p class="tag green">Name</p>
@@ -29,10 +28,6 @@
 				<p class="tag green">Confirm Password</p>
 				<p><%= f.password_field :password_confirmation %></p>
 				
-  			<div id="timestampbox" style="margin-top:50px">
-        	Created : <%= @user.created_at.to_s(:long) %><br>
-        	Updated : <%= @user.updated_at.to_s(:long) %>
-        </div>
   		</td>
   	</tr>
   	<tr>

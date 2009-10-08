@@ -13,8 +13,8 @@
         </p>
         <%= markdown(comment.body) %>
       </div>
-      <div class="author" style="width:80px; float:left; text-align:center; background:#FFFFFF; border:1px solid lightgray; -webkit-border-radius:5px; -moz-border-radius:5px">
-        <%= image_tag comment.user.profile(:tiny) %>
+      <div class="author" style="width:80px; float:right;">
+        <%= image_tag comment.user.gravatar_url(:size => 60) %>
       </div>
       <div class="clearer"></div>
     </div>
