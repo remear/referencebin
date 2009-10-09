@@ -6,27 +6,28 @@
   <li><%= link_to 'Import', import_bookmarks_path %></li>
 <% end %>
 <% content_for(:commands) do %>
-  <li><%= link_to 'Import Approved', bookmarks_path, :class => 'arrow' %></li>
+  <li><%= link_to 'Import Approved', convert_all_bookmarks_path, :class => 'arrow' %></li>
 <% end %>
 
 <h2>Imported Bookmarks</h2>
 <% if ! @bookmark_imports.blank? %>
 <table class="bookmark_imports interactive">
+  <thead>
   <tr>
     <th></th>
     <th>Title</th>
     <th>Url</th>
     <th style="text-align:center">Status</th>
   </tr>
+  </thead>
+  <tbody>
   <% for bookmark in @bookmark_imports %>
     <tr id="row<%= bookmark.id %>" class="<%= cycle('odd', 'even')%>">
       <td style="width:50px; vertical-align:center; text-align:center">
         <%= link_to_remote 'delete', :url => {:controller => "bookmark_imports", :action => "destroy", :id => bookmark }, :html => {:class => "delete"}, :method => :delete %>
-
-        
       </td>
-      <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.title, 60, "...") %></td>
-      <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.url, 80, "...") %></td>
+      <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.title, :length => 60, :omission => "...") %></td>
+      <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.url, :length => 80, :omission => "...") %></td>
       <td>
         <% if ! bookmark.title.blank? && ! bookmark.url.blank? && ! bookmark.language_id.blank? && ! bookmark.description.blank? && ! bookmark.tag_list.blank? %>
           <div style="width:80px; height:20px; background:url(/images/icons/check.png) 50% no-repeat;"></div>
@@ -36,10 +37,9 @@
       </td>
     </tr>
   <% end %>
-  
-  
+  </tbody>
 </table>
   <%= will_paginate @bookmarks %>
 <% else %>
-  <p class="sosumi">You have no bookmarks to sanitize. <%= link_to "Import bookmarks", bookmark_import_path %></p>
+  <p class="sosumi">You have no bookmarks to sanitize. <%= link_to "Import bookmarks", import_bookmarks_path %></p>
 <% end %>

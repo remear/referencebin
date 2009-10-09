@@ -26,41 +26,12 @@
     <div id="header">
       <div id="logo"></div>
       <div id="sessioninfo">
-        <% if current_user %>
-          Logged in : <strong><%= current_user.name %> (<%= current_user.nickname %>)</strong>
-        <% else %>
-          <p class="sosumi">Not logged in</p>
-        <% end %>
+        <%= render :partial => 'layouts/sessioninfo' %>
       </div>
       <div class="clearer"></div>
       <div id="gnav">
-        <ul>
-          <li>
-            <%= link_to 'Bookmarks', bookmarks_path %> <%= link_to "&nbsp;", "#", :id => "bookmark_toggle", :class => 'inactive', :onclick => "guideMenu(); return false;" %>
-            <div id="guides" class="clearfix" style="display: none;">
-              <hr /> 
-              <dl class="L">
-                <dt>Main Areas</dt>
-                <dd><%= link_to 'Imported Bookmarks', bookmark_imports_path %></dd>
-                <dd><%= link_to 'Import Bookmarks', import_bookmarks_path %></dd>
-              </dl>
-              <dl class="R">
-                <dt>Help</dt>
-                <dd><%= link_to 'Tools For Importing', '#' %></dd>
-                <dd><%= link_to 'Importing Guide', '#' %></dd>
-                <dt>Feeds</dt>
-                <dd><%= link_to 'View Available Feeds', '#' %></dd>
-                <dd><%= link_to 'New', '#', :class => 'rss' %></dd>
-                <dd><%= link_to 'Popular', '#', :class => 'rss' %></dd>
-              </dl>
-            </div>
-          </li>
-          <% if current_user %>
-            <li><%= link_to 'Imported Bookmarks', bookmark_imports_path %></li>
-            <li><%= link_to 'Logout', logout_path %></li>
-          <% else %>
-            <li><%= link_to 'Login', login_path %></li>
-          <% end %>
+        <ul class="<%= params[:controller] %>">
+         <%= render :partial => 'layouts/nav' %>
         </ul>
       </div>
     </div>
@@ -74,9 +45,21 @@
       </ul>
     </div>
     <div class="clearer"></div>
-  	<div id="main" class="clearfix">
-
-      <div id="col-content">
+  	<div id="main" class="clearfix">    
+  	  
+  	  <div id="col-nav" style="color:#FFFFFF; background:#333333; width:180px; position:absolute; right:0px; top:20px; height:0px; text-align:left; padding:0 20px 0 20px; clear:both; font-size:10px;">
+        <ul id="categories">
+          <%= render :partial => 'languages/side_nav' %>
+        </ul>
+        
+        <% if yield :commands %>
+        <ul class="block">
+          <%= yield :commands %>
+        </ul>
+        <% end %>
+      </div>
+  	    
+      <div id="col-content" style="max-width:70%">
         <% if flash[:warning] or flash[:notice] %>
   		      <div id="notice">
           		<%= flash[:warning] || flash[:notice] %>
@@ -91,22 +74,13 @@
         <% end %>
         <%= yield %>
       </div>
-      <div id="col-nav">
-        <ul id="categories">
-          <%= render :partial => 'languages/side_nav' %>
-        </ul>
-        
-        <% if yield :commands %>
-        <ul class="block">
-          <%= yield :commands %>
-        </ul>
-        <% end %>
-      </div>
+      
+      
+      
   	</div>
   </div>
   <div id="footer">
-    <span style="float:left">use prb for good, not evil!</span>
-    <span>provided by <a href="http://reanstudios.com">Rean Studios</a></span>
+    <%= render :partial => 'layouts/footer' %>
   </div>
 </body>
 </html>

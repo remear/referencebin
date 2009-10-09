@@ -93,7 +93,9 @@ p.last, ul.last, ol.last, li.last { _width:auto !important; _float:none !importa
  
 /* TYPE */
 body { font: 11px/14px "Lucida Grande", Geneva, Arial, Verdana, sans-serif !important; background-color:#fff; color:#333; }
- 
+
+.right { text-align:right; }
+
 a { color: #2971a7; }
 strong, b { font-weight:bold; }
 em, i { font-style:italic; }

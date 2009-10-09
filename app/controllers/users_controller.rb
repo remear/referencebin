@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  layout "bookmarks"
+  layout "administration"
   include AuthenticatedSystem
   before_filter :login_required
-
+  before_filter :admin_required
+  skip_after_filter :add_google_analytics_code
+  
+  def index
+    @users = User.find(:all)
+  end
+  
   # render new.rhtml
   def new
     @user = User.new
@@ -24,7 +30,6 @@ class UsersController < ApplicationController
         format.html { render :action => "edit" }
       end
     end
-	
   end
   
   def show
@@ -53,5 +58,9 @@ class UsersController < ApplicationController
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
       render :action => 'new'
     end
+  end
+  
+  def settings
+    @user = User.find_by_id(current_user.id)
   end
 end

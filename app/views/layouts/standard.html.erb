@@ -19,21 +19,12 @@
     <div id="header">
       <div id="logo"></div>
       <div id="sessioninfo">
-        <% if current_user %>
-          Logged in : <strong><%= current_user.name %></strong>
-        <% else %>
-          <p class="sosumi">Not logged in</p>
-        <% end %>
+        <%= render :partial => 'layouts/sessioninfo' %>
       </div>
       <div class="clearer"></div>
       <div id="gnav">
         <ul>
-          <li><%= link_to 'Bookmarks', bookmarks_path %></li>
-          <% if current_user %>
-            <li><%= link_to 'Logout', logout_path %></li>
-          <% else %>
-            <li><%= link_to 'Login', login_path %></li>
-          <% end %>
+          <%= render :partial => 'layouts/nav' %>
         </ul>
       </div>
     </div>
@@ -43,13 +34,9 @@
         <%= yield %>
       </div>
   	</div>
-
   </div>
-
 <div id="footer">
-  <span style="float:left">use prb for good, not evil!</span>
-  <span>provided by <a href="http://reanstudios.com">Rean Studios</a></span>
+  <%= render :partial => 'layouts/footer' %>
 </div>
-
 </body>
 </html>

@@ -1,8 +1,10 @@
 <ul>
 <% for bookmark in @bookmarks %>
-  <li class="item">
-    <%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %>
-    <p class="description"><%= truncate(bookmark.description) %></p>
+  <li class="item <%= cycle('odd', 'even') %>">
+    <p>
+      <p class="title"><%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %></p>
+      <p class="description"><%= bookmark.description %></p>
+    </p>
   </li>
 <% end %>
 </ul>

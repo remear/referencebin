@@ -1,0 +1,10 @@
+<li id="bookmarks"><%= link_to 'Bookmarks', bookmarks_path %></li>
+<% if current_user %>
+<li><%= link_to 'Imported Bookmarks', bookmark_imports_path %></li>
+<% if admin? %>
+<li id="administration"><%= link_to 'Administration', administration_path %></li>
+<% end %>
+<li><%= link_to 'Logout', logout_path %></li>
+<% else %>
+<li><%= link_to 'Login', login_path %></li>
+<% end %>

@@ -3,7 +3,7 @@ module ApplicationHelper
   include TagsHelper
   
   def get_languages
-    @languages = Language.all(:order => 'name')
+    @languages = Language.all(:select => "name, permalink", :order => 'name')
   end
   
   def language_name(id)

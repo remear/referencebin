@@ -1,7 +1,7 @@
 class BookmarkImportsController < ApplicationController
   layout "bookmarks"
   before_filter :login_required
-  
+  skip_after_filter :add_google_analytics_code
   def index
     #@bookmark_imports = BookmarkImport.all
     @bookmark_imports = BookmarkImport.paginate_by_user_id current_user.id, :page => params[:page]
@@ -26,9 +26,7 @@ class BookmarkImportsController < ApplicationController
       @errors << 'Bookmark description cannot be empty'
     end
     
-    @curl = %x{ curl -s --connect-timeout 3 -I #{@bookmark_import.url} --user-agent "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_1; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9" | grep HTTP }
-    #RAILS_DEFAULT_LOGGER.info("****#{@curl}****")
-    @curl = @curl[/\d\d\d/]
+    @url_status = url_lookup(@bookmark_import.url)
   end
   
   def new
@@ -36,6 +34,39 @@ class BookmarkImportsController < ApplicationController
   end
   
   def import
+  end
+  
+  def convert
+    @bookmark_import = BookmarkImport.find(params[:id])
+    @bookmark = Bookmark.new(@bookmark_import.attributes)
+    
+    if @bookmark.save
+      @bookmark_import.destroy
+      flash[:notice] = 'Bookmark was successfully made live.'
+      redirect_to bookmark_path(:lang => @bookmark.language.permalink, :bookmark_name => @bookmark.permalink)
+    else
+      flash[:warning] = 'An error occured while trying to make the bookmark live.'
+      redirect_to :back
+    end
+  end
+  
+  def convert_all
+    @bookmark_imports = BookmarkImport.find(:all, :conditions => "description IS NOT NULL and title IS NOT NULL and language_id IS NOT NULL and url IS NOT NULL")
+    
+    importcount = 0
+    
+    Bookmark.transaction do
+      @bookmark_imports.each do |bookmarkimport|
+        @bookmark = Bookmark.new(bookmarkimport.attributes)
+        if @bookmark.save
+          bookmarkimport.destroy
+          importcount += 1
+        end
+      end
+    end
+    
+    flash[:notice] = "Made #{importcount} bookmarks live"
+    redirect_to bookmarks_path
   end
   
   def do_import

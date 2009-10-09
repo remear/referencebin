@@ -1,0 +1,23 @@
+<% if current_user %>
+<!--
+<div style="width:50px; border:1px #555555 solid; float:left; margin-right:20px; background:#FFFFFF; -webkit-border-radius:4px; -moz-border-radius:4px;"><%= image_tag current_user.gravatar_url(:size => 50) %></div>
+-->
+<div style="width:50px; float:left; margin-right:10px;"><%= image_tag current_user.gravatar_url(:size => 40) %></div>
+<table>
+  <tr>
+    <td class="right">Logged in : </td>
+    <td>
+      <strong><%= current_user.name %> (<%= current_user.nickname %>)</strong><span class="sosumi"> | </span>
+      <%= link_to 'Settings', settings_path %><span class="sosumi"> | </span>
+      <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %><span class="sosumi"> | </span>
+      <%= link_to 'Logout', logout_path %>
+    </td>
+  </tr>
+  <tr>
+    <td class="right">Release :</td>
+    <td><strong><%= File.split(RAILS_ROOT).last %></strong></td>
+  </tr>
+</table>
+<% else %>
+  <p><span class="sosumi">Not logged in |</span> <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %></p>
+<% end %>

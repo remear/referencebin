@@ -17,8 +17,14 @@ body > #wrap { height: auto; min-height: 100%; }
 
 #header { height:140px; width:100%; background:#333333 url(/images/logo_prb.png) 30px 10px no-repeat; }
 #header #sessioninfo { float:right; color:#FFFFFF; padding:10px 20px 0 0; }
+#header #sessioninfo a { color:#FFFFFF; }
 #header #logo { height:60px; width:50px; background:#FFFFFF url(/images/logo_rean.png) no-repeat center; float:right; margin-right:30px; }
 #toolbar { height:32px; background:#CCCCCC url(/images/barbg.png); line-height:3em; padding:0 20px 0px 10px; }
+
+#list li { border-bottom:1px #DFDFDF solid; padding:3px 10px 3px 10px; }
+#list li.even { background:#F9F9F9; }
+#list p.title a { font-weight:bold; font-size:14px; }
+#list p.title { margin-bottom:5px; }
 
 /* comments */
 .comment { width:735px; min-height:75px; padding:10px 10px 10px 0; margin-bottom:10px; -webkit-border-radius:5px; -moz-border-radius:5px }
@@ -46,10 +52,14 @@ table th { color:blue; font-size:12px; height:20px; vertical-align:top; }
 /* interactive table*/
 table.interactive tr td { cursor:hand; cursor:pointer; }
 table.interactive tr.even { background:#EFEFEF; }
-table.interactive tr:hover { background:#0055c8 !important; color:#FFFFFF; }
-
+table.interactive thead tr { background:#333333 !important; color:#FFFFFF; }
+table.interactive thead tr th { color:#FFFFFF; }
+table.interactive tbody tr:hover { background:#0055c8 !important; color:#FFFFFF; }
 
 table.bookmark_imports.interactive tr { line-height:2.5em; }
+
+/* timestamp box */
+#timestampbox { color:#888888; background:#EEEEEE; -webkit-border-radius:5px; -moz-border-radius:5px; padding:10px; width:200px; }
 
 /* notices */
 #notice { margin:0px auto 20px 20px; }

@@ -9,14 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091002202014) do
+ActiveRecord::Schema.define(:version => 20091005051914) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
     t.string   "url"
     t.integer  "user_id"
-    t.integer  "language_id"
     t.string   "description"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(:version => 20091002202014) do
   create_table "bookmarks", :force => true do |t|
     t.string   "title"
     t.string   "url"
-    t.integer  "user_id"
-    t.integer  "language_id"
     t.string   "permalink",   :limit => 3000
     t.string   "description", :limit => 3000
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "language_id"
+    t.integer  "user_id"
   end
 
   add_index "bookmarks", ["url"], :name => "index_bookmarks_on_url", :unique => true
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20091002202014) do
     t.string   "profile_content_type"
     t.integer  "profile_file_size"
     t.string   "nickname"
+    t.boolean  "admin",                                    :default => false
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

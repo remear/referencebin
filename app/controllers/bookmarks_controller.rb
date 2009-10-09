@@ -1,11 +1,24 @@
 class BookmarksController < ApplicationController
   layout "bookmarks"
-  before_filter :login_required, :only => [ 'new', 'edit', 'update', 'destroy' ]
-  
+  before_filter :login_required, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
+  skip_after_filter :add_google_analytics_code, :only => [ 'destroy', 'update', 'dec_content_length', 'inc_content_length' ]
   def index
     if params[:lang]
       @lang = Language.find_by_permalink(params[:lang])
       @bookmarks = Bookmark.paginate_by_language_id @lang.id, :page => params[:page]
+    else
+      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
+    end
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @bookmarks }
+    end
+  end
+  
+  def tags
+    if params[:tag]
+      @bookmarks = Bookmark.paginate_tagged_with params[:tag], :page => params[:page]
     else
       @tags = Bookmark.tag_counts
     end
@@ -19,9 +32,8 @@ class BookmarksController < ApplicationController
   def show
     lang = Language.find_by_permalink(params[:lang])
     @bookmark = Bookmark.find_by_permalink(params[:bookmark_name], :conditions => {:language_id => lang.id}, :include => "comments")
-
-    @curl = %x{ curl -I #{@bookmark.url} | grep HTTP }
-    @curl = @curl[/\d\d\d/]
+    
+    @url_status = url_lookup(@bookmark.url)
     
     respond_to do |format|
       format.html # show.html.erb

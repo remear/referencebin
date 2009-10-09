@@ -1,0 +1,37 @@
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to 'Administration', administration_path %></li>
+  <li><%= link_to 'Users', users_path %></li>
+  <li><%= @user.name %></li>
+<% end %>
+<h2>Settings</h2>
+<br />
+<% form_for @user, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <table style="width:500px;">
+  	<tr>
+  	  <td style="vertical-align:top; width:400px">
+  	    <%= image_tag current_user.gravatar_url(:size => 200) %>
+  		</td>
+  		<td style="vertical-align:top;">
+  			<p class="tag green">Name</p>
+  			<p><%= @user.name %></p>
+  			
+  			<p class="tag green">Nickname</p>
+  			<p><%= @user.nickname %></p>
+  			
+  			<p class="tag green">Email</p>
+  			<p><%= f.text_field :email %></p>
+  			
+  			<p class="tag green">New Password</p>
+				<p><%= f.password_field :password %></p>
+
+				<p class="tag green">Confirm Password</p>
+				<p><%= f.password_field :password_confirmation %></p>
+				
+  		</td>
+  	</tr>
+  	<tr>
+  	  <td colspan="2" style="text-align:right"><%= image_submit_tag '/images/buttons/update.png', :style => "margin-top:20px;" %></td>
+  	</tr>
+  </table>
+<% end %>
