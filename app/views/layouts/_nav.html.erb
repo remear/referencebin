@@ -1,4 +1,23 @@
-<li id="bookmarks"><%= link_to 'Bookmarks', bookmarks_path %></li>
+<li>
+  <%= link_to 'Bookmarks', bookmarks_path %> <%= link_to "&nbsp;", "#", :id => "bookmark_toggle", :class => 'inactive', :onclick => "guideMenu(); return false;" %>
+  <div id="guides" class="clearfix" style="display: none;">
+    <hr /> 
+    <dl class="L">
+      <dt>Main Areas</dt>
+      <dd><%= link_to 'Imported Bookmarks', bookmark_imports_path %></dd>
+      <dd><%= link_to 'Import Bookmarks', import_bookmarks_path %></dd>
+    </dl>
+    <dl class="R">
+      <dt>Help</dt>
+      <dd><%= link_to 'Tools For Importing', '#' %></dd>
+      <dd><%= link_to 'Importing Guide', '#' %></dd>
+      <dt>Feeds</dt>
+      <dd><%= link_to 'View Available Feeds', '#' %></dd>
+      <dd><%= link_to 'New', '#', :class => 'rss' %></dd>
+      <dd><%= link_to 'Popular', '#', :class => 'rss' %></dd>
+    </dl>
+  </div>
+</li>
 <% if current_user %>
 <li><%= link_to 'Imported Bookmarks', bookmark_imports_path %></li>
 <% if admin? %>

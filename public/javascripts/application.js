@@ -32,10 +32,20 @@ function guideMenu(){
   if (document.getElementById('guides').style.display == "none") {
     $("#bookmark_toggle").removeClass('inactive');
     $("#bookmark_toggle").addClass('active');
-    document.getElementById('guides').style.display = "block";
+    //document.getElementById('guides').style.display = "block";
+    $("#guides").fadeIn(function(){
+      $('body').click(function(){
+        $("#bookmark_toggle").removeClass('active');
+        $("#bookmark_toggle").addClass('inactive');
+        $("#guides").fadeOut();
+        $("body").unbind("click");
+      });
+    });
+    
   } else {
     $("#bookmark_toggle").removeClass('active');
     $("#bookmark_toggle").addClass('inactive');
-    document.getElementById('guides').style.display = "none";
+    //document.getElementById('guides').style.display = "none";
+    $("#guides").fadeOut();
   }
 }

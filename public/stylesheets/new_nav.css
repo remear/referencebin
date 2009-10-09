@@ -45,6 +45,8 @@
 .pagination .current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #036CB4; font-weight: bold; background-color: #036CB4; color: #FFF; }
 .pagination .disabled { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #EEE; color: #DDD; }
 
+
+/* bookmark toggle */
 #bookmark_toggle { padding:0 10px 0 0; margin-left:5px; }
 #bookmark_toggle.inactive { background:url(/images/buttons/btn_menu.png) no-repeat; }
 #bookmark_toggle.active { background:url(/images/buttons/btn_menu_active.png) no-repeat; }
