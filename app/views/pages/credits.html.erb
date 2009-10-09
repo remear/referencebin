@@ -1,2 +1,6 @@
 <h1>Pages#credits</h1>
 <p>Find me in app/views/pages/credits.html.erb</p>
+
+<% for contributor in @contributors %>
+  <p><%= contributor.nickname %></p>
+<% end %>

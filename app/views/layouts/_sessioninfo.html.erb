@@ -1,10 +1,7 @@
 <% if current_user %>
-<!--
-<div style="width:50px; border:1px #555555 solid; float:left; margin-right:20px; background:#FFFFFF; -webkit-border-radius:4px; -moz-border-radius:4px;"><%= image_tag current_user.gravatar_url(:size => 50) %></div>
--->
-<div style="width:50px; float:left; margin-right:10px;"><%= image_tag current_user.gravatar_url(:size => 40) %></div>
 <table>
   <tr>
+    <td rowspan="2"><%= image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:20px;" %></td>
     <td class="right">Logged in : </td>
     <td>
       <strong><%= current_user.name %> (<%= current_user.nickname %>)</strong><span class="sosumi"> | </span>

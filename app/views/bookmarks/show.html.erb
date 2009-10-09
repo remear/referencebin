@@ -28,7 +28,7 @@
 
 <% if @bookmark.description %>
 <p class="tag green">Description</p>
-<p><%= markdown(@bookmark.description) %></p>
+<%= markdown(@bookmark.description) %>
 <% end %>
 
 <%= render :partial => "comments" %>

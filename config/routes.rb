@@ -2,9 +2,6 @@ ActionController::Routing::Routes.draw do |map|
   #bookmark imports
   map.convert_all_bookmarks '/bookmark_imports/convert_all', :controller => 'bookmark_imports', :action => 'convert_all'
   map.convert_bookmark '/bookmark_imports/:id/convert', :controller => 'bookmark_imports', :action => 'convert'
-  
-  map.rubyonrails_feed '/feeds/rubyonrails', :controller => 'feeds', :action => 'rubyonrails'
-  
   map.import_bookmarks '/bookmarks/import', :controller => 'bookmark_imports', :action => 'import'
   map.do_bookmark_import '/bookmark_imports/do_import', :controller => 'bookmark_imports', :action => 'do_import'
   map.resources :bookmark_imports
@@ -44,6 +41,11 @@ ActionController::Routing::Routes.draw do |map|
   ##users are mapped with path_prefix of /administration
   map.administration '/administration', :controller => 'administration', :action => 'index'
 
+  #pages
+  map.credits '/credits', :controller => 'pages', :action => 'credits'
+  map.termsofuse '/termsofuse', :controller => 'pages', :action => 'termsofuse'
+  map.privacypolicy '/privacypolicy', :controller => 'pages', :action => 'privacypolicy'
+  
   #root
   map.root :controller => 'bookmarks'
   

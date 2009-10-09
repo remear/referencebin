@@ -47,7 +47,7 @@
 
 
 /* bookmark toggle */
-#bookmark_toggle { padding:0 10px 0 0; margin-left:5px; }
+#bookmark_toggle { padding:0 10px 0 0; margin-left:5px; width:14px; }
 #bookmark_toggle.inactive { background:url(/images/buttons/btn_menu.png) no-repeat; }
 #bookmark_toggle.active { background:url(/images/buttons/btn_menu_active.png) no-repeat; }
 #bookmark_toggle:hover { text-decoration:none !important; }
@@ -80,7 +80,7 @@
     padding: 0;
 }
 #guides dt {padding:0; margin: 0.5em 0 0;}
-#guides a {color: #FFF; background: none;}
+#guides a { color: #FFF; text-shadow:none !important; display:block; }
 #guides .L, #guides .R {float: left; width: 50%; margin: 0; padding: 0;}
 #guides .R {float: right;}
 #guides hr {

@@ -21,7 +21,7 @@ body > #wrap { height: auto; min-height: 100%; }
 #header #logo { height:60px; width:50px; background:#FFFFFF url(/images/logo_rean.png) no-repeat center; float:right; margin-right:30px; }
 #toolbar { height:32px; background:#CCCCCC url(/images/barbg.png); line-height:3em; padding:0 20px 0px 10px; }
 
-#list li { border-bottom:1px #DFDFDF solid; padding:3px 10px 3px 10px; }
+#list li { border-bottom:1px #DFDFDF solid; padding:15px 10px 3px 10px; }
 #list li.even { background:#F9F9F9; }
 #list p.title a { font-weight:bold; font-size:14px; }
 #list p.title { margin-bottom:5px; }

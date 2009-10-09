@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091005051914) do
+ActiveRecord::Schema.define(:version => 20091009005954) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20091005051914) do
     t.integer  "profile_file_size"
     t.string   "nickname"
     t.boolean  "admin",                                    :default => false
+    t.boolean  "contributor",                              :default => false
+    t.text     "description"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
