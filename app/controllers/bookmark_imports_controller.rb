@@ -70,25 +70,30 @@ class BookmarkImportsController < ApplicationController
   end
   
   def do_import
-    file = params[:do_import][:file]
-    
-    rowcount = 0
-    importcount = 0
-    
-    BookmarkImport.transaction do
-      FasterCSV.parse(file, :row_sep => "\r") do |row|
-        title, url = row
-        @bookmark_pass = Bookmark.all(:conditions => ["BINARY bookmarks.url = ?", url])
-        @bookmark_import_pass = BookmarkImport.all(:conditions => ["BINARY bookmark_imports.url = ?", url])
-        if @pass.blank? && @bookmark_import_pass.blank?
-          BookmarkImport.create(:title => title, :url => url, :user_id => current_user.id)
-          importcount += 1
+    begin 
+      file = params[:do_import][:file]
+      rowcount = 0
+      importcount = 0
+
+      BookmarkImport.transaction do
+        FasterCSV.parse(file, :row_sep => "\r") do |row|
+          title, url = row
+          @bookmark_pass = Bookmark.all(:conditions => ["BINARY bookmarks.url = ?", url])
+          @bookmark_import_pass = BookmarkImport.all(:conditions => ["BINARY bookmark_imports.url = ?", url])
+          if @pass.blank? && @bookmark_import_pass.blank?
+            BookmarkImport.create(:title => title, :url => url, :user_id => current_user.id)
+            importcount += 1
+          end
+          rowcount += 1
         end
-        rowcount += 1
       end
+      rescue FasterCSV::MalformedCSVError
+        @error = "FasterCSV::MalformedCSVError"
+        render :file => "#{RAILS_ROOT}/public/error.html.erb"
+      else
+        flash[:notice] = "Imported #{importcount} of #{rowcount} bookmarks" 
+        redirect_to bookmark_imports_path
     end
-    flash[:notice] = "Imported #{importcount} of #{rowcount} bookmarks" 
-    redirect_to bookmark_imports_path
   end
   
   def create
