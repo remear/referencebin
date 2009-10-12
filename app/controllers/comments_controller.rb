@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   skip_after_filter :add_google_analytics_code
+  before_filter :login_required
   layout "bookmarks"
   # GET /comments
   # GET /comments.xml

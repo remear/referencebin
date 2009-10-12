@@ -1,7 +1,8 @@
+<% if current_user %>
 <br />
 <div><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></div>
 <br />
-
+<% end %>
 <% if not @bookmark.comments.empty? %>
   <% #for comment in @bookmark.comments.reverse %>
   <% for comment in @bookmark.comments %>
