@@ -6,3 +6,4 @@ tmp/restart.txt
 public/assets
 *.sql
 tmp/**/*
+users.csv
