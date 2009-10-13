@@ -1,10 +1,10 @@
-<h2>Log In</h2>
+<h1>Log In</h1>
 
 <% form_tag session_path do -%>
-<p class="tag green"><%= label_tag 'login' %><br />
+<p><%= label_tag 'login' %><br />
 <%= text_field_tag 'login', @login %></p>
 
-<p class="tag green"><%= label_tag 'password' %><br/>
+<p><%= label_tag 'password' %><br/>
 <%= password_field_tag 'password', nil %></p>
 
 <!-- Uncomment this if you want this functionality
@@ -12,5 +12,5 @@
 <%= check_box_tag 'remember_me', '1', @remember_me %></p>
 -->
 
-<p><%= image_submit_tag '/images/buttons/login_green.png' %></p>
+<p><%= submit_tag 'Log in' %></p>
 <% end -%>

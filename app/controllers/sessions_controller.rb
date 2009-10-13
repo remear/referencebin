@@ -1,8 +1,7 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
-  skip_after_filter :add_google_analytics_code, :except => "new"
-  layout "standard"
   # Be sure to include AuthenticationSystem in Application Controller instead
+  layout "standard"
   include AuthenticatedSystem
 
   # render new.rhtml

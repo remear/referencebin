@@ -1,4 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.signup '/register', :controller => 'users', :action => 'new'
+  map.login  '/login',  :controller => 'sessions', :action => 'new'
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.resource :session
+  map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
+
   #bookmark imports
   map.convert_all_bookmarks '/bookmark_imports/convert_all', :controller => 'bookmark_imports', :action => 'convert_all'
   map.convert_bookmark '/bookmark_imports/:id/convert', :controller => 'bookmark_imports', :action => 'convert'
@@ -10,13 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :codes
 
   #users & sessions
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  map.register '/register', :controller => 'users', :action => 'create'
-  map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources :users, :path_prefix => '/administration'
-  map.resource :session
-
   #settings
   map.settings '/settings', :controller => 'settings', :action => 'index'
   

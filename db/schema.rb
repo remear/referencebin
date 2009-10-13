@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091009005954) do
+ActiveRecord::Schema.define(:version => 20091013002911) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -85,24 +85,27 @@ ActiveRecord::Schema.define(:version => 20091009005954) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                     :limit => 40
-    t.string   "name",                      :limit => 100, :default => ""
-    t.string   "email",                     :limit => 100
+    t.string   "login",                     :limit => 40,                         :null => false
+    t.string   "firstname",                 :limit => 100,                        :null => false
+    t.string   "lastname",                  :limit => 100,                        :null => false
+    t.string   "nickname",                  :limit => 100,                        :null => false
+    t.string   "email",                     :limit => 100,                        :null => false
+    t.boolean  "description"
+    t.boolean  "contributor",                              :default => false
+    t.boolean  "admin",                                    :default => false
     t.string   "crypted_password",          :limit => 512
     t.string   "salt",                      :limit => 512
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 512
     t.datetime "remember_token_expires_at"
-    t.string   "profile_file_name"
-    t.string   "profile_content_type"
-    t.integer  "profile_file_size"
-    t.string   "nickname"
-    t.boolean  "admin",                                    :default => false
-    t.boolean  "contributor",                              :default => false
-    t.text     "description"
+    t.string   "activation_code",           :limit => 512
+    t.datetime "activated_at"
+    t.string   "state",                                    :default => "passive"
+    t.datetime "deleted_at"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
 end

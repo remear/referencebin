@@ -1,4 +1,5 @@
-module UsersHelper  
+module UsersHelper
+  
   #
   # Use this to wrap view elements that the user can't access.
   # !! Note: this is an *interface*, not *security* feature !!
