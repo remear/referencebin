@@ -14,21 +14,24 @@
 
 <p class="tag green">Url</p>
 <p>
-  <%= link_to @bookmark.url, @bookmark.url %>
-  
   <% if @url_status == "200" %>
-    <span class="green" style="margin-left:30px; font-weight:bold">WORKING</span>
+    <%= link_to @bookmark.url, @bookmark.url, :style => "background:url(/images/icons/check.png) right no-repeat; padding:5px 30px 5px 0;" %>
   <% else %>
-    <span class="red" style="margin-left:30px; font-weight:bold">PROBLEM</span>
+    <%= link_to @bookmark.url, @bookmark.url, :style => "background:url(/images/icons/minus.png) right no-repeat; padding:5px 30px 5px 0;" %>
   <% end %>
 </p>
 
 <p class="tag green">Tags</p>
+<% if ! @bookmark.tag_list.empty? %>
 <p class="sosumi"><%= @bookmark.tag_list %></p>
+<% else %>
+<p class="sosumi">Bookmark has no tags</p>
+<% end %>
 
 <% if @bookmark.description %>
 <p class="tag green">Description</p>
 <%= markdown(@bookmark.description) %>
 <% end %>
 
+<p><%= image_tag @bookmark.thumb(:large) %></p>
 <%= render :partial => "comments" %>

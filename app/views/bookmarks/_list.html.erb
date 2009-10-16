@@ -1,7 +1,19 @@
 <% if session[:bookmark_content_length] == 0 %>
-  <%= render :partial => 'single' %>
+  <% render :partial => 'single' %>
 <% elsif session[:bookmark_content_length] == 1 %>
-  <%= render :partial => 'brief' %>
+  <% render :partial => 'brief' %>
 <% else %>
-  <%= render :partial => 'extended' %>
+  <% render :partial => 'extended' %>
+<% end %>
+
+<% for bookmark in @bookmarks %>
+<div style="width:1000px; margin:auto; height:150px">
+  <div style="background:url(/images/bar.gif) no-repeat; height:23px; color:#FFFFFF; padding:5px 10px 5px 10px"><span style="float:left"><%= bookmark.title %></span><span style="float:right"><%= bookmark.tag_list %></span></div>
+  <span style="float:left; margin-right:20px;"><% link_to bookmark.url do %><%= image_tag bookmark.thumb(:small) %><% end %></span>
+
+  <p class="title"><%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %><span style="float:right">Status</span></p>
+  <p class="description"><%= bookmark.description %></p>
+  <p>Comments <%= bookmark.comments.count %></p>
+</div>
+<div class="clearer"></div>
 <% end %>
