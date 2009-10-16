@@ -11,9 +11,11 @@
   <div style="background:url(/images/bar.gif) no-repeat; height:23px; color:#FFFFFF; padding:5px 10px 5px 10px"><span style="float:left"><%= bookmark.title %></span><span style="float:right"><%= bookmark.tag_list %></span></div>
   <span style="float:left; margin-right:20px;"><% link_to bookmark.url do %><%= image_tag bookmark.thumb(:small) %><% end %></span>
 
-  <p class="title"><%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %><span style="float:right">Status</span></p>
+  <p class="title">
+    <%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %>
+  </p>
   <p class="description"><%= bookmark.description %></p>
-  <p>Comments <%= bookmark.comments.count %></p>
+  <p class="sosumi">Comments : <%= bookmark.comments.count %></p>
 </div>
 <div class="clearer"></div>
 <% end %>

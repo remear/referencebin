@@ -6,8 +6,6 @@
       <dt>Main Areas</dt>
       <dd><%= link_to 'Imported Bookmarks', bookmark_imports_path %></dd>
       <dd><%= link_to 'Import Bookmarks', import_bookmarks_path %></dd>
-    </dl>
-    <dl class="R">
       <dt>Help</dt>
       <dd><%= link_to 'Tools For Importing', '#' %></dd>
       <dd><%= link_to 'Importing Guide', '#' %></dd>
@@ -15,6 +13,10 @@
       <dd><%= link_to 'View Available Feeds', '#' %></dd>
       <dd><%= link_to 'New', '#', :class => 'rss' %></dd>
       <dd><%= link_to 'Popular', '#', :class => 'rss' %></dd>
+    </dl>
+    <dl class="R">
+      <dt>Categories</dt>
+      <%= render :partial => 'languages/lang_nav' %>
     </dl>
   </div>
 </li>

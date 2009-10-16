@@ -20,12 +20,14 @@
 <% end %>
 
 <% if params[:lang] %>
-<h2>Listing bookmarks</h2>
+<h1 class="<%= params[:lang] %>">Listing bookmarks</h1>
 <% else %>
-<h2>Listing Recent Bookmarks</h2>
+<h1 class="bookmark_recent">Listing Recent Bookmarks</h1>
 <% end %>
 
 <% if ! @bookmarks.empty? %>
+<p id="position"><%= will_paginate @bookmarks, :id => 'pagination' %></p>
+
 <div id="list">
   <%= render :partial => 'list' %>
 </div>

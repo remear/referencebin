@@ -1,4 +1,4 @@
-#header #gnav { margin:40px 0 0 250px; }
+#header #gnav { margin:20px 0 0 250px; }
 #header #gnav ul li { color:#FFFFFF; display:inline; list-style:none; font-size:12px; margin-left:30px; }
 #header #gnav a { color:#FFFFFF; text-decoration:none; font-size:12px; }
 #header #gnav a:hover { color:#FFFFFF; text-decoration:underline; }
@@ -6,18 +6,6 @@
 #header #gnav ul.bookmarks li#bookmarks a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
 #header #gnav ul.administration li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
 #header #gnav ul.users li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
-
-#col-nav { margin:20px 20px 20px; }
-#col-nav ul li { padding-top:5px; }
-#col-nav ul a { text-decoration:none; }
-
-#col-nav ul#categories { background:url(/images/bg_box.gif) repeat-x; padding:10px 20px 15px 20px; border:4px solid #DDD; border:1px solid #DDD; -webkit-border-radius:8px; -moz-border-radius:8px; }
-#col-nav ul#categories li a { padding:0 10px 0 10px; display:block; font-size:11px; line-height:1.5em; }
-
-
-#col-nav ul.block { margin-top:30px; padding:10px 20px 15px 20px; border:4px solid #DDD; -webkit-border-radius:10px; -moz-border-radius:10px; background:#FAFAFA; }
-
-#col-content { padding:20px; }
 
 #breadcrumbs a { text-decoration:none; }
 
@@ -57,17 +45,17 @@
 #guides {
     width: 400px;
     display: block;
-    background: #3e3e3e;
+    background: #1c4c95;
     border-radius: 1em;
     -webkit-border-radius: 1em;
     -moz-border-radius: 1em;
-    -webkit-box-shadow: 0.25em 0.25em 1em rgba(0,0,0,0.25);
-    -moz-box-shadow: rgba(0,0,0,0.25) 0.25em 0.25em 1em;
+    -webkit-box-shadow: 0.25em 0.25em 1em rgba(0,0,0,0.50);
+    -moz-box-shadow: rgba(0,0,0,0.50) 0.25em 0.25em 1em;
     color: #76f078;
     padding: 1.5em 2em;
     position: absolute;
     z-index: 10;
-    top: 120px;
+    top: 100px;
     left: 80px;
     padding-top: 2em;
 }

@@ -3,10 +3,11 @@ html, body, #wrap {height: 100%;}
 
 body > #wrap { height: auto; min-height: 100%; }
 
+#content { width:1000px; margin:auto; }
 #main { padding-bottom: 50px; }  /* must be same height as the footer */
 
-#footer { color:#FFFFFF; background:#333333; position:relative; margin-top:-50px; height:50px; text-align:right; padding:0 20px 0 20px; clear:both; font-size:10px; line-height:5em; } 
-#footer a { color:#F3F3F3; }
+#footer { color:#666; background:url(/images/bottom_gradient.png) repeat-x; position:relative; margin-top:-50px; height:50px; text-align:right; padding:0 20px 0 20px; clear:both; font-size:10px; line-height:5em; } 
+#footer a { color:#666; }
 /* CLEAR FIX*/
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 .clearfix { display: inline-block; }
@@ -15,11 +16,30 @@ body > #wrap { height: auto; min-height: 100%; }
 .clearfix { display: block; }
 /* End hide from IE-mac */
 
-#header { height:140px; width:100%; background:#333333 url(/images/logo_prb.png) 30px 10px no-repeat; }
+#header { height:120px; width:100%; /*background:#3c85b8 url(/images/logo_prb.png) 30px 10px no-repeat;*/ background:#2260be url(/images/logo_prb.png) 30px 5px no-repeat; }
 #header #sessioninfo { float:right; color:#FFFFFF; padding:10px 20px 0 0; }
+#header #sessioninfo .sosumi { color:#EEEEEE; }
 #header #sessioninfo a { color:#FFFFFF; }
 #header #logo { height:60px; width:50px; background:#FFFFFF url(/images/logo_rean.png) no-repeat center; float:right; margin-right:30px; }
 #toolbar { height:32px; background:#CCCCCC url(/images/barbg.png); line-height:3em; padding:0 20px 0px 10px; }
+
+h1 { border-bottom: 1px #DEDEDE solid; text-indent:-9999px; }
+h1.bash { background:url(/images/titles/bash.png) no-repeat; }
+h1.c { background:url(/images/titles/c.png) no-repeat; }
+h1.cocoa { background:url(/images/titles/cocoa.png) no-repeat; }
+h1.cpp { background:url(/images/titles/cpp.png) no-repeat; }
+h1.csharp { background:url(/images/titles/csharp.png) no-repeat; }
+h1.java { background:url(/images/titles/java.png) no-repeat; }
+h1.javascript { background:url(/images/titles/javascript.png) no-repeat; }
+h1.mysql { background:url(/images/titles/mysql.png) no-repeat; }
+h1.oracle { background:url(/images/titles/oracle.png) no-repeat; }
+h1.postgresql { background:url(/images/titles/postgresql.png) no-repeat; }
+h1.ruby { background:url(/images/titles/ruby.png) no-repeat; }
+h1.rubyonrails { background:url(/images/titles/rubyonrails.png) no-repeat; }
+h1.ubuntu { background:url(/images/titles/ubuntu.png) no-repeat; }
+h1.xml { background:url(/images/titles/xml.png) no-repeat; }
+h1.bookmark_viewing { background:url(/images/titles/bookmark_viewing.png) no-repeat; }
+h1.bookmark_recent { background:url(/images/titles/bookmark_recent.png) no-repeat; }
 
 #list li { border-bottom:1px #DFDFDF solid; padding:15px 10px 3px 10px; }
 #list li.even { background:#F9F9F9; }
