@@ -44,36 +44,6 @@ class BookmarksController < ApplicationController
   def tag_cloud
     @tags = Bookmark.tag_counts
   end
-      
-  def dec_content_length
-    session[:bookmark_content_length] -= 1
-    
-    #if params[:lang]
-      #@lang = Language.find_by_permalink(params[:lang])
-      @bookmarks = Bookmark.paginate :conditions => ["language_id = #{@lang.id}"], :per_page => per_page(60), :page => params[:page]
-    #else
-    #  @bookmarks = Bookmark.paginate :per_page => per_page(60), :page => params[:page]
-    #end
-    
-    respond_to do |format|
-      format.js { render :action => 'content_length.rjs' }
-    end
-  end
-  
-  def inc_content_length
-    session[:bookmark_content_length] += 1
-    
-    if params[:lang]
-      @lang = Language.find_by_permalink(params[:lang])
-      @bookmarks = Bookmark.paginate :conditions => ["language_id = #{@lang.id}"], :per_page => per_page(60), :page => params[:page]
-    else
-      @bookmarks = Bookmark.paginate :per_page => per_page(60), :page => params[:page]
-    end
-    
-    respond_to do |format|
-      format.js { render :action => 'content_length.rjs' }
-    end
-  end
   
   def new
     @bookmark = Bookmark.new

@@ -1,3 +1,0 @@
-page.replace_html 'list', :partial => 'list'
-
-page.replace_html 'toolbar', :partial => 'ctrl_content_length'

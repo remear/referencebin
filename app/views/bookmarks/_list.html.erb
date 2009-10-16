@@ -1,11 +1,3 @@
-<% if session[:bookmark_content_length] == 0 %>
-  <% render :partial => 'single' %>
-<% elsif session[:bookmark_content_length] == 1 %>
-  <% render :partial => 'brief' %>
-<% else %>
-  <% render :partial => 'extended' %>
-<% end %>
-
 <% for bookmark in @bookmarks %>
 <div style="width:1000px; margin:auto; height:150px">
   <div style="background:url(/images/bar.gif) no-repeat; height:23px; color:#FFFFFF; padding:5px 10px 5px 10px"><span style="float:left"><%= bookmark.title %></span><span style="float:right"><%= bookmark.tag_list %></span></div>
