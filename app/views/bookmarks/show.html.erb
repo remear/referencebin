@@ -52,10 +52,12 @@
 <h2 class="section" style="margin-top:50px;">Questions Answered</h2>
 <p class="sosumi">If you see your question below, click the thumbs up next to it!</p>
 <%= render :partial => "questions" %>
+<% if current_user %>
 <h3 class="gray" style="margin-top:30px">
   Did this bookmark help you answer your question but don't see it above? 
   <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
 </h3>
+<% end %>
 <% else %>
 <h2 class="gray" style="margin-top:30px">
   Did this bookmark help you answer your question? 
