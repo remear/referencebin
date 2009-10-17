@@ -2,6 +2,7 @@ class Bookmark < ActiveRecord::Base
   belongs_to :language
   belongs_to :user
   has_many :comments
+  has_many :questions
   before_save :generate_permalink
   after_save :generate_thumb
   

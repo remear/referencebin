@@ -103,25 +103,27 @@ sup { padding-left:1px; font-size:10px !important; font-weight:normal !important
 .sosumi { font-size: 10px !important; color:#76797c; }
 .center { text-align:center; }
 p.intro { font-weight: bold; }
-h2.section { border-bottom:1px solid #ccc; }
+h2.section { padding-bottom:5px; border-bottom:1px solid #EEEEEE; color:#888; }
 
 /* colors */
 .gray { color:gray; }
 .green { color:green; }
 .red { color:red; }
+.blue { color:blue; }
+.prettyblue { color:#3b7fe6; }
 .orange { color:orange; }
 .offred { color:#e13030; }
 
 /* field tags */
 p.tag { margin-bottom:10px !important; }
 
-#main p { margin-bottom: 18px; }
-#main h1 { font-weight: bold; font-size: 24px; line-height: 36px; margin-bottom: 18px; }
-#main h2 { font-weight: bold; font-size: 16px; line-height: 18px; margin-bottom: 18px; }
-#main h3 { font-weight: bold; font-size: 1em; line-height: 18px; }
-#main h4 { font-weight: bold; font-size: 10px; line-height: 18px; }
-#main position { font-weight: bold; }
-#main .more { text-align: right; }
+p { margin-bottom: 18px; }
+h1 { font-weight: bold; font-size: 24px; line-height: 36px; margin-bottom: 18px; }
+h2 { font-weight: bold; font-size: 16px; line-height: 18px; margin-bottom: 18px; }
+h3 { font-weight: bold; font-size: 1em; line-height: 18px; }
+h4 { font-weight: bold; font-size: 10px; line-height: 18px; }
+position { font-weight: bold; }
+.more { text-align: right; }
  
 #main ul { list-style: none outside; }
 #main ol { margin-bottom: 18px; list-style: decimal; margin-left: 2.2em; }
@@ -146,6 +148,8 @@ a.comment { background:url(/images/icons/icon_comment.gif) left no-repeat; paddi
 a.comment.right { background:url(/images/icons/icon_comment.gif) right no-repeat; padding-right: 20px; }
 a.delete { background:url(/images/icons/delete15x15.png) 50% no-repeat;  text-indent:-9999px; display:block; }
 a.arrow { background:url(/images/arrow_next.gif) right no-repeat; padding-right: 20px; }
+a.add { background:url(/images/icons/plus.png) right no-repeat; padding-right: 20px; }
+a.thumbsup { background:url(/images/icons/thumbsup.gif) left no-repeat; padding: 2px 0 2px 10px; }
 a.rss { background:url(/images/icons/rss22x12.png) left no-repeat !important; padding-left: 30px; }
 
 #main .sidebar { font-size: 10px; line-height: 18px; color:#686868; }

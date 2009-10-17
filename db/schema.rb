@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091014231037) do
+ActiveRecord::Schema.define(:version => 20091017012919) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(:version => 20091014231037) do
   end
 
   add_index "languages", ["name"], :name => "index_languages_on_name", :unique => true
+
+  create_table "questions", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "bookmark_id"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

@@ -3,12 +3,14 @@
   <li><%= link_to @bookmark.language.name, bookmarks_path + "/#{@bookmark.language.permalink}" %></li>
   <li>Bookmarks</li>
 <% end %>
-<h1 class="bookmark_viewing">Viewing Bookmark</h1>
 <% content_for(:actions) do %>
   <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> | 
   <%= link_to 'Back', bookmarks_path %>
 <% end %>
 
+<h1 class="bookmark_viewing">Viewing Bookmark</h1>
+
+<div style="width:548px; float:left; margin-right:20px">
 <p class="tag green">Title</p>
 <p><%=h @bookmark.title %></p>
 
@@ -32,6 +34,35 @@
 <p class="tag green">Description</p>
 <%= markdown(@bookmark.description) %>
 <% end %>
+</div>
+<p><%= image_tag @bookmark.thumb(:large), :style => 'border:1px #EFEFEF solid' %></p>
 
-<p><%= image_tag @bookmark.thumb(:large) %></p>
+<div id="question_form" style="display:none">
+  <h2 class="section">Add a Question</h2>
+  <p class="sosumi">Please enter the question this bookmark helped you to answer. This helps others find the same solution.</p>
+<% remote_form_for :question, :url => { :controller => "questions", :action => "create"} do |f| %>
+  <p class="sosumi green">Question</p>
+  <p><%= f.text_area :body, :cols => 100, :rows => 5 %></p><br />
+  <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>
+  <p style="text-align:right; margin-top:10px;"><%= image_submit_tag ("/images/buttons/submit.png") %></p>
+<% end %>
+</div>
+
+<% if ! @bookmark.questions.blank? %>
+<h2 class="section" style="margin-top:50px;">Questions Answered</h2>
+<p class="sosumi">If you see your question below, click the thumbs up next to it!</p>
+<%= render :partial => "questions" %>
+<h3 class="gray" style="margin-top:30px">
+  Did this bookmark help you answer your question but don't see it above? 
+  <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
+</h3>
+<% else %>
+<h2 class="gray" style="margin-top:30px">
+  Did this bookmark help you answer your question? 
+  <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
+</h3>
+<% end %>
+
+
+<h2 class="section" style="margin-top:50px;">Comments</h2>
 <%= render :partial => "comments" %>

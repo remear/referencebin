@@ -52,7 +52,33 @@ module AuthenticatedSystem
     def login_required
       authorized? || access_denied
     end
-
+    
+    # Check is current_user is in the admin group
+    #
+    # To require current_user is in the admin group for all actions, use this in your controllers:
+    #
+    #   before_filter :admin_required
+    #
+    # To require current_user is in the admin group for specific actions, use this in your controllers:
+    #
+    #   before_filter :admin_required, :only => [ :edit, :update ]
+    #
+    # To skip this in a subclassed controller:
+    #
+    #   skip_before_filter :admin_required
+    #
+    def admin?
+      return current_user.admin if current_user
+      false
+    end
+    
+    # Require current_user to be in the admin group
+    def admin_required
+      if !admin?
+        redirect_to :root
+      end
+    end
+    
     # Redirect as appropriate when an access request fails.
     #
     # The default action is to redirect to the login screen.

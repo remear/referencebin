@@ -9,7 +9,8 @@
   <li><%= link_to 'Import Approved', convert_all_bookmarks_path, :class => 'arrow' %></li>
 <% end %>
 
-<h2>Imported Bookmarks</h2>
+<h1 class="bookmark_imported">Imported Bookmarks</h1>
+
 <% if ! @bookmark_imports.blank? %>
 <table class="bookmark_imports interactive">
   <thead>

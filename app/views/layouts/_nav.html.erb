@@ -4,11 +4,13 @@
     <hr /> 
     <dl class="L">
       <dt>Main Areas</dt>
+      <% if current_user %>
       <dd><%= link_to 'Imported Bookmarks', bookmark_imports_path %></dd>
       <dd><%= link_to 'Import Bookmarks', import_bookmarks_path %></dd>
       <dt>Help</dt>
       <dd><%= link_to 'Tools For Importing', '#' %></dd>
       <dd><%= link_to 'Importing Guide', '#' %></dd>
+      <% end %>
       <dt>Feeds</dt>
       <dd><%= link_to 'View Available Feeds', '#' %></dd>
       <dd><%= link_to 'New', '#', :class => 'rss' %></dd>
@@ -20,11 +22,11 @@
     </dl>
   </div>
 </li>
-<% if current_user %>
-<li><%= link_to 'Imported Bookmarks', bookmark_imports_path %></li>
+
 <% if admin? %>
 <li id="administration"><%= link_to 'Administration', administration_path %></li>
 <% end %>
+<% if current_user %>
 <li><%= link_to 'Logout', logout_path %></li>
 <% else %>
 <li><%= link_to 'Login', login_path %></li>

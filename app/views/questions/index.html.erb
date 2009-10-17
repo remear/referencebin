@@ -1,0 +1,23 @@
+<h1>Questions</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>User</th>
+    <th>Bookmark</th>
+    <th>Count</th>
+  </tr>
+  <% for question in @questions %>
+    <tr>
+      <td><%=h question.body %></td>
+      <td><%=h question.user_id %></td>
+      <td><%=h question.bookmark_id %></td>
+      <td><%=h question.count %></td>
+      <td><%= link_to "Show", question %></td>
+      <td><%= link_to "Edit", edit_question_path(question) %></td>
+      <td><%= link_to "Destroy", question, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Question", new_question_path %></p>

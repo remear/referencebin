@@ -29,6 +29,7 @@ h1.c { background:url(/images/titles/c.png) no-repeat; }
 h1.cocoa { background:url(/images/titles/cocoa.png) no-repeat; }
 h1.cpp { background:url(/images/titles/cpp.png) no-repeat; }
 h1.csharp { background:url(/images/titles/csharp.png) no-repeat; }
+h1.debian { background:url(/images/titles/debian.png) no-repeat; }
 h1.java { background:url(/images/titles/java.png) no-repeat; }
 h1.javascript { background:url(/images/titles/javascript.png) no-repeat; }
 h1.mysql { background:url(/images/titles/mysql.png) no-repeat; }
@@ -38,8 +39,13 @@ h1.ruby { background:url(/images/titles/ruby.png) no-repeat; }
 h1.rubyonrails { background:url(/images/titles/rubyonrails.png) no-repeat; }
 h1.ubuntu { background:url(/images/titles/ubuntu.png) no-repeat; }
 h1.xml { background:url(/images/titles/xml.png) no-repeat; }
-h1.bookmark_viewing { background:url(/images/titles/bookmark_viewing.png) no-repeat; }
+
+h1.login { background:url(/images/titles/login.png) no-repeat; }
+h1.bookmark_import { background:url(/images/titles/bookmark_import.png) no-repeat; }
+h1.bookmark_imported { background:url(/images/titles/bookmark_imported.png) no-repeat; }
 h1.bookmark_recent { background:url(/images/titles/bookmark_recent.png) no-repeat; }
+h1.bookmark_viewing { background:url(/images/titles/bookmark_viewing.png) no-repeat; }
+
 
 #list li { border-bottom:1px #DFDFDF solid; padding:15px 10px 3px 10px; }
 #list li.even { background:#F9F9F9; }
@@ -47,10 +53,10 @@ h1.bookmark_recent { background:url(/images/titles/bookmark_recent.png) no-repea
 #list p.title { margin-bottom:5px; }
 
 /* comments */
-.comment { width:735px; min-height:75px; padding:10px 10px 10px 0; margin-bottom:10px; -webkit-border-radius:5px; -moz-border-radius:5px }
+.comment { min-height:75px; padding:10px 10px 10px 0; margin-bottom:10px; -webkit-border-radius:5px; -moz-border-radius:5px }
 .comment a { font-size:10px; }
 .comment .info { color:#76797c; font-size: 10px !important; }
-.comment .CodeRay, .comment .CodeRay .code { width:600px; max-width:550px; }
+.comment .CodeRay, .comment .CodeRay .code { max-width:980px; }
 .comment .CodeRay .line_numbers { padding:0 3px 0 3px; }
 
 .comment.normal { background:#eef4f9; }
@@ -76,6 +82,7 @@ table.interactive thead tr { background:#333333 !important; color:#FFFFFF; }
 table.interactive thead tr th { color:#FFFFFF; }
 table.interactive tbody tr:hover { background:#0055c8 !important; color:#FFFFFF; }
 
+table.bookmark_imports { margin:auto; }
 table.bookmark_imports.interactive tr { line-height:2.5em; }
 
 /* timestamp box */

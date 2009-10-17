@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
   include Authorization::AasmRoles
 
+  has_many :bookmarks
+  has_many :bookmark_imports
+  has_many :comments
+  has_many :codes
+  has_many :questions
+  
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login

@@ -7,7 +7,9 @@
     <%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %>
   </p>
   <p class="description"><%= bookmark.description %></p>
-  <p class="sosumi">Comments : <%= bookmark.comments.count %></p>
+  <p class="sosumi">
+    <%= bookmark.comments.count %> comments<br />
+    <%= bookmark.questions.count %> questions answered</p>
 </div>
 <div class="clearer"></div>
 <% end %>

@@ -48,16 +48,16 @@
   	<div id="content" class="clearfix">
   	  <div id="main">
         <% if flash[:warning] or flash[:notice] %>
-  		      <div id="notice">
-          		<%= flash[:warning] || flash[:notice] %>
-              </div>
-              <script type="text/javascript">
-              $('#notice').delay(1200, function(){
-                $("#notice").fadeTo("slow", 0.01, function(){ //fade
-                     $(this).remove(); //then remove from the DOM
-                 });
-              });
-              </script>
+	      <div id="notice">
+      		<%= flash[:warning] || flash[:notice] %>
+          </div>
+          <script type="text/javascript">
+          $('#notice').delay(1200, function(){
+            $("#notice").fadeTo("slow", 0.01, function(){ //fade
+                 $(this).remove(); //then remove from the DOM
+             });
+          });
+          </script>
         <% end %>
         
         <%= yield %>

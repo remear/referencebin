@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
   layout "bookmarks"
   before_filter :login_required, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
-  skip_after_filter :add_google_analytics_code, :only => [ 'destroy', 'update', 'dec_content_length', 'inc_content_length' ]
+  skip_after_filter :add_google_analytics_code, :only => [ 'destroy', 'update' ]
   def index
     if params[:lang]
       @lang = Language.find_by_permalink(params[:lang])

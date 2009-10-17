@@ -3,7 +3,7 @@
   <li>Import Bookmarks</li>
 <% end %>
 
-<h2>Import Bookmarks</h2>
+<h1 class="bookmark_import">Import Bookmarks</h1>
 <% form_for :do_import, :url => { :controller => "bookmark_imports", :action => 'do_import' }, :html => { :multipart => true } do |f| %>
 	<p class="tag green">CSV File</p>
 	<p><%= f.file_field :file %></p>

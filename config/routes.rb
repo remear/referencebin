@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :questions
+
   
   map.signup '/register', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'sessions', :action => 'new'

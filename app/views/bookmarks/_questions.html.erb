@@ -1,0 +1,5 @@
+<ul>
+<% for q in @bookmark.questions %>
+  <li class="prettyblue"><%= q.body %> <%= link_to '&nbsp;', '#', :class => 'thumbsup', :style => 'margin-left:10px; text-decoration:none' %></li>
+<% end %>
+</ul>

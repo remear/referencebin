@@ -1,0 +1,11 @@
+one:
+  body: MyText
+  user_id: 1
+  bookmark_id: 1
+  count: 1
+
+two:
+  body: MyText
+  user_id: 1
+  bookmark_id: 1
+  count: 1

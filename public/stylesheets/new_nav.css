@@ -1,11 +1,16 @@
 #header #gnav { margin:20px 0 0 250px; }
-#header #gnav ul li { color:#FFFFFF; display:inline; list-style:none; font-size:12px; margin-left:30px; }
+#header #gnav ul li { color:#FFFFFF; display:inline; list-style:none; font-size:12px; margin-left:20px; padding:5px 10px 5px 10px; }
 #header #gnav a { color:#FFFFFF; text-decoration:none; font-size:12px; }
 #header #gnav a:hover { color:#FFFFFF; text-decoration:underline; }
 
-#header #gnav ul.bookmarks li#bookmarks a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
-#header #gnav ul.administration li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
-#header #gnav ul.users li#administration a { color:#FFFFFF !important; text-shadow: 2px 2px 1px #999; }
+#header #gnav ul.bookmarks li#bookmarks,
+#header #gnav ul.bookmark_imports li#bookmarks { background:#1f53a3; -webkit-border-radius:5px; }
+#header #gnav ul.administration li#administration { background:#1f53a3; -webkit-border-radius:5px; }
+
+#header #gnav ul.bookmarks li#bookmarks a,
+#header #gnav ul.bookmark_imports li#bookmarks a { color:#FFFFFF !important; /*text-shadow: 2px 2px 1px #999;*/ }
+#header #gnav ul.administration li#administration a { color:#FFFFFF !important; }
+#header #gnav ul.users li#administration a { color:#FFFFFF !important; }
 
 #breadcrumbs a { text-decoration:none; }
 
@@ -43,7 +48,7 @@
 /* guides */
 
 #guides {
-    width: 400px;
+    width: 300px;
     display: block;
     background: #1c4c95;
     border-radius: 1em;
