@@ -1,0 +1,7 @@
+one:
+  body: MyText
+  error: MyText
+
+two:
+  body: MyText
+  error: MyText

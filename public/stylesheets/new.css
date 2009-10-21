@@ -46,11 +46,16 @@ h1.bookmark_imported { background:url(/images/titles/bookmark_imported.png) no-r
 h1.bookmark_recent { background:url(/images/titles/bookmark_recent.png) no-repeat; }
 h1.bookmark_viewing { background:url(/images/titles/bookmark_viewing.png) no-repeat; }
 
+h1.jots_create { background:url(/images/titles/jot_create.png) no-repeat; }
+h1.jots_my { background:url(/images/titles/jots_my.png) no-repeat; }
+
 
 #list li { border-bottom:1px #DFDFDF solid; padding:15px 10px 3px 10px; }
 #list li.even { background:#F9F9F9; }
 #list p.title a { font-weight:bold; font-size:14px; }
 #list p.title { margin-bottom:5px; }
+
+.error_block { background:#F8F8F8; padding:10px; -webkit-border-radius:5px; -moz-border-radius:5px; }
 
 /* comments */
 .comment { min-height:75px; padding:10px 10px 10px 0; margin-bottom:10px; -webkit-border-radius:5px; -moz-border-radius:5px }
@@ -97,9 +102,11 @@ table.bookmark_imports.interactive tr { line-height:2.5em; }
 /* errors */
 
 .fieldWithErrors {
-  padding: 2px;
+  padding: 3px;
   background-color: red;
   display: table;
+  -webkit-border-radius:4px;
+  color:#FFFFFF;
 }
 
 #errorExplanation {

@@ -1,0 +1,16 @@
+<% form_for @jot do |f| %>
+  <%= f.error_messages %>
+  <p class="tag green">Code</p>
+  <p><%= f.text_area :code, :cols => 100, :rows => 10 %></p>
+  
+  <p class="tag green"><%= f.label :error %></p>
+  <p><%= f.text_area :error, :cols => 100, :rows => 20 %></p>
+  
+  <p><%= collection_select :jot, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></p>
+  
+  <% if params[:action] == "update" %>
+    <p><%= image_submit_tag '/images/buttons/update.png' %></p>
+  <% else %>
+    <p><%= image_submit_tag '/images/buttons/submit.png' %></p>
+  <% end %>
+<% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091017012919) do
+ActiveRecord::Schema.define(:version => 20091021024934) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -74,6 +74,16 @@ ActiveRecord::Schema.define(:version => 20091017012919) do
     t.datetime "locked_at"
     t.datetime "failed_at"
     t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jots", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.boolean  "private",     :default => false
+    t.text     "code"
+    t.text     "error"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,6 +3,7 @@ class Language < ActiveRecord::Base
   has_many :bookmark_imports
   has_many :comments
   has_many :questions
+  has_many :jots
   
   before_save :generate_permalink
 

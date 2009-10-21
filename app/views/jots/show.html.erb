@@ -1,0 +1,16 @@
+<h1>Jot</h1>
+
+<p>
+  <strong>Body:</strong>
+  <%=h @jot.body %>
+</p>
+<p>
+  <strong>Error:</strong>
+  <%=h @jot.error %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_jot_path(@jot) %> |
+  <%= link_to "Destroy", @jot, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", jots_path %>
+</p>

@@ -11,15 +11,17 @@ div.CodeRay { }
 
 span.CodeRay { white-space: pre; border: 0px; padding: 2px }
 
-table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px }
-table.CodeRay td { padding: 2px 4px; vertical-align: top }
+table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px; }
+table.CodeRay td { padding: 2px 4px; vertical-align: top; }
+
+/*.CodeRay .line_numbers, .CodeRay .code pre { -webkit-border-radius:10px; }*/
 
 .CodeRay .line_numbers, .CodeRay .no {
   background-color: #def;
   color: gray;
   text-align: center;
   padding:0 10px 0 10px;
-  min-width:25px;
+  min-width:15px;
 }
 
 .CodeRay .line_numbers tt { font-weight:bold; }
@@ -30,7 +32,7 @@ table.CodeRay td { padding: 2px 4px; vertical-align: top }
 ol.CodeRay { font-size: 10pt }
 ol.CodeRay li { white-space: pre }
 
-.CodeRay .code pre { overflow: auto; padding-left:10px;}
+.CodeRay .code pre { overflow: auto; padding-left:10px; background-color: #f8f8f8; }
 
 .CodeRay .debug { color:white ! important; background:blue ! important; }
 

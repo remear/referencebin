@@ -4,13 +4,15 @@
 #header #gnav a:hover { color:#FFFFFF; text-decoration:underline; }
 
 #header #gnav ul.bookmarks li#bookmarks,
-#header #gnav ul.bookmark_imports li#bookmarks { background:#1f53a3; -webkit-border-radius:5px; }
+#header #gnav ul.bookmark_imports li#bookmarks,
+#header #gnav ul.jots li#jots,
+#header #gnav ul.sessions li#login,
 #header #gnav ul.administration li#administration { background:#1f53a3; -webkit-border-radius:5px; }
 
-#header #gnav ul.bookmarks li#bookmarks a,
+/*#header #gnav ul.bookmarks li#bookmarks a,
 #header #gnav ul.bookmark_imports li#bookmarks a { color:#FFFFFF !important; /*text-shadow: 2px 2px 1px #999;*/ }
-#header #gnav ul.administration li#administration a { color:#FFFFFF !important; }
-#header #gnav ul.users li#administration a { color:#FFFFFF !important; }
+/*#header #gnav ul.administration li#administration a { color:#FFFFFF !important; }
+#header #gnav ul.users li#administration a { color:#FFFFFF !important; }*/
 
 #breadcrumbs a { text-decoration:none; }
 
@@ -40,14 +42,14 @@
 
 
 /* bookmark toggle */
-#bookmark_toggle { padding:0 10px 0 0; margin-left:5px; width:14px; }
-#bookmark_toggle.inactive { background:url(/images/buttons/btn_menu.png) no-repeat; }
-#bookmark_toggle.active { background:url(/images/buttons/btn_menu_active.png) no-repeat; }
-#bookmark_toggle:hover { text-decoration:none !important; }
+#bookmark_toggle, #jots_toggle { padding:0 10px 0 0; margin-left:5px; width:14px; }
+#bookmark_toggle.inactive, #jots_toggle.inactive { background:url(/images/buttons/btn_menu.png) no-repeat; }
+#bookmark_toggle.active, #jots_toggle.active { background:url(/images/buttons/btn_menu_active.png) no-repeat; }
+#bookmark_toggle:hover, #jots_toggle:hover { text-decoration:none !important; }
 
 /* guides */
 
-#guides {
+div.flyout {
     width: 300px;
     display: block;
     background: #1c4c95;
@@ -65,18 +67,18 @@
     padding-top: 2em;
 }
 
-#guides dd a { font-size:10px !important; }
-#guides dt, #guides dd {
+div.flyout dd a { font-size:10px !important; }
+div.flyout dt, div.flyout dd {
     font-weight: normal;
     font-size: 0.722em;
     margin: 0;
     padding: 0;
 }
-#guides dt {padding:0; margin: 0.5em 0 0;}
-#guides a { color: #FFF; text-shadow:none !important; display:block; }
-#guides .L, #guides .R {float: left; width: 50%; margin: 0; padding: 0;}
-#guides .R {float: right;}
-#guides hr {
+div.flyout dt {padding:0; margin: 0.5em 0 0;}
+div.flyout a { color: #FFF; text-shadow:none !important; display:block; }
+div.flyout .L, div.flyout .R {float: left; width: 50%; margin: 0; padding: 0;}
+div.flyout .R {float: right;}
+div.flyout hr {
     display: block;
     border: none;
     height: 1px;

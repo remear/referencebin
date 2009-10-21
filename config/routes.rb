@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :jots
+
   map.resources :questions
 
   
@@ -17,8 +19,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :bookmark_imports
 
   #codes
-  map.resources :codes
-
   #users & sessions
   map.resources :users, :path_prefix => '/administration'
   #settings
