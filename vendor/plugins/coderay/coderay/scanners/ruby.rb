@@ -186,7 +186,6 @@ module Scanners
               value_expected = :set if check(/#{patterns::VALUE_FOLLOWS}/o)
 
             # OPERATORS #
-            # TODO: match (), [], {} as one single operator
             elsif not last_token_dot and match = scan(/ \.\.\.? | (?:\.|::)() | [,\(\)\[\]\{\}] | ==?=? /x)
               if match !~ / [.\)\]\}] /x or match =~ /\.\.\.?/
                 value_expected = :set

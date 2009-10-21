@@ -64,7 +64,7 @@ module Encoders
           line_number = start
           gsub!(/^/) do
             line_number_text = bolding.call line_number
-            indent = ' ' * (max_width - line_number.to_s.size)  # TODO: Optimize (10^x)
+            indent = ' ' * (max_width - line_number.to_s.size)
             res = "<span class=\"no\">#{indent}#{line_number_text}</span> "
             line_number += 1
             res

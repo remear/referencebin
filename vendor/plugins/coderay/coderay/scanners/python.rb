@@ -150,12 +150,8 @@ module Scanners
             state = :string
             kind = :delimiter
           
-          # TODO: backticks
-          
           elsif match = scan(unicode ? /[[:alpha:]_]\w*/ux : /[[:alpha:]_]\w*/x)
             kind = IDENT_KIND[match]
-            # TODO: from, import
-            # TODO: keyword arguments
             kind = :ident if last_token_dot
             if kind == :old_keyword
               kind = check(/\(/) ? :ident : :keyword

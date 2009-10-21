@@ -124,7 +124,6 @@ module Scanners
         version_compare
         zend_logo_guid zend_thread_id zend_version
       ]
-      # TODO: more built-in PHP functions?
       
       EXCEPTIONS = %w[
         E_ERROR E_WARNING E_PARSE E_NOTICE E_CORE_ERROR E_CORE_WARNING E_COMPILE_ERROR E_COMPILE_WARNING
@@ -254,7 +253,6 @@ module Scanners
               kind = :label
             elsif kind == :ident && match =~ /^[A-Z]/
               kind = :constant
-            # TODO: function and class definitions
             end
           
           elsif scan(/(?:\d+\.\d*|\d*\.\d+)(?:e[-+]?\d+)?|\d+e[-+]?\d+/i)
@@ -277,7 +275,6 @@ module Scanners
             kind = :delimiter
             states.push :dqstring
           
-          # TODO: Heredocs
           # elsif match = scan(/<<</ + IDENTIFIER)
           #   tokens << [:open, :string]
           #   heredocdelim = match[RE::IDENTIFIER]
@@ -353,7 +350,6 @@ module Scanners
           elsif match = scan(/#{RE::VARIABLE}/o)
             kind = :local_variable
             # $foo[bar] and $foo->bar kind of stuff
-            # TODO: highlight tokens separately!
             if check(/\[#{RE::IDENTIFIER}\]/o)
               match << scan(/\[#{RE::IDENTIFIER}\]/o)
             elsif check(/\[/)

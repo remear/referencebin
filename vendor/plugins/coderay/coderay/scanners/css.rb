@@ -66,7 +66,6 @@ module Scanners
             elsif scan RE::PseudoClass
               kind = :pseudo_class
             elsif match = scan(RE::AttributeSelector)
-              # TODO: Improve highlighting inside of attribute selectors.
               tokens << [:open, :string]
               tokens << [match[0,1], :delimiter]
               tokens << [match[1..-2], :content] if match.size > 2

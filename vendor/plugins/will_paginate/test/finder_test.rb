@@ -380,7 +380,6 @@ class FinderTest < ActiveRecordTestCase
       Developer.paginate_by_sql "sql\n ORDER\nby foo, bar, `baz` ASC", :page => 2
     end
 
-    # TODO: counts are still wrong
     def test_ability_to_use_with_custom_finders
       # acts_as_taggable defines find_tagged_with(tag, options)
       Topic.expects(:find_tagged_with).with('will_paginate', :offset => 5, :limit => 5).returns([])

@@ -65,7 +65,6 @@ module CodeRay
       #
       # Inversion of write_token.
       #
-      # TODO Test this!
       def read_token token
         type, text = token.split("\t", 2)
         if type[0] == ?:
@@ -198,7 +197,6 @@ module CodeRay
     
     # Ensure that all :open tokens have a correspondent :close one.
     #
-    # TODO: Test this!
     def fix
       tokens = self.class.new
       # Check token nesting using a stack of kinds.

@@ -96,7 +96,6 @@ module Delayed
           Timeout.timeout(max_run_time.to_i) { invoke_job }
           destroy
         end
-        # TODO: warn if runtime > max_run_time ?
         logger.info "* [JOB] #{name} completed after %.4f" % runtime
         return true  # did work
       rescue Exception => e

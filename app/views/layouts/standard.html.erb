@@ -23,12 +23,20 @@
       </div>
       <div class="clearer"></div>
       <div id="gnav">
-        <ul>
+        <ul class="<%= params[:controller] %>">
           <%= render :partial => 'layouts/nav' %>
         </ul>
       </div>
     </div>
-    <div id="toolbar"></div>
+    <div id="toolbar">
+      <ul id="breadcrumbs">
+        <li id="home"><%= link_to '&nbsp;', root_url, :class => 'home' %></li>
+        <%= yield :breadcrumbs %>
+      </ul>
+      <ul id="actions">
+        <%= yield :actions %>
+      </ul>
+    </div>
   	<div id="main" class="clearfix">
       <div id="content">
         <% if flash[:warning] or flash[:notice] %>

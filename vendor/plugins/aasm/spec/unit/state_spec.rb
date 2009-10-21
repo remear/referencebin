@@ -1,6 +1,5 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 
-# TODO These are specs ported from original aasm
 describe AASM::SupportingClasses::State do
   before(:each) do
     @name    = :astate

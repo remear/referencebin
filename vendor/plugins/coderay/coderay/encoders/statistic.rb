@@ -31,7 +31,6 @@ module Encoders
       @type_stats['TOTAL'].count += 1
     end
 
-    # TODO Hierarchy handling
     def block_token action, kind
       @type_stats['TOTAL'].count += 1
       @type_stats['open/close'].count += 1

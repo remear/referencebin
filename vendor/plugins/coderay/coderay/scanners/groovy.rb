@@ -8,7 +8,6 @@ module Scanners
     include Streamable
     register_for :groovy
     
-    # TODO: Check this!
     KEYWORDS = Java::KEYWORDS + %w[
       as assert def in
     ]
@@ -33,7 +32,6 @@ module Scanners
     UNICODE_ESCAPE =  / u[a-fA-F0-9]{4} /x  # no 4-byte unicode chars? U[a-fA-F0-9]{8}
     REGEXP_ESCAPE =  / [bfnrtv\n\\'"] | x[a-fA-F0-9]{1,2} | [0-7]{1,3} | \d | [bBdDsSwW\/] /x
     
-    # TODO: interpretation inside ', ", /
     STRING_CONTENT_PATTERN = {
       "'" => /(?>\\[^\\'\n]+|[^\\'\n]+)+/,
       '"' => /[^\\$"\n]+/,
@@ -112,7 +110,6 @@ module Scanners
               inline_block_paren_depth += 1
             end
           
-          # TODO: ~'...', ~"..." and ~/.../ style regexps
           elsif match = scan(/ \.\.<? | \*?\.(?!\d)@? | \.& | \?:? | [,?:(\[] | -[->] | \+\+ |
               && | \|\| | \*\*=? | ==?~ | <=?>? | [-+*%^~&|>=!]=? | <<<?=? | >>>?=? /x)
             value_expected = true
@@ -151,7 +148,6 @@ module Scanners
             string_delimiter = match
             kind = :delimiter
           
-          # TODO: record.'name'
           elsif match = scan(/["']/)
             after_def = value_expected = false
             state = match == '/' ? :regexp : :string
@@ -188,7 +184,6 @@ module Scanners
           elsif match = scan(state == :multiline_string ? /'''|"""/ : /["'\/]/)
             tokens << [match, :delimiter]
             if state == :regexp
-              # TODO: regexp modifiers? s, m, x, i?
               modifiers = scan(/[ix]+/)
               tokens << [modifiers, :modifier] if modifiers && !modifiers.empty?
             end

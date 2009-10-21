@@ -28,24 +28,30 @@ jQuery.fn.delay = function(time,func){
     });
 };
 
-function guideMenu(){
-  if (document.getElementById('guides').style.display == "none") {
-    $("#bookmark_toggle").removeClass('inactive');
-    $("#bookmark_toggle").addClass('active');
+function guideMenu(div){
+  /*$(".flyout").each(function(){
+    $(this).hide();
+  });*/
+  element = document.getElementById(div);
+  toggle = document.getElementById(div+"toggle");
 
-    $("#guides").fadeIn(function(){
+  if (element.style.display == "none") {
+    $(toggle).removeClass('inactive');
+    $(toggle).addClass('active');
+
+    $(element).fadeIn(function(){
       $('body').click(function(){
-        $("#bookmark_toggle").removeClass('active');
-        $("#bookmark_toggle").addClass('inactive');
-        $("#guides").fadeOut();
+        $(toggle).removeClass('active');
+        $(toggle).addClass('inactive');
+        $(element).fadeOut();
         $("body").unbind("click");
       });
     });
     
   } else {
-    $("#bookmark_toggle").removeClass('active');
-    $("#bookmark_toggle").addClass('inactive');
+    $(toggle).removeClass('active');
+    $(toggle).addClass('inactive');
     
-    $("#guides").fadeOut();
+    $(element).fadeOut();
   }
 }

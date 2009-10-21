@@ -10,7 +10,6 @@ module Encoders
     # Remember to use #clone instead of #dup to keep the modules the object was
     # extended with.
     #
-    # TODO: more doc.
     module Output
 
       require 'coderay/encoders/html/numerization.rb'

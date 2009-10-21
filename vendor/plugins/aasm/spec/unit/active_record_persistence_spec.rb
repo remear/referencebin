@@ -243,7 +243,6 @@ begin
     end
   end
 
-  # TODO: figure out how to test ActiveRecord reload! without a database
 
 rescue LoadError => e
   if e.message == "no such file to load -- active_record"

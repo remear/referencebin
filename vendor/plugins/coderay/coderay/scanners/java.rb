@@ -7,7 +7,6 @@ module Scanners
     register_for :java
     helper :builtin_types
     
-    # TODO: Check this!
     KEYWORDS = %w[
       break case catch continue default do else
       false finally for if instanceof new null
