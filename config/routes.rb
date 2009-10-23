@@ -1,15 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  #jots
   map.resources :jots
 
+  #questions
   map.resources :questions
-
   
   map.signup '/register', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
   map.resource :session
-  map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
+  map.namespace :administration do |admin|
+    # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+    admin.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
+  end
+  #map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
 
   #bookmark imports
   map.convert_all_bookmarks '/bookmark_imports/convert_all', :controller => 'bookmark_imports', :action => 'convert_all'
@@ -18,9 +23,17 @@ ActionController::Routing::Routes.draw do |map|
   map.do_bookmark_import '/bookmark_imports/do_import', :controller => 'bookmark_imports', :action => 'do_import'
   map.resources :bookmark_imports
 
-  #codes
   #users & sessions
   map.resources :users, :path_prefix => '/administration'
+  #map.namespace :administration do |admin|
+  #  # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+  #  admin.resources :users
+  #end
+  map.namespace :administration do |admin|
+    # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+    admin.resources :reports
+  end
+  
   #settings
   map.settings '/settings', :controller => 'settings', :action => 'index'
   
