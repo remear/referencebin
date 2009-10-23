@@ -1,9 +1,7 @@
 <% content_for(:breadcrumbs) do %>
-  <li><%= link_to 'Administration', administration_path %></li>
-  <li><%= link_to 'Users', users_path %></li>
-  <li><%= @user.name %></li>
+  <li>Settings</li>
 <% end %>
-<h2>Settings</h2>
+<h1 class="settings">Settings</h1>
 <br />
 <% form_for @user, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
@@ -14,7 +12,7 @@
   		</td>
   		<td style="vertical-align:top;">
   			<p class="tag green">Name</p>
-  			<p><%= @user.name %></p>
+  			<p><%= @user.firstname %> <%= @user.lastname %></p>
   			
   			<p class="tag green">Nickname</p>
   			<p><%= @user.nickname %></p>
@@ -26,8 +24,7 @@
 				<p><%= f.password_field :password %></p>
 
 				<p class="tag green">Confirm Password</p>
-				<p><%= f.password_field :password_confirmation %></p>
-				
+				<p><%= f.password_field :password_confirmation %></p>	
   		</td>
   	</tr>
   	<tr>
