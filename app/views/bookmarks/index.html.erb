@@ -11,18 +11,6 @@
   <%= link_to 'Create Bookmark', new_bookmark_path %>
   <% end %>
 <% end %>
-<% content_for(:toolbar) do %>
-  <% if session[:bookmark_content_length] == 0 %>
-    <%= link_to_remote("+", :url => { :action => "inc_content_length" }, :collection => @bookmarks) %>
-  <% elsif session[:bookmark_content_length] == 1 %>
-    <%= link_to_remote("-", :url => { :action => "dec_content_length" }, :collection => @bookmarks) %>
-    <%= link_to_remote("+", :url => { :action => "inc_content_length" }, :collection => @bookmarks) %>
-  <% else %>
-    <%= link_to_remote("-", :url => { :action => "dec_content_length" }, :collection => @bookmarks) %>
-    <span>+</span>
-  <% end %>
-<% end %>
-
 <% if params[:lang] %>
 <h1 class="<%= params[:lang] %>">Listing bookmarks</h1>
 <% else %>

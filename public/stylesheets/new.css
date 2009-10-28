@@ -1,29 +1,9 @@
-* {margin:0;padding:0;} 
-html, body, #wrap {height: 100%;}
-
-body > #wrap { height: auto; min-height: 100%; }
-
 #content { width:1000px; margin:auto; }
-#main { padding-bottom: 50px; }  /* must be same height as the footer */
-
-#footer { color:#666; background:url(/images/bottom_gradient.png) repeat-x; position:relative; margin-top:-50px; height:50px; text-align:right; padding:0 20px 0 20px; clear:both; font-size:10px; line-height:5em; } 
-#footer a { color:#666; }
-/* CLEAR FIX*/
-.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-.clearfix { display: inline-block; }
-/* Hides from IE-mac \*/
-* html .clearfix { height: 1%;}
-.clearfix { display: block; }
 /* End hide from IE-mac */
 
-#header { height:120px; width:100%; /*background:#3c85b8 url(/images/logo_prb.png) 30px 10px no-repeat;*/ background:#2260be url(/images/logo_prb.png) 30px 5px no-repeat; }
-#header #sessioninfo { float:right; color:#FFFFFF; padding:10px 20px 0 0; }
-#header #sessioninfo .sosumi { color:#EEEEEE; }
-#header #sessioninfo a { color:#FFFFFF; }
-#header #logo { height:60px; width:50px; background:#FFFFFF url(/images/logo_rean.png) no-repeat center; float:right; margin-right:30px; }
-#toolbar { height:32px; background:#CCCCCC url(/images/barbg.png); line-height:3em; padding:0 20px 0px 10px; }
 
-h1 { border-bottom: 1px #DEDEDE solid; text-indent:-9999px; }
+
+/*h1 { border-bottom: 1px #DEDEDE solid; text-indent:-9999px; }
 h1.bash { background:url(/images/titles/bash.png) no-repeat; }
 h1.c { background:url(/images/titles/c.png) no-repeat; }
 h1.cocoa { background:url(/images/titles/cocoa.png) no-repeat; }
@@ -49,6 +29,8 @@ h1.bookmark_viewing { background:url(/images/titles/bookmark_viewing.png) no-rep
 h1.jots_create { background:url(/images/titles/jot_create.png) no-repeat; }
 h1.jots_my { background:url(/images/titles/jots_my.png) no-repeat; }
 
+h1.settings { background:url(/images/titles/settings.png) no-repeat; }
+*/
 
 #list li { border-bottom:1px #DFDFDF solid; padding:15px 10px 3px 10px; }
 #list li.even { background:#F9F9F9; }
@@ -81,11 +63,9 @@ table th { color:blue; font-size:12px; height:20px; vertical-align:top; }
 #sessioninfo { font-size:10px; }
 
 /* interactive table*/
-table.interactive tr td { cursor:hand; cursor:pointer; }
-table.interactive tr.even { background:#EFEFEF; }
-table.interactive thead tr { background:#333333 !important; color:#FFFFFF; }
-table.interactive thead tr th { color:#FFFFFF; }
-table.interactive tbody tr:hover { background:#0055c8 !important; color:#FFFFFF; }
+table#interactive thead th { padding-top:5px; color:#FFFFFF; }
+table#interactive thead tr { background:#2260be; }
+table#interactive th, table#interactive td { padding:0px 5px 0 5px; }
 
 table.bookmark_imports { margin:auto; }
 table.bookmark_imports.interactive tr { line-height:2.5em; }

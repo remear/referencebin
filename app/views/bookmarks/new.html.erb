@@ -1,4 +1,4 @@
-<h2>Create Bookmark</h2>
+<h1>Create Bookmark</h1>
 <% content_for(:toolbar) do %><%= link_to 'Cancel', bookmarks_path %><% end %>
 
 <% form_for(@bookmark) do |f| %>
@@ -10,16 +10,14 @@
   <p><%= f.text_field :title %></p>
 
   <p class="tag green"><%= f.label :url %></p>
-  <p><%= f.text_field :url %></p>
+  <p><%= f.text_field :url, :size => 70 %></p>
   
   <p class="tag green"><%= f.label :description %></p>
   <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
   
-  <p class="tag green"><%= f.label :tag_list %></p>
+  <p class="tag green"><%= f.label :tag_list %> (comma-separated)</p>
   <p><%= f.text_field :tag_list, :size => 80 %></p>
   
-  <p>
-    <%= image_submit_tag '/images/buttons/create.png' %>
-  </p>
+  <p><%= image_submit_tag '/images/buttons/create.png' %></p>
 <% end %>
 

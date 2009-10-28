@@ -9,4 +9,8 @@ class AdministrationController < ApplicationController
     @bookmarks = Bookmark.count(:all)
     @bookmarkimports = BookmarkImport.count(:all)
   end
+  
+  def databases
+    @tables = ActiveRecord::Base.connection.execute("show table status 'bookmarks';")
+  end
 end

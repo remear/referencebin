@@ -1,0 +1,93 @@
+/* NEW OverlayPanel quicktime controller */
+#OverlayPanel .controllerPanel { position:relative; width:640px; height:12px; padding:0; margin:12px 0 0 0; }
+#OverlayPanel .controllerPanel div.control,
+#OverlayPanel.overlaypanel .controllerPanel div.control { position:relative; width:10px; height:10px; top:1px; text-indent:-999px; cursor:pointer; overflow:hidden; background:url(http://images.apple.com/global/elements/overlay/overlay_movie_playpause20070807.gif) no-repeat left top; }
+#OverlayPanel .controllerPanel div.control.pause { background-position:left -10px; }
+#OverlayPanel .controllerPanel div.sliderPanel { position:absolute; top:0; left:16px; height:12px; width:624px; }
+#OverlayPanel .controllerPanel div.sliderPanel div.track,
+#OverlayPanel.overlaypanel .controllerPanel div.sliderPanel div.track { position:absolute; left:0; width:624px; height:12px; text-align:left; background:url(http://images.apple.com/global/elements/overlay/overlay_movie_bgtrack_load20070807.gif) no-repeat 0 0; }
+#OverlayPanel .controllerPanel div.sliderPanel div.track div.loadedProgress,
+#OverlayPanel.overlaypanel .controllerPanel div.sliderPanel div.track div.loadedProgress { position:absolute; top:0; height:12px; background:url(http://images.apple.com/global/elements/overlay/overlay_movie_bgtrack20070807.gif) no-repeat 0 0; }
+#OverlayPanel .controllerPanel div.sliderPanel div.track div.trackProgress { position:absolute; height:12px; }
+#OverlayPanel .controllerPanel div.sliderPanel div.track div.playHead,
+#OverlayPanel.overlaypanel .controllerPanel div.sliderPanel div.track div.playHead { position:absolute; top:-1px; margin:0 1px; width:13px; height:12px; background:url(http://images.apple.com/global/elements/overlay/overlay_movie_pointer20070807.png) no-repeat 0 0; cursor:pointer; behavior:url(/global/scripts/lib/iepngfix.htc); }
+#OverlayPanel div.overlayPanelContent { left: 12px; }
+#OverlayPanel.popped .closeButtonContainer { left: -17px; top: -15px; }
+#OverlayPanel.popped a.close { left: 0px; width: 60px; }
+ 
+/* quicktours call out box */
+#content_main .calloutbox { float:left; width:309px; height:100%; margin-top: 8px; line-height:1.4em; background:#f3f3f3 url(http://images.apple.com/iphone/features/images/calloutbox_309_bgbottom20080609.gif) no-repeat 0 100%; }
+#content_main .calloutbox .topcap { height:4px; width:309px; font-size:1px; padding-bottom:11px; _margin-top:-18px; background:url(http://images.apple.com/iphone/features/images/calloutbox_309_bgtop20080609.gif) no-repeat 0 0; }
+#content_main .calloutbox div.icon { display:block; background:transparent url(http://images.apple.com/iphone/features/images/big_play_icon20080609.png) no-repeat 0 0; float:left; font-size:1px; height:31px; margin:3px -38px -16px 3px; padding:0pt; position:relative; width:32px; z-index:20; behavior:url(/global/scripts/lib/iepngfix.htc); }
+#content_main .calloutbox .OverlayPanel.videothumb { background:transparent url(http://images.apple.com/iphone/features/images/overlay_thumb_bg20080609.png) no-repeat 0 0; width:159px; height:120px; margin:-5px 8px 0 7px; float:left; behavior:url(/global/scripts/lib/iepngfix.htc); }
+#main #content #content_main .calloutbox img.left.iconimage { float: left; margin: 9px 0 0 9px; }
+#main #content_main .calloutbox h4 { font-weight:bold; font-size:12px; color:#000; line-height:1.4em; margin-top:21px; margin-bottom:8px; font-weight:bold; *width:120px; }
+#main #content_main .calloutbox a.more { background: transparent url(http://images.apple.com/global/elements/arrows/morearrow_08c.gif) no-repeat scroll 100% 60% }
+ 
+#main #content_main .calloutbox.wifistore h4 { font-weight:bold; font-size:12px; color:#000; line-height:1.4em; margin-top:13px; margin-bottom:8px; font-weight:bold; *width:120px; }
+ 
+/* Aruba call out box */
+#content_supp .calloutbox { width:309px; height:137px; margin-top: 8px; margin-bottom: 36px; font-size:11px; line-height:1.4em; background:#f3f3f3 url(http://images.apple.com/iphone/features/images/calloutbox_309_bgbottom20080609.gif) no-repeat 0 100%; }
+#content_supp .calloutbox .topcap { height:4px; width:309px; font-size:1px; padding-bottom:11px; background:url(http://images.apple.com/iphone/features/images/calloutbox_309_bgtop20080609.gif) no-repeat 0 0; }
+#content_supp .calloutbox b.icon { display:block; background:transparent url(http://images.apple.com/iphone/features/images/big_play_icon20080609.png) no-repeat 0 0; float:left; font-size:1px; height:31px; margin:-11px -11px -16px 8px; padding:0pt; position:relative; width:32px; z-index:20; behavior:url(/global/scripts/lib/iepngfix.htc); }
+#content_supp .calloutbox li.watchvideo { background:transparent url(http://images.apple.com/iphone/features/images/overlay_thumb_bg20080609.png) no-repeat 0 0; width:159px; height:120px; margin:-5px 0 0 -7px; float:left; }
+#main #content #content_supp .calloutbox img.left.iconimage { float: left; margin: 8px 0 0 9px; }
+#content #content_supp  #mobileoverlay { padding: 10px; }
+#content #content_supp  #mobileoverlay img { margin-right: 20px; }
+#content #content_supp  #mobileoverlay p { width: 215px; }
+#content #content_supp .calloutbox { padding-bottom: 1px; height: 100%; position: relative; }
+#content #content_supp .calloutbox #plus_sign { position: absolute; top: -6px; left: -8px; }
+#content #content_supp .calloutbox img { margin-right: 14px; margin-top: -2px; }
+#content #content_supp .calloutbox h3 { margin-left: 14px; font-size: 11px; }
+#content #content_supp .calloutbox h3 a { color: #252525; }
+#content #content_supp .calloutbox h3 a:hover { color: #08c; text-decoration: none; }
+#content #content_supp .calloutbox p { margin-left: 14px; }
+#content #content_supp .calloutbox a.more { background: url(http://images.apple.com/global/elements/arrows/morearrow_08c.gif) no-repeat 100% 55%; }
+ 
+/* tutorials call out box */
+#content_main .calloutbox.tutorial { width:195px; height: 65px; padding:0 20px 15px; margin-bottom:40px; font-size:11px; line-height:1.4em; background:url(http://images.apple.com/iphone/features/images/calloutbox_274_bgbottom20080609.gif) no-repeat 0 100%; }
+#content_main .calloutbox.tutorial .topcap { height:4px; width:235px; font-size:1px; padding-bottom:11px; margin:0 -20px; background:url(http://images.apple.com/iphone/features/images/calloutbox_274_bgtop20080609.gif) no-repeat 0 0; }
+#content_main .calloutbox.tutorial ul.movie { float:left; }
+#content_main .calloutbox.tutorial p { margin-top:19px; }
+#content_main .calloutbox.tutorial p.twolines { margin-top:11px; }
+#content_main .calloutbox.tutorial p.threelines { margin-top:3px; }
+ 
+/* pill buttons */
+#OverlayPanel p.pillbutton { display:block; min-height:3em; margin:0 auto 1em; padding-right:43px; text-align:center; font-size:15px; padding-top:220px; line-height:1.3em; }
+#OverlayPanel p.pillbutton a { display:inline-block; position:relative; color:#fff; text-decoration:none; outline:none; moz-outline:none; }
+#OverlayPanel p.pillbutton a span,
+#OverlayPanel p.pillbutton a b { display:inline-block; width:auto; padding:15px 0; text-align:left; outline:none; }
+#OverlayPanel p.pillbutton a span { padding-right:8px; padding-left:25px; background:url(http://images.apple.com/global/elements/buttons/pillbevel_leftcap.png) no-repeat 0 50%; _background-image:url(http://images.apple.com/global/elements/buttons/pill_leftcap.gif); }
+#OverlayPanel p.pillbutton a b { position:absolute; width:43px; top:0; right:-43px; text-indent:-9999px; background:url(http://images.apple.com/global/elements/buttons/pillbevel_rightcap.png) no-repeat 0 50%; _background-image:url(http://images.apple.com/global/elements/buttons/pill_rightcap.gif); }
+#OverlayPanel p.pillbutton a b, x:-moz-any-link { display:-moz-inline-block; margin-top:-16px; margin-right:5px; } /* this is for firefox because it's dumb when it comes to inline-block */
+#OverlayPanel p.pillbutton a b, x:-moz-any-link, x:default { top:0; margin-top:0; } /* this is to reset IE7 because it was reading the above */
+#OverlayPanel p.pillbutton a:hover { color:#e6e6e6; cursor:pointer; }
+ 
+/* Features Overlays */
+#OverlayPanel .panel { height: 510px; width: 765px; *padding-top: 85px; }
+#OverlayPanel .overlayPanelContent h2 { color: #666; margin-top: 34px; margin-left: 24px; font-size: 20px; position: absolute; top: 0; left: 26px; _top: 10px; font-weight: normal;}
+#OverlayPanel .overlayPanelContent p { color: #777; font-size: 12px !important; font-weight: normal; margin-bottom: 6px; width: 150px; }
+#OverlayPanel .overlayPanelContent .moviePanel { width: 640px; height: 360px; margin-left: 50px; margin-top: 60px; padding-top: 0; background-color: #000; }
+#OverlayPanel .overlayPanelContent .controllerPanel { margin-left: 50px; }
+#OverlayPanel .features-homescreen-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-phone-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-mail-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-safari-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-ipod-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-sms-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-maps-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-wifistore-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-appstore-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-calendar-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-youtube-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-photos-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-widgets-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+ 
+#OverlayPanel .features-enterprise-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .features-itunes-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+#OverlayPanel .super-monkey-overlay .endState { width: 640px; height: 360px; background: url(http://images.apple.com/iphone/features/images/features_endframe20080609.jpg) no-repeat left top; }
+ 
+ 
+/* Mobile Me Overlay */
+#mobileoverlay { display:none; }
+#OverlayPanel .mobilemeoverlay { height: 500px; width: 800px; padding:30px; }

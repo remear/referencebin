@@ -1,8 +1,3 @@
-<% if current_user %>
-<br />
-<div><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></div>
-<br />
-<% end %>
 <% if not @bookmark.comments.empty? %>
   <% #for comment in @bookmark.comments.reverse %>
   <% for comment in @bookmark.comments %>
@@ -44,7 +39,6 @@
     </p>
     
     <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>
-    <p style="text-align:right; margin-top:10px;"><%= image_submit_tag ("/images/buttons/flat_submit.gif") %></p>
+    <p style="text-align:right; margin-top:10px;"><%= image_submit_tag ("/images/buttons/submit.png") %></p>
   <% end %>
-  
 </div>

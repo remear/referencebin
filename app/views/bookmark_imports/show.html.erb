@@ -4,9 +4,9 @@
   <li>Bookmarks</li>
 <% end %>
 <% content_for(:actions) do %>
-  <li><%= link_to "Edit", edit_bookmark_import_path(@bookmark_import) %> |</li>
-  <li><%= link_to "Delete", @bookmark_import, :confirm => 'Are you sure?', :method => :delete %> |</li>
-  <li><%= link_to "View All", bookmark_imports_path %></li>
+  <li><%= link_to "Edit", edit_bookmark_import_path(@bookmark_import) %></li>
+  <li><%= link_to "Delete", @bookmark_import, :confirm => 'Are you sure?', :method => :delete %></li>
+  <li class="last"><%= link_to "View All", bookmark_imports_path %></li>
 <% end %>
 <% content_for(:commands) do %>
   <li><%= link_to 'Make Live', convert_bookmark_path, :class => 'arrow' %></li>

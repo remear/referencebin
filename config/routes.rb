@@ -29,10 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   #  # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #  admin.resources :users
   #end
-  map.namespace :administration do |admin|
-    # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-    admin.resources :reports
-  end
+  
   
   #settings
   map.settings '/settings', :controller => 'settings', :action => 'index'
@@ -57,7 +54,14 @@ ActionController::Routing::Routes.draw do |map|
   #administration
   ##users are mapped with path_prefix of /administration
   map.administration '/administration', :controller => 'administration', :action => 'index'
-
+  map.administration_tools '/administration/tools', :controller => 'administration', :action => 'tools'
+  map.administration_databases '/administration/databases', :controller => 'administration', :action => 'databases'
+  map.namespace :administration do |admin|
+    # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+    admin.resources :reports
+  end
+  
+  
   #pages
   map.credits '/credits', :controller => 'pages', :action => 'credits'
   map.termsofuse '/termsofuse', :controller => 'pages', :action => 'termsofuse'

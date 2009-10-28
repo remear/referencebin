@@ -22,26 +22,7 @@
     </dl>
   </div>
 </li>
-<li id="jots">
-  <%= link_to 'Jots', jots_path %> <%= link_to "&nbsp;", "#", :id => "jots_toggle", :class => 'inactive', :onclick => "guideMenu('guides2'); return false;" %>
-  <div id="guides2" class="flyout clearfix" style="display:none;">
-    <hr /> 
-    <dl class="L">
-      <dt>Main Areas</dt>
-      <% if current_user %>
-      <dd><%= link_to 'My Jots', bookmark_imports_path %></dd>
-      <dd><%= link_to 'Create Jot', import_bookmarks_path %></dd>
-      <dt>Help</dt>
-      <dd><%= link_to 'Tools For Importing', '#' %></dd>
-      <dd><%= link_to 'Importing Guide', '#' %></dd>
-      <% end %>
-    </dl>
-    <dl class="R">
-      <dt>Categories</dt>
-      <%= render :partial => 'languages/lang_nav' %>
-    </dl>
-  </div>
-</li>
+<li id="jots"><%= link_to 'Jots', jots_path %></li>
 <% if admin? %>
 <li id="administration"><%= link_to 'Administration', administration_path %></li>
 <% end %>

@@ -1,7 +1,7 @@
 <% if current_user %>
 <table>
   <tr>
-    <td rowspan="2"><%= image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:20px;" %></td>
+    <td rowspan="2"><% image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:20px;" %></td>
     <td class="right">Logged in : </td>
     <td>
       <strong><%= current_user.firstname %> <%= current_user.lastname %> (<%= current_user.nickname %>)</strong><span class="sosumi"> | </span>

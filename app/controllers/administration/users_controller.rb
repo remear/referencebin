@@ -2,6 +2,8 @@ class Administration::UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   layout "administration"
   include AuthenticatedSystem
+  before_filter :login_required
+  before_filter :admin_required
   
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
@@ -11,11 +13,15 @@ class Administration::UsersController < ApplicationController
     @users = User.all
   end
   
+  def show
+    @user = User.find_by_id(params[:id])
+  end
+  
   # render new.rhtml
   def new
     @user = User.new
   end
- 
+  
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
