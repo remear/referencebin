@@ -1,5 +1,8 @@
 class JotsController < ApplicationController
   layout "standard"
+  before_filter :login_required
+  before_filter :admin_required, :only => "destroy"
+  
   def index
     @jots = Jot.paginate_by_user_id current_user.id, :page => params[:page]
   end
