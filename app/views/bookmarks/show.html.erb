@@ -16,7 +16,7 @@
 
 <p class="tag green">Url</p>
 <p>
-  <% if @url_status == "200" %>
+  <% if @url_status == true %>
     <%= link_to @bookmark.url, @bookmark.url, :style => "background:url(/images/icons/check.png) right no-repeat; padding:5px 30px 5px 0;" %>
   <% else %>
     <%= link_to @bookmark.url, @bookmark.url, :style => "background:url(/images/icons/minus.png) right no-repeat; padding:5px 30px 5px 0;" %>
