@@ -35,8 +35,8 @@
 <%= markdown(@bookmark.description) %>
 <% end %>
 </div>
-<p><%= image_tag @bookmark.thumb(:large), :style => 'border:1px #EFEFEF solid' %></p>
-
+<p><% link_to @bookmark.url do %><%= image_tag @bookmark.thumb(:large), :style => 'border:1px #EFEFEF solid' %><% end %></p>
+<div class="clearer"></div>
 <div id="question_form" style="display:none">
   <h2 class="section">Add a Question</h2>
   <p class="sosumi">Please enter the question this bookmark helped you to answer. This helps others find the same solution.</p>
@@ -62,7 +62,7 @@
 <h2 class="gray" style="margin-top:30px">
   Did this bookmark help you answer your question? 
   <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
-</h3>
+</h2>
 <% end %>
 
 

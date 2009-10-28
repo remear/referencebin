@@ -1,5 +1,4 @@
-<% content_for(:section) do %>Editing Bookmark<% end %>
-<% content_for(:actionbar) do %>
+<% content_for(:actions) do %>
   <%= link_to 'Show', bookmark_path(:lang => language_name(@bookmark.language_id), :bookmark_name => @bookmark.permalink) %> |
   <%= link_to 'Back', bookmarks_path %>
 <% end %>
@@ -11,13 +10,14 @@
   <p><%= @bookmark.title %></p>
   
   <p class="tag green"><%= f.label :url %></p>
-  <p><%= f.text_field :url %></p>
+  <p><%= f.text_field :url, :size => 70 %></p>
   
   <p class="tag green"><%= f.label :description %></p>
   <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
   
-  <%= f.label :tag_list %>
-  <%= f.text_field :tag_list, :size => 80 %>
-    
-  <p><%= f.submit 'Update' %></p>
+  <p class="tag green"><%= f.label :tag_list %></p>
+  <p><%= f.text_field :tag_list, :size => 80 %></p>
+  
+  <br />
+  <p><%= image_submit_tag '/images/buttons/update.png' %></p>
 <% end %>
