@@ -1,20 +1,19 @@
 <% if current_user %>
 <table>
   <tr>
-    <td rowspan="2"><% image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:20px;" %></td>
-    <td class="right">Logged in : </td>
+    <td rowspan="2"><%= image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:20px;" %></td>
     <td>
-      <strong><%= current_user.firstname %> <%= current_user.lastname %> (<%= current_user.nickname %>)</strong><span class="sosumi"> | </span>
+      <span style="padding-right:20px; font-weight:bold"><%= current_user.firstname %> <%= current_user.lastname %> (<%= current_user.nickname %>)</span>
       <%= link_to 'Settings', settings_path %><span class="sosumi"> | </span>
       <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %><span class="sosumi"> | </span>
       <%= link_to 'Logout', logout_path %>
+      <span style="padding-left:20px; font-weight:bold"><a href='http://www.pledgie.com/campaigns/6762?canvas=false' target='_new' class="addleft">Donate</a></span>
     </td>
-  </tr>
-  <tr>
-    <td class="right">Release :</td>
-    <td><strong><%= File.split(RAILS_ROOT).last %></strong></td>
   </tr>
 </table>
 <% else %>
-  <p><span class="sosumi">Not logged in |</span> <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %></p>
+  <p>
+    <span class="sosumi">Not logged in |</span> <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %>
+    <span style="padding-left:20px; font-weight:bold"><a href='http://www.pledgie.com/campaigns/6762?canvas=false' target='_new' class="addleft">Donate</a></span>
+  </p>
 <% end %>
