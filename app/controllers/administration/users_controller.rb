@@ -1,9 +1,10 @@
 class Administration::UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  layout "administration"
+  layout "administration", :except => 'register'
+  
   include AuthenticatedSystem
-  before_filter :login_required
-  before_filter :admin_required
+  before_filter :login_required, :except => 'register'
+  before_filter :admin_required, :except => 'register'
   
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
@@ -20,6 +21,11 @@ class Administration::UsersController < ApplicationController
   # render new.rhtml
   def new
     @user = User.new
+  end
+  
+  def register
+    @user = User.new
+    render :layout => 'standard'
   end
   
   def create

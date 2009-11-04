@@ -1,6 +1,6 @@
-ARGV.each do|a|
-  puts "Argument: #{a}"
-end
+#ARGV.each do|a|
+#  puts "Argument: #{a}"
+#end
 
 set :application, "prb"
 set :repository,  "git@reanstudios.com:prb"
@@ -8,9 +8,10 @@ set :scm, :git
 set :git_shallow_clone, 1
 set :scm_verbose, true
 
+default_run_options[:pty] = true
 set :use_sudo, false
 set :ssh_options, {:forward_agent => true}
-ssh_options[:forward_agent] = true
+#ssh_options[:forward_agent] = true
 #on :start do    
 #  `ssh-add`
 #end

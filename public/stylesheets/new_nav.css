@@ -32,7 +32,8 @@ body > #wrap { height: auto; min-height: 100%; }
 #header #gnav ul.bookmark_imports li#bookmarks,
 #header #gnav ul.jots li#jots,
 #header #gnav ul.sessions li#login,
-#header #gnav ul.administration li#administration { background:#1f53a3; -webkit-border-radius:5px; -moz-border-radius:5px; }
+#header #gnav ul.administration li#administration,
+#header #gnav ul.administration-users li#register { background:#1f53a3; -webkit-border-radius:5px; -moz-border-radius:5px; }
 
 #breadcrumbs a { text-decoration:none; }
 

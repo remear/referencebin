@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   #questions
   map.resources :questions
   
-  map.signup '/register', :controller => 'users', :action => 'new'
+  map.register '/register', :controller => 'administration/users', :action => 'register'
   map.login  '/login',  :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil

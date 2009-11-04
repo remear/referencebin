@@ -10,7 +10,7 @@
 	<%= stylesheet_link_tag 'new_nav' %>
 	<%= stylesheet_link_tag 'coderay' %>
 	<%= stylesheet_link_tag "facebox.css" %>
-	
+	<%= stylesheet_link_tag 'standard' %>
 	<%= javascript_include_tag :defaults %>
 	<%= javascript_include_tag "facebox.js" %>
 </head>
@@ -23,7 +23,7 @@
       </div>
       <div class="clearer"></div>
       <div id="gnav">
-        <ul class="<%= params[:controller] %>">
+        <ul class="<%= params[:controller].gsub('/','-') %>">
           <%= render :partial => 'layouts/nav' %>
         </ul>
       </div>

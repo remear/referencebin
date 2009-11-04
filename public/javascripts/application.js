@@ -55,3 +55,24 @@ function guideMenu(div){
     $(element).fadeOut();
   }
 }
+
+//check if password field == password confirmation field
+//show good password message if true
+function checkPasswordMatch()
+{
+  /*
+  if ($('#user_password').val() == $('#user_password_confirmation').val())
+    $('#good-password-message').show();
+  else
+    $('#good-password-message').show();
+  */
+  if ($('#user_password').val() == $('#user_password_confirmation').val())
+    $("#password-message").html("<p id=\"good-password-message\">Passwords match</p>");
+  else
+  {
+    setTimeout(function() {
+      $("#password-message").html("<p id=\"bad-password-message\">Passwords don't match</p>");
+    }, 5000);
+  }
+  
+}
