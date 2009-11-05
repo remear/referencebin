@@ -16,6 +16,18 @@ class Bookmark < ActiveRecord::Base
                     
   validates_uniqueness_of :url
   
+  define_index do
+    # fields
+    indexes title, :sortable => true
+    indexes description
+    indexes taggings.tag(:name), :as => :topic
+    indexes language.name, :sortable => true
+    indexes [user.firstname, user.lastname], :as => :author, :sortable => true
+
+    # attributes
+    has user_id, language_id, created_at, updated_at
+  end
+    
   def self.per_page
     8
   end
