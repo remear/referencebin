@@ -2,7 +2,7 @@
 <table>
   <tr>
     <td rowspan="2"><%= image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:20px;" %></td>
-    <td>
+    <td style="vertical-align:top">
       <span style="padding-right:20px; font-weight:bold"><%= current_user.firstname %> <%= current_user.lastname %> (<%= current_user.nickname %>)</span>
       <%= link_to 'Settings', settings_path %><span class="sosumi"> | </span>
       <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %><span class="sosumi"> | </span>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091021024934) do
+ActiveRecord::Schema.define(:version => 20091105080106) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20091021024934) do
     t.datetime "activated_at"
     t.string   "state",                                    :default => "passive"
     t.datetime "deleted_at"
+    t.integer  "landing_page",                             :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

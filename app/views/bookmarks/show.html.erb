@@ -59,12 +59,19 @@
 </h3>
 <% end %>
 <% else %>
+<% if current_user %>
 <h2 class="gray" style="margin-top:30px">
-  Did this bookmark help you answer your question? 
-  <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
+  Did this bookmark help you answer your question?
+  <%= link_to ' Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
 </h2>
+<% end %>
 <% end %>
 
 
-<h2 class="section" style="margin-top:50px;">Comments <span style="float:right"><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></span></h2>
+<h2 class="section" style="margin-top:50px;">
+  Comments
+  <% if current_user %>
+  <span style="float:right"><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></span>
+  <% end %>
+</h2>
 <%= render :partial => "comments" %>

@@ -4,15 +4,13 @@
 <% end %>
 <% content_for(:actions) do %>
   <li><%= link_to 'Import', import_bookmarks_path %></li>
-<% end %>
-<% content_for(:commands) do %>
-  <li><%= link_to 'Import Approved', convert_all_bookmarks_path, :class => 'arrow' %></li>
+  <li class="last"><%= link_to 'Approve & Make Live', convert_all_bookmarks_path, :class => 'arrow' %></li>
 <% end %>
 
 <h1 class="bookmark_imported">Imported Bookmarks</h1>
 
 <% if ! @bookmark_imports.blank? %>
-<table class="bookmark_imports interactive">
+<table id="interactive" class="bookmark_imports interactive">
   <thead>
   <tr>
     <th></th>
@@ -44,3 +42,4 @@
 <% else %>
   <p class="sosumi">You have no bookmarks to sanitize. <%= link_to "Import bookmarks", import_bookmarks_path %></p>
 <% end %>
+

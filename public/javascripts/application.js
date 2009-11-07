@@ -60,14 +60,13 @@ function guideMenu(div){
 //show good password message if true
 function checkPasswordMatch()
 {
-  /*
+  //FIXME: fix problem with bad-password-message being shown because of pre-existing setTimeout()
+
   if ($('#user_password').val() == $('#user_password_confirmation').val())
-    $('#good-password-message').show();
-  else
-    $('#good-password-message').show();
-  */
-  if ($('#user_password').val() == $('#user_password_confirmation').val())
+  {
     $("#password-message").html("<p id=\"good-password-message\">Passwords match</p>");
+    clearTimeout();
+  }
   else
   {
     setTimeout(function() {

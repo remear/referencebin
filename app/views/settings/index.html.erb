@@ -4,31 +4,54 @@
 <h1 class="settings">Settings</h1>
 <br />
 <% form_for @user, :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
-  <table style="width:500px;">
-  	<tr>
-  	  <td style="vertical-align:top; width:400px">
-  	    <%= image_tag current_user.gravatar_url(:size => 200) %>
-  		</td>
-  		<td style="vertical-align:top;">
-  			<p class="tag green">Name</p>
-  			<p><%= @user.firstname %> <%= @user.lastname %></p>
-  			
-  			<p class="tag green">Nickname</p>
-  			<p><%= @user.nickname %></p>
-  			
-  			<p class="tag green">Email</p>
-  			<p><%= f.text_field :email %></p>
-  			
-  			<p class="tag green">New Password</p>
-				<p><%= f.password_field :password %></p>
+<%= f.error_messages %>
 
-				<p class="tag green">Confirm Password</p>
-				<p><%= f.password_field :password_confirmation %></p>	
-  		</td>
-  	</tr>
-  	<tr>
-  	  <td colspan="2" style="text-align:right"><%= image_submit_tag '/images/buttons/update.png', :style => "margin-top:20px;" %></td>
-  	</tr>
-  </table>
+<p class="tag green">Nickname</p>
+<p><%= @user.nickname %></p>
+
+<table style="width:100%">
+	<tr>
+	  <td style="vertical-align:top;">
+		  <table>
+        <tr>
+          <td><p class="tag green"><%= label_tag 'First Name' %></p></td>
+          <td><p class="tag green"><%= label_tag 'Last Name' %></p></td>
+        </tr>
+        <tr>
+          <td style="width:160px"><%= f.text_field :firstname, :size => 20 %></td>
+          <td><%= f.text_field :lastname, :size => 20 %></td>
+        </tr>
+      </table>
+			<br />
+			
+			<p class="tag green">Email</p>
+			<p><%= f.text_field :email %></p>
+			
+			<p class="tag green">New Password</p>
+			<p><%= f.password_field :password %></p>
+
+			<table>
+        <tr>
+          <td>
+            <p class="tag green"><%= label_tag 'password_confirmation', 'Confirm Password' %></p>
+            <p><%= f.password_field :password_confirmation, :onkeyup => 'checkPasswordMatch()' %></p>
+          </td>
+          <td style="vertical-align:bottom;" id="password-message"></td>
+        </tr>
+      </table>
+		</td>
+	  <td style="vertical-align:top; text-align:right">
+	    <%= image_tag current_user.gravatar_url(:size => 200) %>
+		</td>
+	</tr>
+</table>
+
+<p style="text-align:right"><% image_submit_tag '/images/buttons/update.png', :style => "margin-top:20px;" %></p>
+
+<h3 class="section">Landing Page</h3>
+<p class="sosumi">This setting determines what bookmark page you see after you login</p>
+<%= @user.landing_page %>
+<%= select_tag(:landing_page, '<option>Select a page...</option>' + '<option value="999">Recent Bookmarks</option>' + options_from_collection_for_select(Language.all(:order => 'name'), :id, :name), { :selected => 2 }) %>
+
+<p style="text-align:right"><%= image_submit_tag '/images/buttons/update.png', :style => "margin-top:20px;" %></p>
 <% end %>

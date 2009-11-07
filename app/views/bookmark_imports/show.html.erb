@@ -30,14 +30,10 @@
 
 <p class="tag green">Url</p>
 <p>
-  <%= link_to @bookmark_import.url, @bookmark_import.url %>
-  
-  <% if @url_status == "200" %>
-    <span class="green" style="margin-left:30px; font-weight:bold">WORKING</span>
-  <% elsif @url_status == "301" %>
-    <span class="orange" style="margin-left:30px; font-weight:bold">OK</span>
+  <% if @url_status == true %>
+    <%= link_to @bookmark_import.url, @bookmark_import.url, :style => "background:url(/images/icons/check.png) right no-repeat; padding:5px 30px 5px 0;" %>
   <% else %>
-    <span class="red" style="margin-left:30px; font-weight:bold">PROBLEM</span>
+    <%= link_to @bookmark_import.url, @bookmark_import.url, :style => "background:url(/images/icons/minus.png) right no-repeat; padding:5px 30px 5px 0;" %>
   <% end %>
 </p>
 

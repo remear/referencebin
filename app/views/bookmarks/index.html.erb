@@ -12,9 +12,9 @@
   <% end %>
 <% end %>
 <% if params[:lang] %>
-<h1 class="<%= params[:lang] %>">Listing bookmarks</h1>
+<h1 class="<%= params[:lang] %>"><%= @bookmarks.first.language.name if ! @bookmarks.first.nil? %> Bookmarks</h1>
 <% else %>
-<h1 class="bookmark_recent">Listing Recent Bookmarks</h1>
+<h1 class="bookmark_recent">Recent Bookmarks</h1>
 <% end %>
 
 <% if ! @bookmarks.empty? %>

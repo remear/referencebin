@@ -9,9 +9,6 @@
 	<%= stylesheet_link_tag 'new' %>
 	<%= stylesheet_link_tag 'new_nav' %>
 	<%= stylesheet_link_tag 'coderay' %>
-	<!--[if IE]>
-    <%= stylesheet_link_tag "ie.css" %>
-  <![endif]-->
   <%= stylesheet_link_tag "facebox.css" %>
 	
 	<%= javascript_include_tag :defaults %>
@@ -48,18 +45,15 @@
   	<div id="content" class="clearfix">
   	  <div id="main">
         <% if flash[:warning] or flash[:notice] %>
-	      <div id="notice">
-      		<%= flash[:warning] || flash[:notice] %>
-          </div>
-          <script type="text/javascript">
-          $('#notice').delay(1200, function(){
+	      <div id="notice"><%= flash[:warning] || flash[:notice] %></div>
+        <% end %>
+        <script type="text/javascript">
+          $('#notice').delay(5000, function(){
             $("#notice").fadeTo("slow", 0.01, function(){ //fade
                  $(this).remove(); //then remove from the DOM
              });
           });
-          </script>
-        <% end %>
-        
+        </script> 
         <%= yield %>
       </div>
   	</div>

@@ -16,7 +16,7 @@ body > #wrap { height: auto; min-height: 100%; }
 
 body { background: #efefef url(/images/admin/bg20080609.jpg) repeat-x 0 0; }
 
-#container { width: 984px; }
+#container { width: 984px; margin:10px auto 10px auto; }
 #content p, #content ul { color: #797c80; }
 #content h3 { font-size: 14px; line-height: 18px; padding-top: 14px; padding-bottom: 4px; color: #000; font-weight: bold; }
 #content { width:680px; padding: 18px 30px 18px 25px; }
