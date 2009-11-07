@@ -18,7 +18,7 @@
 	  <% for user in @users %>
 		<tr class="noborder"><td colspan="4">&nbsp;</td></tr>
 		<tr class="<%= cycle("odd", "even") %>" onclick="window.location='<%= user_path(user)%>'">
-			<td><%= image_tag current_user.gravatar_url(:size => 40) %></td>
+			<td><%= image_tag user.gravatar_url(:size => 40) %></td>
   		<td><%= user.firstname %> <%= user.lastname %></td>
   		<td><%= user.nickname %></td>
   		<td><%= user.email %></td>
