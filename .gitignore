@@ -9,3 +9,4 @@ tmp/**/*
 users.csv
 *.csv
 *deprecated*
+db/sphinx/*
