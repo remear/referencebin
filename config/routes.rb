@@ -2,9 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   #jots
   map.resources :jots
 
-  #questions
-  map.resources :questions
-  
+  #questions  
   map.register '/register', :controller => 'administration/users', :action => 'register'
   map.login  '/login',  :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -25,10 +23,6 @@ ActionController::Routing::Routes.draw do |map|
 
   #users & sessions
   map.resources :users, :path_prefix => '/administration'
-  #map.namespace :administration do |admin|
-  #  # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #  admin.resources :users
-  #end
   
   #search
   map.search '/search', :controller => 'search', :action => 'index'
