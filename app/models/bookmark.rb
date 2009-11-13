@@ -38,7 +38,8 @@ class Bookmark < ActiveRecord::Base
     end
   
     def generate_thumb
-      #Delayed::Job.enqueue(DelayedThumbnail.new(self.id), 0, 5.minutes.from_now)
+      #TODO: move developer_key to an environment variable or place in initializer
+      PageGlimpse.developer_key = '85fd3e91a4874a31c048797113c9bf8e'
       PageGlimpse.queue(self.url)
     end
 end
