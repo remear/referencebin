@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   config.gem 'page_glimpse'
   config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
   config.gem 'thinking-sphinx', :lib => 'thinking_sphinx', :version => '>=1.2.12'
-  #config.gem 'whenever', :lib => false, :source => 'http://gemcutter.org/'
+  config.gem 'whenever', :lib => false, :source => 'http://gemcutter.org/'
   
   
   # Only load the plugins named here, in the order given (default is alphabetical).
