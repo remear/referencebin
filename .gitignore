@@ -10,3 +10,5 @@ users.csv
 *.csv
 *deprecated*
 db/sphinx/*
+config/development.sphinx.conf
+config/production.sphinx.conf
