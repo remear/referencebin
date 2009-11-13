@@ -30,6 +30,9 @@ ActionController::Routing::Routes.draw do |map|
   #  admin.resources :users
   #end
   
+  #search
+  map.search '/search', :controller => 'search', :action => 'index'
+  #map.search '/search/:query', :controller => 'search', :action => 'query'
   
   #settings
   map.settings '/settings', :controller => 'settings', :action => 'index'

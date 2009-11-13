@@ -1,0 +1,9 @@
+<% @results.each do |result| %>
+<div style="border-bottom:1px #E8E8E8 solid; margin-bottom:15px; padding-bottom:15px;">
+  <p style="width:90px; float:left"><% link_to result.bookmark.url do %><%= image_tag result.bookmark.thumb(:small), :height => 50 %><% end %></p>
+  <p><strong><%= link_to result.bookmark.title, bookmark_path(:lang => result.bookmark.language.permalink, :bookmark_name => result.bookmark.permalink) %></strong></p>
+  
+  <div style="width:80%"><%= result.body %></div>
+  <div class="clearer"></div>
+</div>
+<% end %>

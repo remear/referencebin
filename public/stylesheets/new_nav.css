@@ -53,6 +53,13 @@ body > #wrap { height: auto; min-height: 100%; }
 
 #actions { float:right; font-weight:bold; }
 
+/* searchnav*/
+#searchnav { width:200px; float:left; border:1px #d8d8d8 solid; padding:20px; font-size:1em; margin-right:20px }
+#searchnav ul { margin:0px; }
+#searchnav ul li { line-height:2em; }
+#searchnav ul.bookmarks li#bookmarks { background:#EEEEEE; margin:0px -10px 0px -10px; padding:0px 10px 0px 10px; -webkit-border-radius:5px; -webkit-border-radius:10px; }
+#searchnav ul.comments li#comments { background:#EEEEEE; margin:0px -10px 0px -10px; padding:0px 10px 0px 10px; -webkit-border-radius:5px; -webkit-border-radius:10px; }
+
 /* pagination */
 .pagination { padding: 2px; margin:30px 3px; text-align:center; }
 .pagination a { padding: 2px 5px 2px 5px; margin: 0px; border: 1px solid #EEE; text-decoration: none; color: #036CB4; }

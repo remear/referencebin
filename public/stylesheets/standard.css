@@ -1,2 +1,3 @@
+.match { background:yellow; }
 #good-password-message { background:url(/images/icons/check.png) 20px 1px no-repeat; padding:0 0 2px 45px; color:green; }
 #bad-password-message { background:url(/images/icons/minus.png) 20px 1px no-repeat; padding:0 0 2px 45px; color:red; }

@@ -22,6 +22,22 @@ $.fn.selectRange = function(start, end)
   });
 };
 
+function swapResults(query, type)
+{
+  if(type)
+  {
+    $.get("/search?query="+type+":"+query, function(data){$("#results").html(data);});
+    $("#searchtypes").removeClass();
+    $("#searchtypes").addClass('comments');
+  }
+  else
+  {
+    $.get("/search?query="+query, function(data){$("#results").html(data);});
+    $("#searchtypes").removeClass();
+    $("#searchtypes").addClass('bookmarks');
+  }
+}
+
 jQuery.fn.delay = function(time,func){
     return this.each(function(){
         setTimeout(func,time);
