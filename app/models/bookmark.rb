@@ -2,11 +2,10 @@ class Bookmark < ActiveRecord::Base
   belongs_to :language
   belongs_to :user
   has_many :comments
-  has_many :questions
   after_create :generate_permalink
   after_create :generate_thumb
   
-  acts_as_taggable
+  acts_as_taggable_on :topics, :questions
   
   has_attached_file :thumb, :styles => {:small => "150x108", :medium => "280x202", :large => "430x310"},
                     :url  => "/assets/thumbs/:style_:basename.:extension",
@@ -20,8 +19,9 @@ class Bookmark < ActiveRecord::Base
     # fields
     indexes title, :sortable => true
     indexes description
+    indexes comments.body
     indexes taggings.tag(:name), :as => :topic
-    indexes language.name, :sortable => true
+    indexes language.name, :as => :language, :sortable => true
     indexes [user.firstname, user.lastname], :as => :author, :sortable => true
 
     # attributes
@@ -38,6 +38,6 @@ class Bookmark < ActiveRecord::Base
     end
   
     def generate_thumb
-      Delayed::Job.enqueue(DelayedThumbnail.new(self.id), 0, 10.minutes.from_now)
+      Delayed::Job.enqueue(DelayedThumbnail.new(self.id), 0, 5.minutes.from_now)
     end
 end

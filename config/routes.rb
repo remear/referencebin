@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments
   
   #bookmarks
+  map.bookmark_post_question '/bookmarks/:id/postquestion', :controller => 'bookmarks', :action => 'post_question'
   map.bookmarks_by_tag '/bookmarks/tags/:tag', :controller => 'bookmarks', :action => 'tags'
   map.bookmark_tag_cloud '/bookmarks/tags', :controller => 'bookmarks', :action => 'tags'
   map.connect '/bookmarks/inc_content_length', :controller => 'bookmarks', :action => 'inc_content_length'

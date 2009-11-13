@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   has_many :bookmarks
   has_many :bookmark_imports
   has_many :comments
-  has_many :codes
-  has_many :questions
   
   validates_presence_of     :login
   validates_length_of       :login,     :within => 3..40
@@ -32,7 +30,9 @@ class User < ActiveRecord::Base
                  :size => 120,
                  :size => 120,
                  :default => "wavatar"
-
+  
+  acts_as_tagger
+  
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :firstname, :lastname, :nickname, :password, :password_confirmation
 
