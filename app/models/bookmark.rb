@@ -39,6 +39,6 @@ class Bookmark < ActiveRecord::Base
   
     def generate_thumb
       #Delayed::Job.enqueue(DelayedThumbnail.new(self.id), 0, 5.minutes.from_now)
-      PageGlimpse.queue(bookmark.url)
+      PageGlimpse.queue(self.url)
     end
 end
