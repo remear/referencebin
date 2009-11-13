@@ -46,6 +46,16 @@ class BookmarksController < ApplicationController
     @tags = Bookmark.tag_counts
   end
   
+  def post_question
+    @bookmark = Bookmark.find(params[:id])
+    
+    if current_user.tag(@bookmark, :with => "turd", :on => :questions)
+      render :text => true
+    else
+      render :text => false
+    end
+  end
+  
   def new
     @bookmark = Bookmark.new
 

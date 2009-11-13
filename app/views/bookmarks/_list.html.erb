@@ -1,6 +1,9 @@
-<% for bookmark in @bookmarks %>
+<% @bookmarks.each do |bookmark| %>
 <div style="width:1000px; margin:auto; height:150px">
-  <div style="background:url(/images/bar.png) no-repeat; height:23px; color:#FFFFFF; padding:5px 10px 5px 10px"><span style="float:left"><%= bookmark.title %></span><span style="float:right"><%= bookmark.tag_list %></span></div>
+  <div style="background:url(/images/bar.png) no-repeat; height:23px; color:#FFFFFF; padding:5px 10px 5px 10px">
+    <span style="float:left"><%= bookmark.title %></span>
+    <span style="float:right"><%= bookmark.topic_list %></span>
+  </div>
   <span style="float:left; margin-right:20px;"><% link_to bookmark.url do %><%= image_tag bookmark.thumb(:small) %><% end %></span>
 
   <p class="title">

@@ -27,7 +27,7 @@
     
     <p class="sosumi green">
       <strong>Importance</strong>
-      <%= f.select( :importance, { "High" => "high", "Normal" => "normal", "Low" => "low" }, { :selected => "normal" }) %>
+      <%= f.select(:importance, { "High" => "high", "Normal" => "normal", "Low" => "low" }, { :selected => "normal" }) %>
     </p>
     
     <br />
@@ -35,7 +35,8 @@
     <p class="sosumi green"><strong>Message</strong></p>
     <%= f.text_area :body, :cols => "95" %>
     <p>
-      <% link_to 'Insert Code', '#', :onclick => "$('#facebox #comment_body').append('[code=#{highlight_lang(@bookmark.language.permalink)}][/code]'); $('#facebox #comment_body').focus();" %>
+      <% link_to 'Insert Code', '#', 
+      :onclick => "$('#facebox #comment_body').append('[code=#{highlight_lang(@bookmark.language.permalink)}][/code]'); $('#facebox #comment_body').focus();" %>
     </p>
     
     <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>

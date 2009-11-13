@@ -15,8 +15,11 @@
   <p class="tag green"><%= f.label :description %></p>
   <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
   
-  <p class="tag green"><%= f.label :tag_list %></p>
-  <p><%= f.text_field :tag_list, :size => 80 %></p>
+  <p class="tag green"><%= f.label 'Topics' %></p>
+  <p><%= f.text_field :topic_list, :size => 80 %></p>
+  
+  <p class="tag green"><%= f.label 'Question' %></p>
+  <p><%= f.text_field :question_list, :size => 80 %></p>
   
   <br />
   <p><%= image_submit_tag '/images/buttons/update.png' %></p>

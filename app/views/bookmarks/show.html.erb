@@ -23,55 +23,46 @@
   <% end %>
 </p>
 
-<p class="tag green">Tags</p>
-<% if ! @bookmark.tag_list.empty? %>
-<p class="sosumi"><%= @bookmark.tag_list %></p>
+<p class="tag green">Topics</p>
+<% if ! @bookmark.topic_list.empty? %>
+  <p class="sosumi"><%= @bookmark.topic_list %></p>
 <% else %>
-<p class="sosumi">Bookmark has no tags</p>
+  <p class="sosumi">Bookmark has no tags</p>
 <% end %>
 
 <% if @bookmark.description %>
-<p class="tag green">Description</p>
-<%= markdown(@bookmark.description) %>
+  <p class="tag green">Description</p>
+  <%= markdown(@bookmark.description) %>
 <% end %>
 </div>
+
 <p><% link_to @bookmark.url do %><%= image_tag @bookmark.thumb(:large), :style => 'border:1px #EFEFEF solid' %><% end %></p>
 <div class="clearer"></div>
 <div id="question_form" style="display:none">
   <h2 class="section">Add a Question</h2>
   <p class="sosumi">Please enter the question this bookmark helped you to answer. This helps others find the same solution.</p>
-<% remote_form_for :question, :url => { :controller => "questions", :action => "create"} do |f| %>
   <p class="sosumi green">Question</p>
-  <p><%= f.text_area :body, :cols => 100, :rows => 5 %></p><br />
-  <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>
-  <p style="text-align:right; margin-top:10px;"><%= image_submit_tag ("/images/buttons/submit.png") %></p>
-<% end %>
+  
 </div>
 
 <% if ! @bookmark.questions.blank? %>
-<h2 class="section" style="margin-top:50px;">Questions Answered</h2>
-<p class="sosumi">If you see your question below, click the thumbs up next to it!</p>
-<%= render :partial => "questions" %>
-<% if current_user %>
-<h3 class="gray" style="margin-top:30px">
-  Did this bookmark help you answer your question but don't see it above? 
-  <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
-</h3>
-<% end %>
-<% else %>
-<% if current_user %>
-<h2 class="gray" style="margin-top:30px">
-  Did this bookmark help you answer your question?
-  <%= link_to ' Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
-</h2>
-<% end %>
-<% end %>
-
-
-<h2 class="section" style="margin-top:50px;">
-  Comments
+  <h2 class="section" style="margin-top:50px;">Questions Answered</h2>
+  <p class="sosumi">If you see your question below, click the thumbs up next to it!</p>
+  <%= render :partial => "questions" %>
   <% if current_user %>
-  <span style="float:right"><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></span>
+    <h3 class="gray" style="margin-top:30px">
+      Did this bookmark help you answer your question but don't see it above? 
+      <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
+    </h3>
   <% end %>
-</h2>
-<%= render :partial => "comments" %>
+<% end %>
+
+<% if ! @bookmark.comments.blank? %>
+  <h2 class="section" style="margin-top:50px;">
+    Comments
+    <% if current_user %>
+      <span style="float:right"><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></span>
+    <% end %>
+  </h2>
+  <%= render :partial => "comments" %>
+<% end %>
