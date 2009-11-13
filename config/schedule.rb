@@ -19,6 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
+every 5.minutes do
+  rake "thumbs:get"
+end
+
 every 6.hours do
   rake "thinking_sphinx:index > log/cron.log"
 end
