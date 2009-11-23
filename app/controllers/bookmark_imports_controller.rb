@@ -1,6 +1,6 @@
 class BookmarkImportsController < ApplicationController
   layout "bookmarks"
-  before_filter :login_required
+  before_filter :require_login
   skip_after_filter :add_google_analytics_code
   def index
     #@bookmark_imports = BookmarkImport.all

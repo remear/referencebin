@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   layout "bookmarks"
-  before_filter :login_required, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
+  before_filter :require_login, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
   skip_after_filter :add_google_analytics_code, :only => [ 'destroy', 'update' ]
   
   def index

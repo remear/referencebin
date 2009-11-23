@@ -3,7 +3,7 @@ class Administration::UsersController < ApplicationController
   layout "administration", :except => ['register', 'create']
   
   include AuthenticatedSystem
-  before_filter :login_required, :except => [ 'register', 'create', 'activate' ]
+  before_filter :require_login, :except => [ 'register', 'create', 'activate' ]
   before_filter :admin_required, :except => [ 'register', 'create', 'activate' ]
   
   # Protect these actions behind an admin login

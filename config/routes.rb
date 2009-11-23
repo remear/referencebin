@@ -1,17 +1,24 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :user_sessions
+
+  map.resources :users
+
   #jots
   map.resources :jots
 
   #questions  
-  map.register '/register', :controller => 'administration/users', :action => 'register'
-  map.login  '/login',  :controller => 'sessions', :action => 'new'
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.activate '/activate/:activation_code', :controller => 'administration/users', :action => 'activate', :activation_code => nil
-  map.resource :session
-  map.namespace :administration do |admin|
+  
+  map.resources :users
+  map.login "login", :controller => "user_sessions", :action => "new"
+  map.logout "logout", :controller => "user_sessions", :action => "destroy"
+  map.register "register", :controller => "users", :action => "new"
+  map.resources :user_sessions
+  
+  #administration
+  #map.namespace :administration do |admin|
     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-    admin.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
-  end
+    #admin.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
+  #end
   #map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
 
   #bookmark imports
@@ -29,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.search '/search/:query', :controller => 'search', :action => 'query'
   
   #settings
-  map.settings '/settings', :controller => 'settings', :action => 'index'
+  map.settings '/settings', :controller => 'users', :action => 'edit'
   
   #comments
   map.resources :comments
