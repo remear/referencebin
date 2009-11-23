@@ -16,9 +16,9 @@
 <% else %>
 <h1 class="bookmark_recent">Recent Bookmarks</h1>
 <% end %>
-
+<%= will_paginate @bookmarks, :id => 'pagination', :style => 'float:right; margin-top:-45px' %>
+<div class="clearer"></div>
 <% if ! @bookmarks.empty? %>
-<p id="position"><%= will_paginate @bookmarks, :id => 'pagination' %></p>
 
 <div id="list">
   <%= render :partial => 'list' %>
