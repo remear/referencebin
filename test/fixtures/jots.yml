@@ -1,7 +1,12 @@
 one:
-  body: MyText
-  error: MyText
+  id: 1
+  user_id: 1
+  language_id: 1
+  code: def index \n puts 'hello' \n end
 
 two:
-  body: MyText
-  error: MyText
+  id: 2
+  user_id: 1
+  language_id: 1
+  code: def index \n puts testing \n end
+  error: 'undefined method "testing"'

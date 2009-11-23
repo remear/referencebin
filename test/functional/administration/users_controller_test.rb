@@ -1,10 +1,10 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'users_controller'
+require 'test_helper'
+require 'administration/users_controller'
 
 # Re-raise errors caught by the controller.
-class UsersController; def rescue_action(e) raise e end; end
+class Administration::UsersController; def rescue_action(e) raise e end; end
 
-class UsersControllerTest < ActionController::TestCase
+class Administration::UsersControllerTest < ActionController::TestCase
   # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
@@ -64,11 +64,11 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   def test_should_activate_user
-    assert_nil User.authenticate('aaron', 'test')
+    assert_nil User.authenticate('aaron', 'letmein')
     get :activate, :activation_code => users(:aaron).activation_code
-    assert_redirected_to '/session/new'
+    assert_redirected_to login_path
     assert_not_nil flash[:notice]
-    assert_equal users(:aaron), User.authenticate('aaron', 'monkey')
+    assert_equal users(:aaron), User.authenticate('aaron', 'letmein')
   end
   
   def test_should_not_activate_user_without_key
@@ -87,7 +87,7 @@ class UsersControllerTest < ActionController::TestCase
 
   protected
     def create_user(options = {})
-      post :create, :user => { :login => 'quire', :email => 'quire@example.com',
-        :password => 'quire69', :password_confirmation => 'quire69' }.merge(options)
+      post :create, :user => { :login => 'quire', :nickname => 'squire', :firstname => 'mac', :lastname => 'peterson', 
+        :email => 'quire@example.com', :password => 'quire69', :password_confirmation => 'quire69' }.merge(options)
     end
 end

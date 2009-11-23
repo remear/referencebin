@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'administration/users', :action => 'register'
   map.login  '/login',  :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.activate '/activate/:activation_code', :controller => 'administration/users', :action => 'activate', :activation_code => nil
   map.resource :session
   map.namespace :administration do |admin|
     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)

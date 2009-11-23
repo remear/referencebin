@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class LanguagesControllerTest < ActionController::TestCase
+  def setup
+    login_user
+  end
+  
   test "should get index" do
     get :index
     assert_response :success
@@ -14,7 +18,7 @@ class LanguagesControllerTest < ActionController::TestCase
 
   test "should create language" do
     assert_difference('Language.count') do
-      post :create, :language => { }
+      post :create, :language => { :name => 'A New Language' }
     end
 
     assert_redirected_to language_path(assigns(:language))

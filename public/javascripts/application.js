@@ -4,6 +4,13 @@
 $(document).ready(function() 
 {
   $('a[rel*=facebox]').facebox()
+  
+  //flash message fade-out
+  $('#flash').delay(5000, function(){
+    $("#flash").fadeTo("slow", 0.01, function(){ //fade
+         $(this).remove(); //then remove from the DOM
+     });
+  });
 });
 
 $.fn.selectRange = function(start, end)
@@ -21,6 +28,7 @@ $.fn.selectRange = function(start, end)
           }
   });
 };
+
 
 function swapResults(query, type)
 {

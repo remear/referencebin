@@ -1,13 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
 one:
-  title: MyString
-  url: MyString
-  user_id: 1
-  description: MyString
-  language_id: 1
+  title: Bookmark A
+  description: This is a test description for Bookmark A
+  url: http://www.bookmarka.com
 
 two:
-  title: MyString
-  url: MyString
-  user_id: 1
-  description: MyString
-  language_id: 1
+  title: Bookmark B
+  description: This is a test description for Bookmark B
+  url: http://www.bookmarkb.com

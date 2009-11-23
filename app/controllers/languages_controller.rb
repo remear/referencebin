@@ -1,5 +1,8 @@
 class LanguagesController < ApplicationController
   skip_after_filter :add_google_analytics_code
+  before_filter :login_required
+  before_filter :admin_required
+  
   layout "bookmarks"
   
   # GET /languages

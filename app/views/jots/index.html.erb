@@ -6,11 +6,16 @@
 <% end %>
 
 <h1 class="jots_my">Jots</h1>
-<% for jot in @jots %>
-  <%= simple_format(truncate(jot.error, :length => 400, :omission => "..."), :class => "error_block") if ! jot.error.empty? %>
-  <%= CodeRay.scan(truncate(jot.code, :length => 200, :omission => "..."), highlight_lang(jot.language.permalink)).div(:line_numbers => :table)  %>
-  <%= link_to "Show", jot %></td>
-  <%= link_to "Edit", edit_jot_path(jot) %></td>
-  <%= link_to "Destroy", jot, :confirm => 'Are you sure?', :method => :delete %>
-  <br /><br /><br />
+
+<% if ! @jots.empty? %>
+  <% @jots.each do |jot| %>
+    <%= simple_format(truncate(jot.error, :length => 400, :omission => "..."), :class => "error_block") if ! jot.error.blank? %>
+    <%= CodeRay.scan(truncate(jot.code, :length => 200, :omission => "..."), highlight_lang(jot.language.permalink)).div(:line_numbers => :table)  %>
+    <%= link_to "Show", jot %></td>
+    <%= link_to "Edit", edit_jot_path(jot) %></td>
+    <%= link_to "Destroy", jot, :confirm => 'Are you sure?', :method => :delete %>
+    <br /><br /><br />
+  <% end %>
+<% else %>
+  <p class="sosumi">No jots</p>
 <% end %>

@@ -12,3 +12,4 @@ users.csv
 db/sphinx/*
 config/development.sphinx.conf
 config/production.sphinx.conf
+coverage

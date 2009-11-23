@@ -36,3 +36,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+include AuthenticatedTestHelper
+def login_user; login_as :adam; end

@@ -1,54 +1,49 @@
 require 'test_helper'
 
 class JotsControllerTest < ActionController::TestCase
-  def test_index
+  def setup
+    login_user
+  end
+  
+  test "should get index" do
     get :index
-    assert_template 'index'
+    assert_response :success
+    assert_not_nil assigns(:jots)
   end
-  
-  def test_show
-    get :show, :id => Jot.first
-    assert_template 'show'
-  end
-  
-  def test_new
+
+  test "should get new" do
     get :new
-    assert_template 'new'
+    assert_response :success
   end
-  
-  def test_create_invalid
-    Jot.any_instance.stubs(:valid?).returns(false)
-    post :create
-    assert_template 'new'
+
+  test "should create jot" do
+    assert_difference('Jot.count') do
+      post :create, :jot => { :error => 'error', :code => 'def test\nputs "foo"\nend', :language_id => 1 }, :user_id => 1
+    end
+
+    assert_redirected_to jot_path(assigns(:jot))
   end
-  
-  def test_create_valid
-    Jot.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to jot_url(assigns(:jot))
+
+  test "should show jot" do
+    get :show, :id => jots(:one).to_param
+    assert_response :success
   end
-  
-  def test_edit
-    get :edit, :id => Jot.first
-    assert_template 'edit'
+
+  test "should get edit" do
+    get :edit, :id => jots(:one).to_param
+    assert_response :success
   end
-  
-  def test_update_invalid
-    Jot.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Jot.first
-    assert_template 'edit'
+
+  test "should update jot" do
+    put :update, :id => jots(:one).to_param, :jot => { :error => 'undefined method' }
+    assert_redirected_to jot_path(assigns(:jot))
   end
-  
-  def test_update_valid
-    Jot.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Jot.first
-    assert_redirected_to jot_url(assigns(:jot))
-  end
-  
-  def test_destroy
-    jot = Jot.first
-    delete :destroy, :id => jot
-    assert_redirected_to jots_url
-    assert !Jot.exists?(jot.id)
+
+  test "should destroy jot" do
+    assert_difference('Jot.count', -1) do
+      delete :destroy, :id => jots(:one).to_param
+    end
+
+    assert_redirected_to jots_path
   end
 end

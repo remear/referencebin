@@ -1,5 +1,5 @@
 <% content_for(:actions) do %>
-  <%= link_to 'Show', bookmark_path(:lang => language_name(@bookmark.language_id), :bookmark_name => @bookmark.permalink) %> |
+  <%= link_to 'Show', bookmark_path(@bookmark.language.permalink, @bookmark.permalink) %> |
   <%= link_to 'Back', bookmarks_path %>
 <% end %>
 

@@ -75,11 +75,11 @@ table.bookmark_imports.interactive tbody tr:hover { background:#ddecff; cursor:p
 #timestampbox { color:#888888; background:#EEEEEE; -webkit-border-radius:5px; -moz-border-radius:5px; padding:10px; width:200px; }
 
 /* notices */
-#notice { margin:auto; margin-bottom:10px; padding:20px; text-align:center; }
-#notice.blah { background-color: #bec; border: 1px solid #f00; }
-#notice { background-color:#DFF2BF; border: 2px solid #cef192; color:green; }
-#notice.warning { background-color:#FFF6BF; border: 1px solid #FFD324; }
-#notice.error { background-color:#fcc; border: 1px solid #f00; padding:20px; }
+#flash { margin:auto; margin-bottom:10px; padding:20px; text-align:center; }
+#flash.blah { background-color: #bec; border: 1px solid #f00; }
+#flash { background-color:#DFF2BF; border: 2px solid #cef192; color:green; }
+#flash.warning { background-color:#FFF6BF; border: 1px solid #FFD324; }
+#flash.error { background-color:#fcc; border: 1px solid #f00; padding:20px; color:red; }
 
 /* errors */
 

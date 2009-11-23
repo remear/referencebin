@@ -1,9 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  url: MyString
+  id: 1
+  title: Bookmark A
+  language_id: 1
+  description: This is a test description for Bookmark A
+  url: http://www.bookmarka.com
+  permalink: 1-bookmark-a
 
 two:
-  title: MyString
-  url: MyString
+  id: 2
+  title: Bookmark B
+  language_id: 1
+  description: This is a test description for Bookmark B
+  url: http://www.bookmarkb.com
+  permalink: 2-bookmark-b

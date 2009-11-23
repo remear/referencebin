@@ -1,23 +1,27 @@
 
-quentin:
+adam:
   id:                        1
-  login:                     quentin
-  email:                     quentin@example.com
-  salt:                      356a192b7913b04c54574d18c28d46e6395428ab # SHA1('0')
-  crypted_password:          a9436dd9693f74e3dc17f3c1467350a50dbf6237 # 'monkey'
+  login:                     adam
+  firstname:                 adam
+  lastname:                  smith
+  email:                     adam@test.com
+  salt:                      e92647a07f54f625b53f239f3b156b6ae784bd9d8e6cdac47b86229c556650712a1083d4e60b883574ff9b9aa13a02f4291f1252613a39ccc57b4eba6d5fc460 # SHA1('0')
+  crypted_password:          09f8387e6400caf16eeeb7e1944c0e92d3f898649299398aeccbc83cdee5f599043c59bc6d18096a7be400bd2948ce741b8b01eb3f2f7be27fdb026aa23bbb84 # 'monkey'
   created_at:                <%= 5.days.ago.to_s :db  %>
-  remember_token_expires_at: <%= 1.days.from_now.to_s %>
-  remember_token:            77de68daecd823babbb58edb1c8e14d7106e83bb
+  remember_token_expires_at: 
+  remember_token:            
   activation_code:           
   activated_at:              <%= 5.days.ago.to_s :db %>
   state:                     active
-      
+  admin:                     1
 aaron:
   id:                        2
   login:                     aaron
+  firstname:                 aaron
+  lastname:                  jones
   email:                     aaron@example.com
-  salt:                      da4b9237bacccdf19c0760cab7aec4a8359010b0 # SHA1('1')
-  crypted_password:          ceab0f4614038463c9e9f729e83237d9c7bdc66e # 'monkey'
+  salt:                      0511251addb2e10bb0d6e866fad093e19614d7c947dee44248e30447e58da687181c77382e7993260a6b8d23c5df21c88352930e084a53f50e328a4e3bffe81a # SHA1('1')
+  crypted_password:          c7f3e5ebd9d70c0d3f9ecfa2b3cbdf8c782bb2a1cf011ddb3a834ad20f6506befde19a967d46ff9cfb374b8cad670ed9bc7a34d19ce48ba553ce15ea1d022486 # 'monkey'
   created_at:                <%= 1.days.ago.to_s :db %>
   remember_token_expires_at: 
   remember_token:            

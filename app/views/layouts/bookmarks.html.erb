@@ -45,16 +45,7 @@
     <div class="clearer"></div>
   	<div id="content" class="clearfix">
   	  <div id="main">
-        <% if flash[:warning] or flash[:notice] %>
-	      <div id="notice"><%= flash[:warning] || flash[:notice] %></div>
-        <% end %>
-        <script type="text/javascript">
-          $('#notice').delay(5000, function(){
-            $("#notice").fadeTo("slow", 0.01, function(){ //fade
-                 $(this).remove(); //then remove from the DOM
-             });
-          });
-        </script> 
+        <%= flash.map {|type, msg| content_tag(:div, msg, :class => "#{type}", :id => "flash") }.join %> 
         <%= yield %>
       </div>
   	</div>

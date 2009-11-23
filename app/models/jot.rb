@@ -1,5 +1,5 @@
 class Jot < ActiveRecord::Base
-  attr_accessible :body, :error
+  attr_accessible :code, :error, :language_id
   belongs_to :language
   
   validates_presence_of :language_id

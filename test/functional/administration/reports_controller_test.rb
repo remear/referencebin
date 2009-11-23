@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class Administration::ReportsControllerTest < ActionController::TestCase
@@ -6,3 +7,4 @@ class Administration::ReportsControllerTest < ActionController::TestCase
     assert true
   end
 end
+=end

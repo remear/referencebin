@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+  def setup
+    login_user
+  end
+  
   test "should get index" do
     get :index
     assert_response :success
@@ -14,14 +18,15 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, :comment => { }
+      @request.env['HTTP_REFERER'] = 'http://test.host/bookmarks/rubyonrails/1-bookmark-a'
+      post :create, :comment => { :title => 'Comment C', :body => 'This is comment c', :user_id => 1 }, :bookmark_id => 1
     end
 
-    assert_redirected_to comment_path(assigns(:comment))
+    assert_redirected_to bookmark_path(assigns(:comment).bookmark.language.permalink, assigns(:comment).bookmark.permalink)
   end
 
   test "should show comment" do
-    get :show, :id => comments(:one).to_param
+    get :show, :id => comments(:one).to_param, :bookmark_id => comments(:one).bookmark_id
     assert_response :success
   end
 

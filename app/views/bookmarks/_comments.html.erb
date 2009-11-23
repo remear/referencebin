@@ -39,7 +39,7 @@
       :onclick => "$('#facebox #comment_body').append('[code=#{highlight_lang(@bookmark.language.permalink)}][/code]'); $('#facebox #comment_body').focus();" %>
     </p>
     
-    <%= hidden_field_tag (:bookmark_id, @bookmark.id) %>
+    <%= hidden_field_tag(:bookmark_id, @bookmark.id) %>
     <p style="text-align:right; margin-top:10px;"><%= image_submit_tag ("/images/buttons/submit.png") %></p>
   <% end %>
 </div>

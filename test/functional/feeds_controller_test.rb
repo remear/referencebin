@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class FeedsControllerTest < ActionController::TestCase
@@ -6,3 +7,4 @@ class FeedsControllerTest < ActionController::TestCase
     assert true
   end
 end
+=end
