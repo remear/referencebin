@@ -13,3 +13,4 @@ db/sphinx/*
 config/development.sphinx.conf
 config/production.sphinx.conf
 coverage
+config/deploy.rb
