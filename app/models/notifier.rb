@@ -1,9 +1,9 @@
 class Notifier < ActionMailer::Base
-  default_url_options[:host] = "edge.reanstudios.com"
+  default_url_options[:host] = "referencebin.com"
 
   def verification_instructions(user)
     subject "prb - Email Verification"
-    from    "sysadmin@reanstudios.com"
+    from    "sysadmin@referencebin.com"
 
     recipients user.email
     # Email body substitutions go here
@@ -17,7 +17,6 @@ class Notifier < ActionMailer::Base
         p.transfer_encoding = "base64"
     end
 
-    part :content_type => "text/html", :body => render_message("verification_instructions_html", :user => user,
-      :verification_url => activate_url(:id => user.perishable_token))
+    part :content_type => "text/html", :body => render_message("verification_instructions_html", :user => user, :id => user.perishable_token)
   end
 end
