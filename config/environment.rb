@@ -17,9 +17,9 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "acts-as-taggable-on", :source => "http://gemcutter.org"
   config.gem 'authlogic'
-  config.gem 'coderay'
-  config.gem 'bcrypt-ruby'
+  config.gem "bcrypt-ruby", :lib => "bcrypt"
   config.gem 'bluecloth'
+  config.gem 'coderay'
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem 'haml-edge', :lib => 'haml'
   config.gem 'monkeytest'
