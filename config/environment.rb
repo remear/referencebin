@@ -15,23 +15,22 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
-  
+  config.gem "acts-as-taggable-on", :source => "http://gemcutter.org"
   config.gem 'authlogic'
+  config.gem 'coderay'
+  config.gem 'bcrypt-ruby'
   config.gem 'bluecloth'
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem 'haml-edge', :lib => 'haml'
+  config.gem 'monkeytest'
   config.gem 'page_glimpse'
+  config.gem 'redgreen'
   config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
   config.gem 'thinking-sphinx', :lib => 'thinking_sphinx', :version => '>=1.2.12', :source => 'http://gemcutter.org'
-  config.gem 'whenever', :lib => false, :source => 'http://gemcutter.org'
   config.gem "thoughtbot-factory_girl", :lib => 'factory_girl', :source => 'http://gems.github.com'
   config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
-  config.gem 'monkeytest'
-  config.gem 'redgreen'
+  config.gem 'whenever', :lib => false, :source => 'http://gemcutter.org'
+  config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -55,7 +54,6 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-require 'will_paginate'
 require 'fastercsv'
 
 Rubaidh::GoogleAnalytics.tracker_id = 'UA-2807904-6'

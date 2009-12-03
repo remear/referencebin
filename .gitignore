@@ -3,7 +3,7 @@ log/*
 config/database.yml
 db/*.sqlite3
 tmp/restart.txt
-public/assets/*
+public/assets
 *.sql
 tmp/**/*
 users.csv
@@ -15,3 +15,4 @@ coverage
 config/deploy.rb
 !public/assets/notifier
 test/tmp/*/**
+mkmf.log
