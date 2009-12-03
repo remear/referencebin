@@ -1,15 +1,6 @@
 class Notifier < ActionMailer::Base
   default_url_options[:host] = "edge.reanstudios.com"
 
-=begin
-  def verification_instructions(user)
-    subject "prb - Email Verification"
-    from    "sysadmin@reanstudios.com"
-    recipients user.email
-    body :verification_url => url_for(:controller => 'user_sessions', 
-      :action => 'verify', :id => user.perishable_token)
-  end
-=end
   def verification_instructions(user)
     subject "prb - Email Verification"
     from    "sysadmin@reanstudios.com"
