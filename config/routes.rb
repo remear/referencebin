@@ -35,15 +35,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments
   
   #bookmarks
+  map.resources :bookmarks
   map.bookmark_post_question '/bookmarks/:id/postquestion', :controller => 'bookmarks', :action => 'post_question'
   map.bookmarks_by_tag '/bookmarks/tags/:tag', :controller => 'bookmarks', :action => 'tags'
   map.bookmark_tag_cloud '/bookmarks/tags', :controller => 'bookmarks', :action => 'tags'
   
   map.bookmark_category '/bookmarks/:language', :controller => 'bookmarks', :action => 'index'
-  map.resources :bookmarks#, :path_prefix => '/:language'#, :except => :show
-  #map.with_options :controller => "bookmarks" do |bookmarks|
-  # bookmarks.bookmark '/bookmarks/:lang/:bookmark_name/', :action => "show", :conditions => { :method => :get }
-  #end
+
   map.with_options :controller => "bookmarks" do |bookmarks|
     bookmarks.bookmark '/bookmarks/:language/:id', :action => "show", :conditions => { :method => :get }
   end
