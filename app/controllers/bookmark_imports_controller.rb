@@ -1,9 +1,10 @@
 class BookmarkImportsController < ApplicationController
   layout "bookmarks"
+  
   before_filter :require_login
   skip_after_filter :add_google_analytics_code
+  
   def index
-    #@bookmark_imports = BookmarkImport.all
     @bookmark_imports = BookmarkImport.paginate_by_user_id current_user.id, :page => params[:page]
   end
   
@@ -34,6 +35,10 @@ class BookmarkImportsController < ApplicationController
   end
   
   def import
+  end
+  
+  def add_question
+    #@bookmark = Bookmark.find_by_id
   end
   
   def convert
