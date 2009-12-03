@@ -31,7 +31,11 @@ class Bookmark < ActiveRecord::Base
   def self.per_page
     8
   end
-      
+  
+  def to_param
+    "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
+  end
+    
   private
     def generate_permalink
       update_attributes(:permalink => "#{self.id}-#{self.title.parameterize}") 

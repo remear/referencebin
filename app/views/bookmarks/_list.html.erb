@@ -1,18 +1,23 @@
 <% @bookmarks.each do |bookmark| %>
 <div style="width:1000px; margin:auto; height:150px">
   <div style="background:url(/images/bar.png) no-repeat; height:23px; color:#FFFFFF; padding:5px 10px 5px 10px">
-    <span style="float:left"><%= bookmark.title %></span>
-    <span style="float:right"><%= bookmark.topic_list %></span>
+    <%= bookmark.title %>
   </div>
   <span style="float:left; margin-right:20px;"><% link_to bookmark.url do %><%= image_tag bookmark.thumb(:small) %><% end %></span>
-
+  <div style="float:right; margin-left:20px;">
+    <div class="sosumi" style="background:#FFFBDA; padding:5px 10px 5px 10px; color:gray; -webkit-border-radius:10px; text-align:center">
+      <%= bookmark.comments.count %> comments
+    </div>
+    <br />
+    <div class="sosumi" style="background:#D9FFDA; padding:5px 10px 5px 10px; color:gray; -webkit-border-radius:10px; text-align:center">
+      <%= bookmark.questions.count %> <% if bookmark.questions.count == 1 %>question <% else %>questions<% end %> answered 
+    </div>
+  </div>
   <p class="title">
-    <%= link_to bookmark.title, bookmark_path(:lang => bookmark.language.permalink, :bookmark_name => bookmark.permalink) %>
+    <%= link_to bookmark.title, bookmark_path(bookmark.language.permalink, bookmark) %>
   </p>
   <p class="description"><%= bookmark.description %></p>
-  <p class="sosumi">
-    <%= bookmark.comments.count %> comments<br />
-    <%= bookmark.questions.count %> <% if bookmark.questions.count > 1 %>questions <% else %>question<% end %> answered</p>
+  <p class="sosumi"><%= bookmark.topic_list %></p>
 </div>
 <div class="clearer"></div>
 <% end %>

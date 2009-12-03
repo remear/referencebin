@@ -1,12 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :user_sessions
-
-  map.resources :users
-
   #jots
   map.resources :jots
-
-  #questions  
   
   #users & sessions
   map.resources :users
@@ -29,9 +23,6 @@ ActionController::Routing::Routes.draw do |map|
   map.import_bookmarks '/bookmarks/import', :controller => 'bookmark_imports', :action => 'import'
   map.do_bookmark_import '/bookmark_imports/do_import', :controller => 'bookmark_imports', :action => 'do_import'
   map.resources :bookmark_imports
-
-  #users & sessions
-  map.resources :users, :path_prefix => '/administration'
   
   #search
   map.search '/search', :controller => 'search', :action => 'index'
@@ -47,12 +38,14 @@ ActionController::Routing::Routes.draw do |map|
   map.bookmark_post_question '/bookmarks/:id/postquestion', :controller => 'bookmarks', :action => 'post_question'
   map.bookmarks_by_tag '/bookmarks/tags/:tag', :controller => 'bookmarks', :action => 'tags'
   map.bookmark_tag_cloud '/bookmarks/tags', :controller => 'bookmarks', :action => 'tags'
-  map.connect '/bookmarks/inc_content_length', :controller => 'bookmarks', :action => 'inc_content_length'
-  map.connect '/bookmarks/dec_content_length', :controller => 'bookmarks', :action => 'dec_content_length'
-  map.resources :bookmarks, :except => :show
-  map.bookmarks_language '/bookmarks/:lang', :controller => 'bookmarks', :action => 'index'
+  
+  map.bookmark_category '/bookmarks/:language', :controller => 'bookmarks', :action => 'index'
+  map.resources :bookmarks#, :path_prefix => '/:language'#, :except => :show
+  #map.with_options :controller => "bookmarks" do |bookmarks|
+  # bookmarks.bookmark '/bookmarks/:lang/:bookmark_name/', :action => "show", :conditions => { :method => :get }
+  #end
   map.with_options :controller => "bookmarks" do |bookmarks|
-   bookmarks.bookmark '/bookmarks/:lang/:bookmark_name/', :action => "show", :conditions => { :method => :get }
+    bookmarks.bookmark '/bookmarks/:language/:id', :action => "show", :conditions => { :method => :get }
   end
   
   #languages
