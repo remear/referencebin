@@ -10,7 +10,7 @@ users.csv
 *.csv
 *deprecated*
 db/sphinx/*
-config/development.sphinx.conf
-config/production.sphinx.conf
+config/*.sphinx.conf
 coverage
 config/deploy.rb
+test/tmp/*
