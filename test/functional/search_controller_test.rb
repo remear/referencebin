@@ -1,4 +1,3 @@
-=begin
 require 'test_helper'
 
 class SearchControllerTest < ActionController::TestCase
@@ -7,4 +6,3 @@ class SearchControllerTest < ActionController::TestCase
     assert true
   end
 end
-=end

@@ -1,10 +1,37 @@
 require 'test_helper'
 
 class BookmarksControllerTest < ActionController::TestCase
-  def setup
-    login_user
+  #setup :activate_authlogic # run before tests are executed
+  #UserSession.create(users(:ben)) # logs a user in
+ 
+  context "on GET to :index" do
+    setup do
+      get :index
+    end
+    
+    should_assign_to :bookmarks
+    should_respond_with :success
+    should_render_template :index
+  end
+
+=begin  
+  context "on GET to :show for first record" do
+    setup do
+      get :show, :language => 1, :id => 1
+    end
+
+    should_assign_to :user
+    should_respond_with :success
+    should_render_template :show
+    #should_not_set_the_flash
+
+    #should "do something else really cool" do
+    #  assert_equal 1, assigns(:user).id
+    #end
   end
   
+  
+
   test "should get index" do
     get :index
     assert_response :success
@@ -47,4 +74,5 @@ class BookmarksControllerTest < ActionController::TestCase
 
     assert_redirected_to bookmarks_path
   end
+=end
 end
