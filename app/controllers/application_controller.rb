@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     current_user || access_denied
   end
   
+  def admin_required
+    current_user.admin?
+  end
+  
   def url_lookup(url)
     @valid_responses = ["200", "301"]
     

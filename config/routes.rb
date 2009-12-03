@@ -8,10 +8,12 @@ ActionController::Routing::Routes.draw do |map|
 
   #questions  
   
+  #users & sessions
   map.resources :users
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   map.register "register", :controller => "users", :action => "new"
+  map.activate "activate/:id", :controller => 'user_sessions', :action => 'verify'
   map.resources :user_sessions
   
   #administration

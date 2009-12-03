@@ -7,12 +7,13 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Registration successful."
+    if @user.save && @user.deliver_verification_instructions!
+      flash[:notice] = "Your account has been created. Check your email for an activation link."
       redirect_to root_url
     else
       render :action => 'new'
     end
+    rescue ActiveRecord::StatementInvalid
   end
 
   def edit
