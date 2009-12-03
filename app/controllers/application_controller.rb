@@ -2,12 +2,34 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  include AuthenticatedSystem
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  filter_parameter_logging :password
+
+  helper_method :current_user
+
+  def require_user
+    if ! current_user
+      flash[:notice] = "Please login"
+      redirect_to login_path
+    end
+  end
+
+  def access_denied
+    redirect_to login_path
+  end
+  
+  def require_login
+    current_user || access_denied
+  end
+  
+  def admin_required
+    current_user.admin?
+  end
   
   def url_lookup(url)
     @valid_responses = ["200", "301"]
@@ -19,5 +41,17 @@ class ApplicationController < ActionController::Base
     else
       return false
     end
-	end	
+	end
+	
+  private
+
+  def current_user_session
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end
+
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.record
+  end
 end

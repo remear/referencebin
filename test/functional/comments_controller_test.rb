@@ -1,8 +1,9 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+  setup :activate_authlogic
   def setup
-    login_user
+    UserSession.create(users(:ben))
   end
   
   test "should get index" do

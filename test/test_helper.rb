@@ -1,6 +1,11 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require "authlogic/test_case" # include at the top of test_helper.rb
+require 'shoulda'
+require 'thinking_sphinx/test'
+ThinkingSphinx::Test.init
+#ThinkingSphinx::Test.start_with_autostop
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -37,5 +42,3 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-include AuthenticatedTestHelper
-def login_user; login_as :adam; end

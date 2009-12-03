@@ -1,0 +1,43 @@
+<% @user.password = @user.password_confirmation = nil %>
+
+<%= error_messages_for :user %>
+<% form_for @user do |f| %>
+  <table>
+    <tr>
+      <td><p class="tag green"><%= label_tag 'First Name' %></p></td>
+      <td><p class="tag green"><%= label_tag 'Last Name' %></p></td>
+    </tr>
+    <tr>
+      <td style="width:160px"><%= f.text_field :firstname, :size => 20 %></td>
+      <td><%= f.text_field :lastname, :size => 20 %></td>
+    </tr>
+  </table>
+  <br />
+  <p class="tag green"><%= f.label 'Username' %></p>
+  <p><%= f.text_field :login %></p>
+  <% if params[:action] == 'new' %>
+    <p class="tag green"><%= f.label :nickname %></p>
+    <p><%= f.text_field :nickname %></p>
+  <% else %>
+    <p class="tag green"><%= f.label :nickname %></p>
+    <p><%= @user.nickname %></p>
+  <% end %>
+  <p class="tag green"><%= f.label :email %></p>
+  <p><%= f.text_field :email %></p>
+  <p class="tag green"><%= f.label :password %></p>
+  <p><%= f.password_field :password %></p>
+  </p>  
+  <table>
+    <tr>
+      <td>
+        <p class="tag green"><%= label_tag 'password_confirmation', 'Confirm Password' %></p>
+        <p><%= f.password_field :password_confirmation, :onkeyup => 'checkPasswordMatch()' %></p>
+      </td>
+      <td style="vertical-align:bottom;" id="password-message"></td>
+    </tr>
+  </table>
+
+  <br />
+  <p><%= image_submit_tag '/images/buttons/signup.png' %></p>
+<% end %>
+

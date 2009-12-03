@@ -8,8 +8,8 @@
 	<%= stylesheet_link_tag "base" %>
 	<%= stylesheet_link_tag "iphone" %>
 	<%= stylesheet_link_tag "features" %>
-  <%= stylesheet_link_tag "new" %>
-	<%= stylesheet_link_tag "new_nav" %>
+  <%= stylesheet_link_tag "standard" %>
+	<%= stylesheet_link_tag "nav" %>
   <%= stylesheet_link_tag "admin" %>
 </head>
 <body class="features" id="<%= @page_section %>">
@@ -57,7 +57,7 @@
               <% link_to administration_databases_path do %><img src="/images/admin/icons/databases.png" alt="" width="25" height="25"> Databases<% end %>
             </li>
             <li id="f-users">
-              <% link_to administration_users_path do %><img src="/images/admin/icons/users.png" alt="" width="25" height="25"> Users<% end %>
+              <% link_to '#' do %><img src="/images/admin/icons/users.png" alt="" width="25" height="25"> Users<% end %>
             </li>
             <li id="f-webserver">
               <% link_to '#' do %><img src="/images/admin/icons/webserver.png" alt="" width="25" height="25"> WebServer<% end %>

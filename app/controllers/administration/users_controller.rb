@@ -1,9 +1,10 @@
+=begin
 class Administration::UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   layout "administration", :except => ['register', 'create']
   
   include AuthenticatedSystem
-  before_filter :login_required, :except => [ 'register', 'create', 'activate' ]
+  before_filter :require_login, :except => [ 'register', 'create', 'activate' ]
   before_filter :admin_required, :except => [ 'register', 'create', 'activate' ]
   
   # Protect these actions behind an admin login
@@ -89,3 +90,4 @@ protected
     @user = User.find(params[:id])
   end
 end
+=end

@@ -1,6 +1,6 @@
 class JotsController < ApplicationController
   layout "standard"
-  before_filter :login_required
+  before_filter :require_login
   #before_filter :admin_required, :only => "destroy"
   
   def index

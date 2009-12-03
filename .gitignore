@@ -13,4 +13,5 @@ db/sphinx/*
 config/*.sphinx.conf
 coverage
 config/deploy.rb
-test/tmp/*
+!public/assets/notifier
+test/tmp/*/**

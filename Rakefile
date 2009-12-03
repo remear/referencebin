@@ -11,7 +11,3 @@ require 'rake/rdoctask'
 require 'tasks/rails'
 
 require 'thinking_sphinx/tasks'
-
-#MetricFu::Configuration.run do |config| 
-#  config.rcov[:rcov_opts] << "-Itest" 
-#end

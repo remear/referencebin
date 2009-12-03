@@ -1,16 +1,23 @@
 class BookmarksController < ApplicationController
   layout "bookmarks"
-  before_filter :login_required, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
+  before_filter :require_login, :only => [ 'new', 'edit', 'create', 'update', 'destroy' ]
   skip_after_filter :add_google_analytics_code, :only => [ 'destroy', 'update' ]
   
   def index
-    if params[:lang]
+    if params[:language]
+      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC",
+                      :joins => :language, :conditions => {:languages => {:permalink => params[:language]}}
+    else
+      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
+    end
+    
+=begin    if params[:lang]
       @lang = Language.find_by_permalink(params[:lang])
       @bookmarks = Bookmark.paginate_by_language_id @lang.id, :page => params[:page]
     else
       @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
     end
-    
+=end    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @bookmarks }
@@ -32,7 +39,8 @@ class BookmarksController < ApplicationController
 
   def show
     #lang = Language.find_by_permalink(params[:lang])
-    @bookmark = Bookmark.find_by_permalink(params[:bookmark_name], :include => "comments")
+    #@bookmark = Bookmark.find_by_permalink(params[:bookmark_name], :include => "comments")
+    @bookmark = Bookmark.find_by_id(params[:id], :include => "comments")
     
     @url_status = url_lookup(@bookmark.url)
     
@@ -49,7 +57,7 @@ class BookmarksController < ApplicationController
   def post_question
     @bookmark = Bookmark.find(params[:id])
     
-    if current_user.tag(@bookmark, :with => "turd", :on => :questions)
+    if current_user.tag(@bookmark, :with => params[:question], :on => :questions)
       render :text => true
     else
       render :text => false
