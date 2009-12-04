@@ -76,6 +76,9 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(params[:bookmark])
 
+
+    @bookmark.user_id = current_user.id
+
     respond_to do |format|
       if @bookmark.save
         flash[:notice] = 'Bookmark was successfully created.'
