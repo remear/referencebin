@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default_url_options[:host] = "referencebin.com"
+  #default_url_options[:host] = "referencebin.com"
 
   def verification_instructions(user)
     subject "prb - Email Verification"
