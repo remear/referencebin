@@ -31,8 +31,6 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    #lang = Language.find_by_permalink(params[:lang])
-    #@bookmark = Bookmark.find_by_permalink(params[:bookmark_name], :include => "comments")
     @bookmark = Bookmark.find_by_id(params[:id], :include => "comments")
     
     @url_status = url_lookup(@bookmark.url)
@@ -49,7 +47,6 @@ class BookmarksController < ApplicationController
   
   def post_question
     @bookmark = Bookmark.find(params[:id])
-    #current_user.tag_list.add(@bookmark, :with => params[:question], :on => :questions)
     
     @bookmark.question_list.add(params[:question])
     
@@ -75,14 +72,13 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(params[:bookmark])
-
-
+    
     @bookmark.user_id = current_user.id
-
+    
     respond_to do |format|
       if @bookmark.save
         flash[:notice] = 'Bookmark was successfully created.'
-        format.html { redirect_to bookmark_path(:lang => @bookmark.language.permalink, :bookmark_name => @bookmark.permalink) }
+        format.html { redirect_to bookmark_path(@bookmark.language.permalink, @bookmark) }
         format.xml  { render :xml => @bookmark, :status => :created, :location => @bookmark }
       else
         format.html { render :action => "new" }
@@ -97,7 +93,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
         flash[:notice] = 'Bookmark was successfully updated.'
-        format.html { redirect_to bookmark_path(:lang => @bookmark.language.permalink, :bookmark_name => @bookmark.permalink) }
+        format.html { bookmark_path(@bookmark.language.permalink, @bookmark) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
