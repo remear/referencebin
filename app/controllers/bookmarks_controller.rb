@@ -11,13 +11,6 @@ class BookmarksController < ApplicationController
       @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
     end
     
-=begin    if params[:lang]
-      @lang = Language.find_by_permalink(params[:lang])
-      @bookmarks = Bookmark.paginate_by_language_id @lang.id, :page => params[:page]
-    else
-      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
-    end
-=end    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @bookmarks }

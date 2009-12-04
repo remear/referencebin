@@ -11,7 +11,8 @@
   <%= link_to 'Create Bookmark', new_bookmark_path, :class => 'addleft' %>
   <% end %>
 <% end %>
-<% if params[:lang] %>
+
+<% if params[:language] %>
 <h1 class="<%= params[:lang] %>"><%= @bookmarks.first.language.name if ! @bookmarks.first.nil? %> Bookmarks</h1>
 <% else %>
 <h1 class="bookmark_recent">Recent Bookmarks</h1>
