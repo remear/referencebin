@@ -36,6 +36,8 @@ ActionController::Routing::Routes.draw do |map|
   
   #bookmarks
   
+  map.new_bookmark '/bookmarks/new', :controller => 'bookmarks', :action => 'new'
+  
   map.bookmark_post_question '/bookmarks/:id/postquestion', :controller => 'bookmarks', :action => 'post_question'
   map.bookmarks_by_tag '/bookmarks/tags/:tag', :controller => 'bookmarks', :action => 'tags'
   map.bookmark_tag_cloud '/bookmarks/tagcloud', :controller => 'bookmarks', :action => 'tag_cloud'
