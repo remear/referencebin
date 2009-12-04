@@ -49,8 +49,11 @@ class BookmarksController < ApplicationController
   
   def post_question
     @bookmark = Bookmark.find(params[:id])
+    #current_user.tag_list.add(@bookmark, :with => params[:question], :on => :questions)
     
-    if current_user.tag(@bookmark, :with => params[:question], :on => :questions)
+    @bookmark.question_list.add(params[:question])
+    
+    if @bookmark.save
       render :text => true
     else
       render :text => false
