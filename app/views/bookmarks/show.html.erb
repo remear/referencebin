@@ -4,18 +4,26 @@
   <li>Bookmarks</li>
 <% end %>
 <% content_for(:actions) do %>
-  <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> | 
-  <%= link_to 'Back', :back %>
+  <li><%= link_to 'Edit', edit_bookmark_path(@bookmark) %></li>
+  <li class="last"><%= link_to 'Back', :back %></li>
 <% end %>
 
-<h1 class="bookmark_viewing">Viewing Bookmark</h1>
+<h1 class="bookmark_viewing"><%=h @bookmark.title %></h1>
 
 <div style="width:548px; float:left; margin-right:20px">
-<p class="tag green">Title</p>
-<p><%=h @bookmark.title %></p>
+  <% link_to @bookmark.url do %><%= image_tag @bookmark.thumb(:large), :style => 'border:1px #EFEFEF solid' %><% end %>
+</div>
 
-<p class="tag green">Url</p>
-<p>
+<% if @bookmark.description %>
+  <h4>Description</h4>
+  <%= markdown(@bookmark.description) %>
+<% end %>
+
+<p>Bookmarked <%= %></p>
+  
+<div class="clearer"></div>
+
+<p class="url">
   <% if @url_status == true %>
     <%= link_to @bookmark.url, @bookmark.url, :style => "background:url(/images/icons/check.png) right no-repeat; padding:5px 30px 5px 0;" %>
   <% else %>
@@ -23,31 +31,19 @@
   <% end %>
 </p>
 
-<p class="tag green">Topics</p>
+<h2 class="section">Topics <span style="float:right"><a href="#question_form" rel="facebox" class="addleft">Add Topic</a></span></h2>
 <% if ! @bookmark.topic_list.empty? %>
   <p class="sosumi"><%= @bookmark.topic_list %></p>
 <% else %>
   <p class="sosumi">Bookmark has no tags</p>
 <% end %>
-
-<% if @bookmark.description %>
-  <p class="tag green">Description</p>
-  <%= markdown(@bookmark.description) %>
-<% end %>
 </div>
 
-<p><% link_to @bookmark.url do %><%= image_tag @bookmark.thumb(:large), :style => 'border:1px #EFEFEF solid' %><% end %></p>
-<div class="clearer"></div>
-<div id="question_form" style="display:none">
-  <% remote_form_for @bookmark, :url => { :controller => 'bookmarks', :action => 'post_question' } do |f| %>
-    <h2 class="section">Add a Question</h2>
-    <p class="sosumi">Please enter the question this bookmark helped you to answer. This helps others find the same solution.</p>
-    <p class="sosumi green">Question</p>
-    <%= text_field_tag :question %>
-    <%= image_submit_tag '/images/buttons/create.png' %>
-  <% end %>
+
+<div class="clearer">
 </div>
 
+<h2 class="section">Questions <span style="float:right"><a href="#question_form" rel="facebox" class="addleft">Add Question</a></span></h2>
 <% if ! @bookmark.questions.blank? %>
   <h2 class="section" style="margin-top:50px;">Questions Answered</h2>
   <p class="sosumi">If you see your question below, click the thumbs up next to it!</p>
@@ -69,3 +65,15 @@
   </h2>
   <%= render :partial => "comments" %>
 <% end %>
+
+
+<div id="question_form" style="display:none">
+  <% remote_form_for @bookmark, :url => { :controller => 'bookmarks', :action => 'post_question' } do |f| %>
+    <h2 class="section">Add a Question</h2>
+    <p class="sosumi">Please enter the question this bookmark helped you to answer. This helps others find the same solution.</p>
+    <p class="sosumi green">Question</p>
+    <%= text_field_tag :question %>
+    <%= link_to 'Submit', bookmark_post_question_url %>
+    <%= image_submit_tag '/images/buttons/create.png' %>
+  <% end %>
+</div>

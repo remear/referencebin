@@ -14,7 +14,7 @@
 
 <% else %>
 <% content_for(:breadcrumbs) do %>
-  <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li><%= link_to 'Bookmarks', bookmark_path(bookmark.language.permalink, bookmark) %></li>
   <li>Tag Cloud</li>
 <% end %>
 <style type="text/css">

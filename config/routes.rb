@@ -25,8 +25,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :bookmark_imports
   
   #search
-  map.search '/search', :controller => 'search', :action => 'index'
-  #map.search '/search/:query', :controller => 'search', :action => 'query'
+  #map.search '/search', :controller => 'search', :action => 'index'
+  map.search '/search', :controller => 'search', :action => 'query'
   
   #settings
   map.settings '/settings', :controller => 'users', :action => 'edit'
@@ -36,18 +36,19 @@ ActionController::Routing::Routes.draw do |map|
   
   #bookmarks
   
-  map.new_bookmark '/bookmarks/new', :controller => 'bookmarks', :action => 'new'
+  #map.new_bookmark '/bookmarks/new', :controller => 'bookmarks', :action => 'new'
   
   map.bookmark_post_question '/bookmarks/:id/postquestion', :controller => 'bookmarks', :action => 'post_question'
   map.bookmarks_by_tag '/bookmarks/tags/:tag', :controller => 'bookmarks', :action => 'tags'
   map.bookmark_tag_cloud '/bookmarks/tagcloud', :controller => 'bookmarks', :action => 'tag_cloud'
   
+  map.resources :bookmarks
   map.bookmark_category '/bookmarks/:language', :controller => 'bookmarks', :action => 'index'
 
   map.with_options :controller => "bookmarks" do |bookmarks|
     bookmarks.bookmark '/bookmarks/:language/:id', :action => "show", :conditions => { :method => :get }
   end
-  map.resources :bookmarks
+  
   
   #languages
   map.resources :languages
@@ -69,7 +70,7 @@ ActionController::Routing::Routes.draw do |map|
   map.privacypolicy '/privacypolicy', :controller => 'pages', :action => 'privacypolicy'
   
   #root
-  map.root :controller => 'bookmarks'
+  map.root :controller => 'search'
   
   #derault routes
   map.connect ':controller/:action/:id'

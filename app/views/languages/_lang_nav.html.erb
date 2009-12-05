@@ -1,5 +1,5 @@
 <% cache do %>
 <% get_languages.each do |lang| %>
-  <dd><%= link_to lang.name, bookmarks_path + "/#{lang.permalink}" %></dd>
+  <li><%= link_to lang.name, bookmarks_path + "/#{lang.permalink}" %></li>
 <% end %>
 <% end %>

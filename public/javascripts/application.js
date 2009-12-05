@@ -11,24 +11,40 @@ $(document).ready(function()
          $(this).remove(); //then remove from the DOM
      });
   });
-});
+  
+  //Grab the original BG color of the link
+  var originalBG = $(".url").css("background-color"); 
+  //The color you want to fade too
+  var fadeColor = "#99FF99"; 
 
-$.fn.selectRange = function(start, end)
-{
-  return this.each(function() {
-          if(this.setSelectionRange) {
-                  this.focus();
-                  this.setSelectionRange(start, end);
-          } else if(this.createTextRange) {
-                  var range = this.createTextRange();
-                  range.collapse(true);
-                  range.moveEnd('character', end);
-                  range.moveStart('character', start);
-                  range.select();
-          }
+  $('.url').mouseover(function(){
+    $(this).animate({backgroundColor:fadeColor}, 750)
   });
-};
+  $('.url').mouseout(function(){
+    $(this).animate({backgroundColor:originalBG},750) 
+  });
+  
+  $(document).ready(function() {
 
+      $(".signin").click(function(e) {          
+	e.preventDefault();
+          $("fieldset#signin_menu").toggle();
+	$(".signin").toggleClass("menu-open");
+      });
+
+$("fieldset#signin_menu").mouseup(function() {
+	return false
+});
+$(document).mouseup(function(e) {
+	if($(e.target).parent("a.signin").length==0) {
+		$(".signin").removeClass("menu-open");
+		$("fieldset#signin_menu").hide();
+	}
+});			
+
+  });
+  
+});
 
 function swapResults(query, type)
 {

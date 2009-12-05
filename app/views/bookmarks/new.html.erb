@@ -20,7 +20,10 @@
   
   
   <h3 class="section" style="margin-top:30px">Did this bookmark help you answer a question?</h3>
-  <p class="sosumi">Please enter the question this bookmark helped you to answer. This helps others find a solution.</p>
+  <p class="sosumi">
+    Please enter the question this bookmark helped you to answer. This helps others find a solution.
+    (comma separate multiple questions)
+  </p>
   <p><%= f.text_field :question_list, :size => 80 %></p>
   
   <p><%= image_submit_tag '/images/buttons/create.png' %></p>

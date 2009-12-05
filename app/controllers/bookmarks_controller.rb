@@ -33,7 +33,7 @@ class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find_by_id(params[:id], :include => "comments")
     
-    @url_status = url_lookup(@bookmark.url)
+    #@url_status = url_lookup(@bookmark.url)
     
     respond_to do |format|
       format.html # show.html.erb

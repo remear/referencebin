@@ -1,19 +1,47 @@
-<% if current_user %>
-<table>
-  <tr>
-    <td rowspan="2"><%= image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:20px;" %></td>
-    <td style="vertical-align:top">
-      <span style="padding-right:20px; font-weight:bold"><%= current_user.firstname %> <%= current_user.lastname %> (<%= current_user.nickname %>)</span>
-      <%= link_to 'Settings', settings_path %><span class="sosumi"> | </span>
-      <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %><span class="sosumi"> | </span>
-      <%= link_to 'Logout', logout_path %>
-      <span style="padding-left:20px; font-weight:bold"><a href='http://www.pledgie.com/campaigns/6762?canvas=false' target='_new' class="addleft">Donate</a></span>
-    </td>
-  </tr>
-</table>
-<% else %>
-  <p>
-    <span class="sosumi">Not logged in |</span> <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %>
-    <span style="padding-left:20px; font-weight:bold"><a href='http://www.pledgie.com/campaigns/6762?canvas=false' target='_new' class="addleft">Donate</a></span>
-  </p>
-<% end %>
+<div id="topnav">
+  <% if ! current_user %>
+  <div id="small_signup">
+    <span>New to Twitter?</span>
+    <a href="http://twitter.com/signup" class="signup-button">Sign up now</a>
+  </div>
+  Have an account? <%= link_to '<span>Sign in</span>', '#', :class=>"signin" %>
+  
+  <% else %>
+  <div style="width:500px; text-align:right; float:right; margin-bottom:5px">
+    <table style="float:right">
+      <tr>
+        <td rowspan="2"><%= image_tag current_user.gravatar_url(:size => 20), :style => "margin-right:10px;" %></td>
+        <td style="vertical-align:top">
+          <span style="padding-right:20px; font-weight:bold"><%= current_user.firstname %> <%= current_user.lastname %> (<%= current_user.nickname %>)</span>
+          <%= link_to 'Settings', settings_path %><span class="sosumi"> | </span>
+          <%= link_to 'Report Bug', 'http://track.reanstudios.net/projects/prb/issues/new' %><span class="sosumi"> | </span>
+          <%= link_to 'Logout', logout_path %>
+          <span style="padding-left:20px; font-weight:bold"><a href='http://www.pledgie.com/campaigns/6762?canvas=false' target='_new' class="addleft">Donate</a></span>
+        </td>
+      </tr>
+    </table>
+    </div>
+  <% end %>
+</div>
+
+<fieldset id="signin_menu">
+  <% form_for :user_session, :url => { :controller => 'user_sessions', :action => 'create' } do |f| %>
+    <p>
+    <label for="username">Username</label>
+    <%= f.text_field :login %>
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <%= f.text_field :password %>
+    </p>
+    <p class="remember">
+      <input id="signin_submit" value="Sign in" tabindex="6" type="submit">
+      <input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
+      <label for="remember">Remember me</label>
+    </p>
+    <p class="forgot"> <a href="#" id="resend_password_link">Forgot your password?</a> </p>
+    <p class="forgot-username"><a id='forgot_username_link' 
+title="If you remember your password, try logging in with your email" 
+href="#">Forgot your username?</A> </p>
+  <% end %>
+</fieldset>

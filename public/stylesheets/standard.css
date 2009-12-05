@@ -1,11 +1,27 @@
+body { background:#e3e3e3; }
 .match { background:yellow; }
 #good-password-message { background:url(/images/icons/check.png) 20px 1px no-repeat; padding:0 0 2px 45px; color:green; }
 #bad-password-message { background:url(/images/icons/minus.png) 20px 1px no-repeat; padding:0 0 2px 45px; color:red; }
 
 #content { width:1000px; margin:auto; }
-/* End hide from IE-mac */
+#actionbar { padding:5px 20px 5px 20px; background:#EFEFEF; margin:-17px auto 20px auto; float:right; clear:after; width:280px;
+   -moz-border-radius-bottomleft:10px;
+   -moz-border-radius-bottomright:10px;
+   -webkit-border-bottom-left-radius:10px;
+   -webkit-border-bottom-right-radius:10px;
+    }
+#actionbar ul { margin:0px; text-align:center; }
+#actionbar ul li { display:inline; padding:2px 10px 2px 10px; }
+#actionbar ul li:hover
+{
+  background:#CCCCCC;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+}
 
-
+.url { margin:20px 0 40px 0; padding:30px 20px 30px 20px; background:#FFFFFF; -moz-border-radius:10px;-webkit-border-radius:10px; }
+.url a { font-size:16px; font-weight:bold; }
+h4 { color:green; font-size:14px; margin-bottom:10px; }
 
 /*h1 { border-bottom: 1px #DEDEDE solid; text-indent:-9999px; }
 h1.bash { background:url(/images/titles/bash.png) no-repeat; }

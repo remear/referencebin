@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
-  layout 'search'
+  layout 'front', :only => 'index'
   
-  def index
+  def query
     if params[:query]
       if params[:query].include? "comments:"
         @params = params[:query].split(':')
@@ -14,9 +14,12 @@ class SearchController < ApplicationController
         @results = Bookmark.search params[:query], :page => params[:page], :per_page => 20
       end
     end
+    
+    render :template => 'search/results'
   end
   
-  def query
+  def index
+    @bookmarks = Bookmark.find(:all, :limit => 12, :order => 'created_at DESC')
     #@results = ThinkingSphinx.search params[:query]
   end
 end

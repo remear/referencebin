@@ -1,7 +1,7 @@
 <% @results.each do |result| %>
 <div style="border-bottom:1px #E8E8E8 solid; margin-bottom:15px; padding-bottom:15px">
   <p style="width:90px; float:left"><% link_to result.url do %><%= image_tag result.thumb(:small), :height => 50 %><% end %></p>
-  <p style="margin-bottom:5px"><strong><%= link_to result.title, bookmark_path(:lang => result.language.permalink, :bookmark_name => result.permalink) %></strong></p>
+  <p style="margin-bottom:5px"><strong><%= link_to result.title, bookmark_path(result.language.permalink, result) %></strong></p>
   <p><%= result.excerpts.description %></p>
 </div>
 <% end %>
