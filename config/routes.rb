@@ -42,8 +42,9 @@ ActionController::Routing::Routes.draw do |map|
   map.bookmarks_by_tag '/bookmarks/tags/:tag', :controller => 'bookmarks', :action => 'tags'
   map.bookmark_tag_cloud '/bookmarks/tagcloud', :controller => 'bookmarks', :action => 'tag_cloud'
   
-  map.resources :bookmarks
   map.bookmark_category '/bookmarks/:language', :controller => 'bookmarks', :action => 'index'
+  map.resources :bookmarks
+  
 
   map.with_options :controller => "bookmarks" do |bookmarks|
     bookmarks.bookmark '/bookmarks/:language/:id', :action => "show", :conditions => { :method => :get }
