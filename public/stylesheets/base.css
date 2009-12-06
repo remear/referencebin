@@ -48,6 +48,21 @@ margin-top:20px;}
 .pagination .current { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #036CB4; font-weight: bold; background-color: #036CB4; color: #FFF; }
 .pagination .disabled { padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #EEE; color: #DDD; }
 
+
+#globalfooter { color: #999; font-size: 10px; margin: 18px auto; padding-bottom: 36px; text-align: left !important; }
+#globalfooter a { text-decoration: none; color: #2971a7; }
+#globalfooter a:hover { text-decoration: underline; }
+#globalfooter p { margin-bottom: 1em; }
+#globalfooter .gf-buy { float: left; width: 60%; margin: 18px 0 9px; }
+#globalfooter .gf-links { float: right; text-align: right; margin: 18px 0 9px; }
+#globalfooter .gf-links a { padding: 0 10px; white-space: nowrap; }
+#globalfooter .gf-links a.last { padding-right: 0; _float: none !important; width: auto !important;  }
+#globalfooter .gf-sosumi { clear: both; width: 100%; border-top: 1px solid #eee; padding-top: 9px; }
+#globalfooter .gf-sosumi a { padding: 0 10px; }
+#globalfooter { width: 980px; }
+#globalfooter form { margin: 18px 10px; }
+#globalfooter .search-wrapper { margin: 0 auto; }
+#globalfooter .search-wrapper input.prettysearch { margin-left: 10px; }
  
 p.last, ul.last, ol.last, li.last { _width:auto !important; _float:none !important; }
  

@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  layout 'front', :only => 'index'
+  layout 'standard', :except => 'index'
   
   def query
     if params[:query]
@@ -21,5 +21,6 @@ class SearchController < ApplicationController
   def index
     @bookmarks = Bookmark.find(:all, :limit => 12, :order => 'created_at DESC')
     #@results = ThinkingSphinx.search params[:query]
+    render :layout => 'front'
   end
 end

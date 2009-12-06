@@ -4,7 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="en-us" http-equiv="Content-Language" />
     
-    <title id="page_title">prb - Bookmarks</title>
+    <title>prb - Bookmarks</title>
 
     <%= stylesheet_link_tag 'base' %>
   	<%= stylesheet_link_tag 'standard' %>
@@ -19,9 +19,8 @@
       <div id="header">
         <% link_to root_url, :title => "prb", :id => "logo" do %>
           <img alt="Tweet, tweet!" id="bird" src="/images/prb.png" /> 
-          <h3 style="color:#999999; position:absolute; left:120px; top:15px">Per general consensus, pants are required.</h3>
         <% end %>
-      
+        <h3 style="color:#999999; position:absolute; left:120px; top:15px">Per general consensus, pants are required.</h3>
         <%= render :partial => 'layouts/sessioninfo' %>
       </div>
       <div class="clearer"></div>
@@ -49,8 +48,6 @@
                             <% if admin? %>
                             <li id="administration"><%= link_to 'Administration', administration_path %></li>
                             <% end %>
-                          <% else %>
-                          <li id="register"><%= link_to 'Register', register_path %></li>
                           <% end %>
                         </ul>
                         <hr />
@@ -85,6 +82,7 @@
             </tr>
           </tbody>
         </table>
+        <%= render :partial => 'layouts/footer' %>
     </div>
   </body>
 </html>

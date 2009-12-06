@@ -19,13 +19,11 @@
       <div id="header">
         <% link_to root_url, :title => "prb", :id => "logo" do %>
           <img alt="Tweet, tweet!" id="bird" src="/images/prb.png" /> 
-          <h3 style="color:#999999; position:absolute; left:120px; top:15px">Per general consensus, pants are required.</h3>
         <% end %>
-      
+        <h3 style="color:#999999; position:absolute; left:120px; top:15px">Per general consensus, pants are required.</h3>
         <%= render :partial => 'layouts/sessioninfo' %>
       </div>
       <div class="clearer"></div>
-        <br />
         <div class="content-bubble-arrow" style="display:none;"></div>      
           <table cellspacing="0" class="columns" style="width:980px">
             <tbody>
@@ -52,8 +50,6 @@
                             <% if admin? %>
                             <li id="administration"><%= link_to 'Administration', administration_path %></li>
                             <% end %>
-                          <% else %>
-                          <li id="register"><%= link_to 'Register', register_path %></li>
                           <% end %>
                         </ul>
                         <hr />
@@ -88,6 +84,8 @@
             </tr>
           </tbody>
         </table>
+        
+        <%= render :partial => 'layouts/footer' %>
     </div>
   </body>
 </html>

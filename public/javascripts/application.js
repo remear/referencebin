@@ -12,6 +12,7 @@ $(document).ready(function()
      });
   });
   
+  /*
   //Grab the original BG color of the link
   var originalBG = $(".url").css("background-color"); 
   //The color you want to fade too
@@ -22,7 +23,7 @@ $(document).ready(function()
   });
   $('.url').mouseout(function(){
     $(this).animate({backgroundColor:originalBG},750) 
-  });
+  });*/
   
   $(document).ready(function() {
 
@@ -32,15 +33,16 @@ $(document).ready(function()
 	$(".signin").toggleClass("menu-open");
       });
 
-$("fieldset#signin_menu").mouseup(function() {
-	return false
-});
-$(document).mouseup(function(e) {
-	if($(e.target).parent("a.signin").length==0) {
-		$(".signin").removeClass("menu-open");
-		$("fieldset#signin_menu").hide();
-	}
-});			
+  $("fieldset#signin_menu").mouseup(function() {
+  	return false
+  });
+  
+  $(document).mouseup(function(e) {
+  	if($(e.target).parent("a.signin").length==0) {
+  		$(".signin").removeClass("menu-open");
+  		$("fieldset#signin_menu").hide();
+    	}
+    });			
 
   });
   

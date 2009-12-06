@@ -25,7 +25,7 @@
   <%= render :partial => 'list' %>
 </div>
 
-<p id="position"><%= will_paginate @bookmarks, :id => 'pagination' %></p>
+<%= will_paginate @bookmarks, :id => 'pagination' %>
 
 <% else %>
 

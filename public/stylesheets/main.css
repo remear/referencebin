@@ -3,6 +3,8 @@ body { margin-top:20px; text-align:center; font:.75em 'Lucida Grande', sans-seri
 #bird { margin-left:-1px; }
 #topnav { margin:0px 0 -20px 0; }
 #header { margin-bottom:-10px !important; }
+
+h1 { margin-bottom:20px; }
 a,
 #content tr.hentry:hover a,
 body#profile #content div.hentry:hover a,
@@ -105,7 +107,7 @@ input[type="text"],input[type="password"],select,textarea{border:1px solid #aaa;
 
 #container{width:980px;margin:1em auto;text-align:left;position:relative;}
 
-#content h1,#content h2,#content h3,#content h4,#content h5{margin:3px 0 4px;}
+#content h2,#content h3,#content h4,#content h5{margin:3px 0 4px;}
 
 .columns{margin-bottom:15px;width:100%;}
 
