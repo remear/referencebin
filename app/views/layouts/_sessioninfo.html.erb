@@ -1,13 +1,13 @@
 <div id="topnav">
   <% if ! current_user %>
-  <div id="small_signup">
+  <div id="small_signup" style="width:500px; float:right; margin-top:0px">
     <span>New to prb?</span>
     <%= link_to 'Sign up now', register_url, :class => "signup-button" %>
+    Have an account? <%= link_to '<span>Sign in</span>', '#', :class => "signin" %>
   </div>
-  Have an account? <%= link_to '<span>Sign in</span>', '#', :class=>"signin" %>
-  
+  <div class="clearer"></div>
   <% else %>
-  <div style="width:500px; text-align:right; float:right; margin-bottom:5px">
+  <div id="sessioninfo">
     <table style="float:right">
       <tr>
         <td rowspan="2"><%= image_tag current_user.gravatar_url(:size => 20), :style => "margin-right:10px;" %></td>

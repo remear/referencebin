@@ -81,6 +81,7 @@
   	-webkit-border-top-left-radius:5px;
   	-webkit-border-bottom-left-radius:5px;
   	-webkit-border-bottom-right-radius:5px;
+  	-webkit-box-shadow: 0.25em 0.75em 1em rgba(0,0,0,0.50); -moz-box-shadow: rgba(0,0,0,0.50) 0.25em 0.25em 1em;
   	display:none;
   	background-color:#ddeef6;
   	position:absolute;

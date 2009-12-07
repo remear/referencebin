@@ -1,34 +1,34 @@
 <h1>Register</h1>
 
 <p class="sosumi">* All fields are required</p>
-
-<% form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label 'username' %><br />
-    <%= f.text_field :login %>
-  </p>
-  <p>
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname %>
-  </p>
-  <p>
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </p>
-  <p>
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-
+<fieldset class="common-form standard-form">
+  <% form_for @user do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label 'username' %><br />
+      <%= f.text_field :login %>
+    </p>
+    <p>
+      <%= f.label :nickname %><br />
+      <%= f.text_field :nickname %>
+    </p>
+    <p>
+      <%= f.label :firstname %><br />
+      <%= f.text_field :firstname %>
+    </p>
+    <p>
+      <%= f.label :lastname %><br />
+      <%= f.text_field :lastname %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p><%= f.submit "Submit" %></p>
+  <% end %>
+</fieldset>
 <%= link_to 'Back', root_url %>

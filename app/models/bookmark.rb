@@ -29,7 +29,7 @@ class Bookmark < ActiveRecord::Base
   end
     
   def self.per_page
-    8
+    5
   end
   
   def to_param

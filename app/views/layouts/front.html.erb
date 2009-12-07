@@ -26,7 +26,7 @@
         <span>New to Twitter?</span>
         <a href="http://twitter.com/signup" class="signup-button">Sign up now</a>
       </div>
-      Have an account? <%= link_to '<span>Sign in</span>', '#', :class=>"signin" %>=
+      Have an account? <%= link_to '<span>Sign in</span>', '#', :class=>"signin" %>
       <% else %>
       <div style="width:500px; text-align:right;float:right; margin-bottom:10px">
         <table style="float:right">
@@ -44,6 +44,7 @@
         </div>
       <% end %>        
     </div>
+    <div class="clearer"></div>
     <fieldset id="signin_menu">
       <% form_for :user_session, :url => { :controller => 'user_sessions', :action => 'create' } do |f| %>
         <p>

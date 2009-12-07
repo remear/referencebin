@@ -8,26 +8,29 @@
 <h1>Settings</h1>
 
 <p class="sosumi">* All fields are required</p>
-
-<% form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </p>
-  <p>
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-
+<fieldset class="common-form standard-form">
+  <% form_for @user do |f| %>
+    <%= f.error_messages %>
+    <table>
+      <tr>
+        <th><%= f.label :firstname %></th>
+        <td><%= f.text_field :firstname %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :lastname %></th>
+        <td><%= f.text_field :lastname %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password %></th>
+        <td><%= f.password_field :password %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password_confirmation %></th>
+        <td><%= f.password_field :password_confirmation %></td>
+      </tr>
+    </table>
+    <br />
+    <p style="margin-left:139px"><%= f.submit "Save" %></p>
+  <% end %>
+</fieldset>
 <%= link_to 'Back', root_url %>
