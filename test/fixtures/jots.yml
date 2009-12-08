@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: jots
+#
+#  id          :integer(4)      not null, primary key
+#  user_id     :integer(4)
+#  language_id :integer(4)
+#  private     :boolean(1)
+#  code        :text
+#  error       :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 one:
   id: 1
   user_id: 1

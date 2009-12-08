@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: languages
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  permalink  :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Language < ActiveRecord::Base
   has_many :bookmarks
   has_many :bookmark_imports

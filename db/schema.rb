@@ -75,20 +75,6 @@ ActiveRecord::Schema.define(:version => 20091208071139) do
 
   add_index "languages", ["name"], :name => "index_languages_on_name", :unique => true
 
-  create_table "report_caches", :force => true do |t|
-    t.string   "model_name",                        :null => false
-    t.string   "report_name",                       :null => false
-    t.string   "grouping",                          :null => false
-    t.string   "aggregation",                       :null => false
-    t.float    "value",            :default => 0.0, :null => false
-    t.datetime "reporting_period",                  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "report_caches", ["model_name", "report_name", "grouping", "aggregation", "reporting_period"], :name => "name_model_grouping_aggregation_period", :unique => true
-  add_index "report_caches", ["model_name", "report_name", "grouping", "aggregation"], :name => "name_model_grouping_agregation"
-
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
