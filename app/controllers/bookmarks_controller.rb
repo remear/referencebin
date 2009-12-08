@@ -6,9 +6,9 @@ class BookmarksController < ApplicationController
   def index
     if params[:language]
       @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC",
-                      :joins => :language, :conditions => {:languages => {:permalink => params[:language]}}
+                      :joins => :language, :conditions => {:languages => {:permalink => params[:language]} }
     else
-      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
+      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC", :joins => :flags, :conditions => "flags.flaggable_id is NULL"
     end
     
     respond_to do |format|

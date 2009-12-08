@@ -3,7 +3,10 @@ class PagesController < ApplicationController
   
   def index
   end
-
+  
+  def legal
+  end
+  
   def credits
     @contributors = User.find(:all, :conditions => ["contributor = ?", true])
   end

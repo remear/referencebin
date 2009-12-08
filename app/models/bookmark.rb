@@ -13,6 +13,8 @@ class Bookmark < ActiveRecord::Base
                     :default_style => "medium",
                     :default_url => "/images/missing.png"
                     
+  has_many :flags, :as => :flaggable
+  
   validates_uniqueness_of :url
   
   define_index do

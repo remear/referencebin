@@ -24,6 +24,16 @@
         <%= render :partial => 'layouts/sessioninfo' %>
       </div>
       <div class="clearer"></div>
+      <br />
+      <div id="toolbar">
+        <ul id="breadcrumbs" style="width:400px; float:left">
+          <li id="home"><%= link_to '&nbsp;', root_url %></li>
+          <%= yield :breadcrumbs %>
+        </ul>
+        <ul id="actions" style="width:300px; text-align:right; float:right">
+          <%= yield :actions %>
+        </ul>
+      </div>
         <div class="content-bubble-arrow" style="display:none;"></div>      
           <table cellspacing="0" class="columns" style="width:980px">
             <tbody>

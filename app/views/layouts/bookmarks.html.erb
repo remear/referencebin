@@ -15,7 +15,7 @@
   	<%= javascript_include_tag 'facebox' %>
   </head>
 
-  <body class="timeline" id="home">
+  <body>
     <div id="container" class="subpage">
       <div id="header">
         <% link_to root_url, :title => "prb", :id => "logo" do %>
@@ -25,13 +25,22 @@
         <%= render :partial => 'layouts/sessioninfo' %>
       </div>
       <div class="clearer"></div>
+      <br />
+      <div id="toolbar">
+        <ul id="breadcrumbs" style="width:400px; float:left">
+          <li id="home"><%= link_to '&nbsp;', root_url %></li>
+          <%= yield :breadcrumbs %>
+        </ul>
+        <ul id="actions" style="width:300px; text-align:right; float:right">
+          <%= yield :actions %>
+        </ul>
+      </div>
+      <div class="clearer"></div>
         <div class="content-bubble-arrow" style="display:none;"></div>      
           <table cellspacing="0" class="columns" style="width:980px" id="content-table">
             <tbody>
               <tr>
                 <td id="content" class="round-left" style="width:780px">
-                  
-                  <div class="clearer"></div>
                   <%= yield %>
                 </td>
                 <td id="side_base" class="round-right" valign="top" style="width:200px">                
@@ -55,14 +64,14 @@
                             <% end %>
                           <% end %>
                         </ul>
-                        <hr />
-
+                        
+                        <br />
                         <div id="custom_search" style="text-align:center">
                           <% form_for search_path, :url => search_path, :method => 'post' do |f| %>
                             <input id="search" name="query" type="search" placeholder="Search..."	autosave="prb_srch" style="width:170px" results="5" />
                           <% end %>
                         </div>
-
+                        
                         <h2 class="sidebar-title" id="tt_menu"><span>Categories</span></h2>
                         <hr />
                         <ul id="primary_nav" class="sidebar-menu">

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091128064229) do
+ActiveRecord::Schema.define(:version => 20091208071139) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20091128064229) do
     t.string   "title"
     t.text     "body"
     t.string   "importance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flags", :force => true do |t|
+    t.integer  "bookmark_id", :null => false
+    t.string   "reason",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

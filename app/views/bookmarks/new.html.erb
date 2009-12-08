@@ -1,30 +1,42 @@
 <h1>Create Bookmark</h1>
 <% content_for(:toolbar) do %><%= link_to 'Cancel', bookmarks_path %><% end %>
 
-<% form_for(@bookmark) do |f| %>
-  <%= f.error_messages %>
+<fieldset class="common-form standard-form">
+  <% form_for(@bookmark) do |f| %>
+    <%= f.error_messages %>
+    
+    <table border="0" cellspacing="5" cellpadding="5">
+      <tr>
+        <th><%= f.label :language %></th>
+        <td><%= collection_select :bookmark, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :title %></th>
+        <td><%= f.text_field :title %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :url %></th>
+        <td><%= f.text_field :url, :size => 70 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :description %></th>
+        <td><%= f.text_area :description, :cols => 103, :rows => 10 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label 'Topics' %> (comma-separated)</th>
+        <td><%= f.text_field :topic_list, :size => 80 %></td>
+      </tr>      
+    </table>
 
-  <p class="tag green"><%= f.label :language %></p>
-  <p><%= collection_select :bookmark, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></p>
-  <p class="tag green"><%= f.label :title %></p>
-  <p><%= f.text_field :title %></p>
-
-  <p class="tag green"><%= f.label :url %></p>
-  <p><%= f.text_field :url, :size => 70 %></p>
   
-  <p class="tag green"><%= f.label :description %></p>
-  <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
+    <h3 class="section" style="margin-top:30px">Did this bookmark help you answer a question?</h3>
+    <p class="sosumi">
+      Please enter the question this bookmark helped you to answer. This helps others find a solution.
+      (comma separate multiple questions)
+    </p>
+    <p><%= f.text_field :question_list, :size => 100 %></p>
   
-  <p class="tag green"><%= f.label :tag_list %> (comma-separated)</p>
-  <p><%= f.text_field :topic_list, :size => 80 %></p>
-  
-  
-  <h3 class="section" style="margin-top:30px">Did this bookmark help you answer a question?</h3>
-  <p class="sosumi">
-    Please enter the question this bookmark helped you to answer. This helps others find a solution.
-    (comma separate multiple questions)
-  </p>
-  <p><%= f.text_field :question_list, :size => 80 %></p>
-  
-  <p><%= image_submit_tag '/images/buttons/create.png' %></p>
-<% end %>
+    <br />
+    <p style="text-align:right"><%= f.submit 'Create' %></p>
+  <% end %>
+</fieldset>

@@ -10,7 +10,7 @@
 
 <h1 class="bookmark_viewing"><%=h @bookmark.title %></h1>
 
-<div style="width:548px; float:left; margin-right:20px">
+<div style="width:450px; float:left; margin-right:20px">
   <% link_to @bookmark.url do %><%= image_tag @bookmark.thumb(:large), :style => 'border:1px #EFEFEF solid' %><% end %>
 </div>
 
@@ -19,15 +19,22 @@
   <%= markdown(@bookmark.description) %>
 <% end %>
 
-<p>Bookmarked <%= %></p>
-  
+<p class="sosumi">Bookmarked <%= time_ago_in_words(@bookmark.created_at) %> ago</p>
+
+<% if @bookmark.flags.count > flag_tolerance %>
+  <p>Bookmark is flagged</p>
+<% end %>
+<% form_for :flag, :url => { :controller => 'flags', :action => 'create', :id => @bookmark.id } do |f| %>
+<%= f.text_field :reason %>
+  <%= f.submit 'Report' %>
+<% end %>
 <div class="clearer"></div>
 
-<p class="url">
+<p style="text-align:right">
   <% if @url_status == true %>
-    <%= link_to @bookmark.url, @bookmark.url, :style => "background:url(/images/icons/check.png) right no-repeat; padding:5px 30px 5px 0;" %>
+    <% link_to @bookmark.url do %> @bookmark.url %><%= image_tag '/images/btn_go_to_site.png' %><% end %>
   <% else %>
-    <%= link_to @bookmark.url, @bookmark.url, :style => "background:url(/images/icons/minus.png) right no-repeat; padding:5px 30px 5px 0;" %>
+    <% link_to @bookmark.url do %> <%= image_tag '/images/btn_go_to_site_red.png' %><% end %>
   <% end %>
 </p>
 
@@ -40,8 +47,7 @@
 </div>
 
 
-<div class="clearer">
-</div>
+<div class="clearer"></div>
 
 <h2 class="section">Questions <span style="float:right"><a href="#question_form" rel="facebox" class="addleft">Add Question</a></span></h2>
 <% if ! @bookmark.questions.blank? %>

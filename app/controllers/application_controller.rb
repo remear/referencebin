@@ -49,6 +49,12 @@ class ApplicationController < ActionController::Base
     end
 	end
 	
+	helper_method :flag_tolerance
+  
+  def flag_tolerance
+    3
+  end
+  
   private
 
   def current_user_session
