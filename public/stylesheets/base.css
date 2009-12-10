@@ -113,7 +113,8 @@ a.audio { background: url(http://images.apple.com/global/elements/icons/globalic
 .gray { color:gray; }
 .green { color:green; }
 .red { color:red; }
-.blue { color:blue; }
+.prettyred { color:#d61919 !important; }
+.blue { color:blue; } 
 .prettyblue { color:#3b7fe6; }
 .orange { color:orange; }
 .offred { color:#e13030; }
