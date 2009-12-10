@@ -39,6 +39,7 @@
             <tbody>
               <tr>
                 <td id="content" class="round-left">
+                  <%= flash.map {|type, msg| content_tag(:div, msg, :class => "#{type}", :id => "flash") }.join %>
                   <%= yield %>
                 </td>
                 <td id="side_base" class="round-right" valign="top" style="width:200px">                

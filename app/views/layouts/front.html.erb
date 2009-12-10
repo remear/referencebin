@@ -45,6 +45,7 @@
       <% end %>        
     </div>
     <div class="clearer"></div>
+    <%= flash.map {|type, msg| content_tag(:div, msg, :class => "#{type}", :id => "flash") }.join %>
     <fieldset id="signin_menu">
       <% form_for :user_session, :url => { :controller => 'user_sessions', :action => 'create' } do |f| %>
         <p>
