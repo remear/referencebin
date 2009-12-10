@@ -8,7 +8,10 @@ class BookmarksController < ApplicationController
       @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC",
                       :joins => :language, :conditions => {:languages => {:permalink => params[:language]} }
     else
-      @bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC"
+      #@bookmarks = Bookmark.paginate :page => params[:page], :limit => 30, :order => "created_at DESC",
+      #  :joins => "left outer join flags on flags.flaggable_id = bookmarks.id", :conditions => "flags.flaggable_id is null"
+      @bookmarks = Bookmark.paginate :page => params[:page], :order => "created_at DESC", :joins => "left outer join flags on flags.flaggable_id = bookmarks.id", 
+        :group => "bookmarks.id", :having => "count(flags.flaggable_id) < #{flag_tolerance}"
     end
     
     respond_to do |format|
