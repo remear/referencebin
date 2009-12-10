@@ -1,0 +1,13 @@
+<p>
+  <b>Description:</b>
+  <%=h @flag_category.description %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%=h @flag_category.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_flag_category_path(@flag_category) %> |
+<%= link_to 'Back', flag_categories_path %>

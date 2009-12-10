@@ -1,0 +1,16 @@
+<% content_for :actions do %>
+  <li><%= link_to 'Back', flag_categories_path %></li>
+<% end %>
+<h1>New Flag Type</h1>
+
+<% form_for(@flag_category) do |f| %>
+  <%= f.error_messages %>
+<fieldset class="common-form standard-form">
+  <table border="0" cellspacing="5" cellpadding="5">
+    <tr><th><%= f.label :description %></th><td><%= f.text_field :description %></td></tr>
+    <tr><th><%= f.label :priority %></th><td><%= f.select(:priority, { "High" => "high", "Normal" => "normal", "Low" => "low" }, { :selected => 'normal' }) %></td></tr>
+    <tr><th></th><td><%= f.submit 'Create' %></td></tr>
+  </table>
+
+</fieldset>
+<% end %>
