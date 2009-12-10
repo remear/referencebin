@@ -579,7 +579,7 @@ fieldset.common-form small{color:#777;font-size:11px;}
 
 fieldset.common-form inpuusert[type="text"],fieldset.common-form input[type="password"],fieldset.common-form textarea,fieldset.common-form select,fieldset.common-form checkbox{border:1px solid #aaa;padding:4px 2px;}
 
-fieldset.common-form input[type="text"],fieldset.common-form input[type="password"]{width:12em;}
+fieldset.common-form input[type="text"],fieldset.common-form input[type="password"]{width:25em;}
 
 fieldset.common-form input[type="text"].medium,fieldset.common-form textarea.medium{width:50%;}
 
