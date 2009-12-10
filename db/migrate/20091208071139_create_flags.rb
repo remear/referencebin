@@ -1,8 +1,9 @@
 class CreateFlags < ActiveRecord::Migration
   def self.up
     create_table :flags do |t|
-      t.column :bookmark_id, :integer, :null => false
-      t.column :reason,      :string,  :null => false
+      t.column :flaggable_id,           :integer, :null => false
+      t.column :flag_category_id,       :integer, :null => false
+      t.column :flaggable_type,         :string,  :null => false
       t.timestamps
     end
   end
