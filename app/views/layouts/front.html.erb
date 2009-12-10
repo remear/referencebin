@@ -94,7 +94,7 @@
       <% @bookmarks.in_groups_of(4, false) do |bookmark_row| %>
         <ul>
           <% for bookmark in bookmark_row %>
-            <li><%= link_to bookmark.title, bookmark_path(bookmark.language.permalink, bookmark) %></li>
+            <li><%= link_to truncate(bookmark.title, :length => 45), bookmark_path(bookmark.language.permalink, bookmark) %></li>
           <% end %>
         </ul>
       <% end %>
