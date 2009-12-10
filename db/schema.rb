@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091208071139) do
+ActiveRecord::Schema.define(:version => 20091210042523) do
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -49,11 +49,19 @@ ActiveRecord::Schema.define(:version => 20091208071139) do
     t.datetime "updated_at"
   end
 
-  create_table "flags", :force => true do |t|
-    t.integer  "bookmark_id", :null => false
-    t.string   "reason",      :null => false
+  create_table "flag_categories", :force => true do |t|
+    t.string   "description"
+    t.string   "priority"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "flags", :force => true do |t|
+    t.integer  "flaggable_id",   :null => false
+    t.string   "reason",         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "flaggable_type"
   end
 
   create_table "jots", :force => true do |t|
