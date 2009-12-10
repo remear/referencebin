@@ -1,5 +1,5 @@
 <% content_for(:breadcrumbs) do %>
-  <% if params[:lang] %>
+  <% if params[:language] %>
   <li><%= link_to 'Bookmarks', bookmarks_path %></li>
   <li><%= @bookmarks.first.language.name if ! @bookmarks.first.nil? %></li>
   <% else %>
