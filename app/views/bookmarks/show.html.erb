@@ -32,7 +32,7 @@
 
 <p style="text-align:right">
   <% if @url_status == true %>
-    <% link_to @bookmark.url do %> @bookmark.url %><%= image_tag '/images/btn_go_to_site.png' %><% end %>
+    <% link_to @bookmark.url do %> <%= image_tag '/images/btn_go_to_site.png' %><% end %>
   <% else %>
     <% link_to @bookmark.url do %> <%= image_tag '/images/btn_go_to_site_red.png' %><% end %>
   <% end %>
