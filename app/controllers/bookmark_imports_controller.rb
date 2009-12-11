@@ -20,7 +20,7 @@ class BookmarkImportsController < ApplicationController
     if @bookmark_import.language_id.blank?
       @errors << 'A language must be specified'
     end
-    if @bookmark_import.tag_list.empty?
+    if @bookmark_import.topic_list.empty?
       @errors << 'Tag list cannot be empty'
     end
     if @bookmark_import.description.blank?

@@ -44,11 +44,18 @@
 <p class="sosumi red">No language specified</p>
 <% end %>
 
-<p class="tag green">Tags</p>
-<% if ! @bookmark_import.tag_list.blank? %>
-<p class="sosumi"><%= @bookmark_import.tag_list %></p>
+<p class="tag green">Topics</p>
+<% if ! @bookmark_import.topic_list.blank? %>
+<p class="sosumi"><%= @bookmark_import.topic_list %></p>
 <% else %>
-<p class="sosumi red">No tags specified</p>
+<p class="sosumi red">No topics specified</p>
+<% end %>
+
+<p class="tag green">Questions</p>
+<% if ! @bookmark_import.question_list.blank? %>
+<p class="sosumi"><%= @bookmark_import.question_list %></p>
+<% else %>
+<p class="sosumi red">No topics specified</p>
 <% end %>
 
 <p class="tag green">Description</p>

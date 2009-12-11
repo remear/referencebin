@@ -1,12 +1,15 @@
 <% content_for(:breadcrumbs) do %>
   <li><%= link_to 'Bookmarks', bookmarks_path %></li>
+  <li><%= link_to 'Imported Bookmarks', bookmark_imports_path %></li>
   <li>Import Bookmarks</li>
 <% end %>
 
 <h1 class="bookmark_import">Import Bookmarks</h1>
-<% form_for :do_import, :url => { :controller => "bookmark_imports", :action => 'do_import' }, :html => { :multipart => true } do |f| %>
-	<p class="tag green">CSV File</p>
-	<p><%= f.file_field :file %></p>
-	<br />
-	<p><%= image_submit_tag '/images/buttons/submit.png' %></p>
-<% end %>
+<fieldset class="common-form standard-form">
+  <% form_for :do_import, :url => { :controller => "bookmark_imports", :action => 'do_import' }, :html => { :multipart => true } do |f| %>
+  	<p class="tag green">CSV File</p>
+  	<p><%= f.file_field :file %></p>
+  	<br />
+  	<p><%= f.submit 'Import' %></p>
+  <% end %>
+</fieldset>
