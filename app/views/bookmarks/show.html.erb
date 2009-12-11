@@ -4,7 +4,9 @@
   <li>Bookmarks</li>
 <% end %>
 <% content_for(:actions) do %>
+<% if admin? %>
   <li><%= link_to 'Edit', edit_bookmark_path(@bookmark) %></li>
+<% end %>
   <li class="last"><%= link_to 'Back', :back %></li>
 <% end %>
 
