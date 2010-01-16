@@ -1,0 +1,52 @@
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to "Recent Articles", articles_path %></li>
+  <li><%=link_to @article.title, @article %></li>
+<% end %>
+<p>
+  <b>Topic:</b>
+  <%=h @article.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @article.content %>
+</p>
+
+<p>
+  <b>Content html:</b>
+  <%=h @article.content_html %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @article.user %>
+</p>
+
+<%form_for [@article, Comment.new] do |f|%>
+  <p>
+  <%=f.label :name%>
+  <%=f.text_field :name%>
+  </p>
+    <p>
+  <%=f.label :email%>
+  <%=f.text_field :email%>
+  </p>
+    <p>
+  <%=f.label :body%>
+  <%=f.text_area :body%>
+  </p>
+ <p> <%=f.submit 'Create' %></p>
+<%end%>
+
+<div id="comments">
+	<p>
+	  <b>Comments:</b>
+	</p>
+<%@article.comments.each do |comment| %>
+  <%= render :partial => 'comment', :object => comment %>
+
+<%end%>
+</div>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

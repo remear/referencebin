@@ -1,0 +1,21 @@
+<% @articles.each do |article| %>
+<div style="margin:auto; height:100px; padding:20px">
+
+  <span style="float:left; margin-right:20px;">
+  <% link_to article.title, article%>
+  </span>
+  
+  <div style="float:right; margin-left:20px;">
+    <div class="sosumi" style="background:#FFFBDA; padding:5px 10px 5px 10px; color:gray; -webkit-border-radius:10px; text-align:center">
+      <%= pluralize(article.comments.count, 'comment') %>
+    </div>
+    <br />
+     </div>
+  <p class="title">
+    <%= link_to article.title, article %>
+  </p>
+</div>
+<div class="clearer"></div>
+
+<hr />
+<% end %>
