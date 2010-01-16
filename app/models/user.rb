@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :jots
   
   attr_accessible :login, :email, :firstname, :lastname, :nickname, :password, :password_confirmation
-  
+  login_field_type => :email
   #for gravatar
   is_gravtastic! :secure => true,
                  :size => 120,
