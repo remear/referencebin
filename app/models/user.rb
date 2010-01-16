@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :jots
   
   attr_accessible :login, :email, :firstname, :lastname, :nickname, :password, :password_confirmation
-  login_field_type => :email
+
   #for gravatar
   is_gravtastic! :secure => true,
                  :size => 120,
@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
     #c.transition_from_crypto_providers = Authlogic::CryptoProviders::Sha512
     c.crypto_provider = Authlogic::CryptoProviders::BCrypt
+    login_field :email
+    validate_login_field :false
   end
   
   acts_as_tagger
