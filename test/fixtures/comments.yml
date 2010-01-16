@@ -14,3 +14,21 @@ two:
   body: This is test comment B
   bookmark_id: 1
   user_id: 1
+
+
+
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id               :integer(4)      not null, primary key
+#  body             :text
+#  created_at       :datetime
+#  updated_at       :datetime
+#  commentable_id   :integer(4)
+#  commentable_type :string(255)
+#  name             :string(255)
+#  email            :string(255)
+#
+

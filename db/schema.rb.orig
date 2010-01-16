@@ -9,6 +9,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20091210042523) do
+=======
 ActiveRecord::Schema.define(:version => 20100116184100) do
 
   create_table "articles", :force => true do |t|
@@ -23,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100116184100) do
     t.string   "permalink"
     t.integer  "language_id"
   end
+>>>>>>> 295d5527eb80c8ffc0b9fd523c00167bc012f44c
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"

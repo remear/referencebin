@@ -11,3 +11,12 @@
 <br />
 
 <%= link_to 'New comment', new_comment_path %>
+
+<div id="comments">
+
+<% @comments.each do |comment| %>
+    <div class="comments">
+    <%= simple_format(comment.body) %>      
+    </div>
+<% end %>
+</div>

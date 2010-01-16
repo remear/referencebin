@@ -12,6 +12,15 @@ $(document).ready(function()
      });
   });
   
+	$('#new_comment').submit(function(e) {
+		$.ajax({
+		  url: $(this).attr("action"),
+		  type: 'POST',
+		  dataType: "script",
+		  data: $(this).serialize() });
+		 e.preventDefault();
+		
+	});
   /*
   //Grab the original BG color of the link
   var originalBG = $(".url").css("background-color"); 
