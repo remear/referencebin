@@ -1,0 +1,22 @@
+<% content_for(:breadcrumbs) do %>
+  <li><%= link_to "Recent Articles", articles_path %></li>
+<% end %>
+<% content_for(:actions) do %>
+  <% if current_user %>
+  <li><%= link_to 'Create Article', new_article_path, :class => 'addleft' %></li>
+  <% end %>
+<% end %>
+
+<h1 class="bookmark_recent">Recent Articles</h1>
+<% if ! @articles.empty? %>
+<div id="list">
+  <%= render :partial => 'list' %>
+</div>
+
+<%= will_paginate @articles, :id => 'pagination' %>
+
+<% else %>
+
+<p class="sosumi">No articles</p>
+
+<% end %>
