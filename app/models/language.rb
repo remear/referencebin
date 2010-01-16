@@ -15,6 +15,7 @@ class Language < ActiveRecord::Base
   has_many :comments
   has_many :questions
   has_many :jots
+  has_many :articles
   
   before_save :generate_permalink
 

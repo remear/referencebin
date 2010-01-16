@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091208071139) do
+ActiveRecord::Schema.define(:version => 20100116184100) do
+
+  create_table "articles", :force => true do |t|
+    t.text     "content"
+    t.text     "content_html"
+    t.integer  "user_id"
+    t.boolean  "published"
+    t.boolean  "commentable"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "permalink"
+    t.integer  "language_id"
+  end
 
   create_table "bookmark_imports", :force => true do |t|
     t.string   "title"
@@ -39,14 +52,13 @@ ActiveRecord::Schema.define(:version => 20091208071139) do
   add_index "bookmarks", ["url"], :name => "index_bookmarks_on_url", :unique => true
 
   create_table "comments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "bookmark_id"
-    t.integer  "language_id"
-    t.string   "title"
     t.text     "body"
-    t.string   "importance"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "name"
+    t.string   "email"
   end
 
   create_table "flags", :force => true do |t|

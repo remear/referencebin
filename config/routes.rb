@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :articles, :has_many => :comments
+
   map.resources :flags
   
   #jots

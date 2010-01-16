@@ -1,4 +1,3 @@
-=begin
 class Administration::UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   layout "administration", :except => ['register', 'create']
@@ -90,4 +89,3 @@ protected
     @user = User.find(params[:id])
   end
 end
-=end

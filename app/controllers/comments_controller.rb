@@ -1,11 +1,14 @@
-class CommentsController < ApplicationController
-  skip_after_filter :add_google_analytics_code
-  before_filter :require_login
+ class CommentsController < ApplicationController
+  #skip_after_filter :add_google_analytics_code
+  #before_filter :require_login
   layout "bookmarks"
-  # GET /comments
-  # GET /comments.xml
+
+  
+  #This should be admin stuff
+  #Take a look
   def index
-    @comments = Comment.all
+    @commentable = find_commentable
+    @comments = @commentable.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,8 +16,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1
-  # GET /comments/1.xml
+
+  #This should be removed
   def show
     @comment = Comment.find(params[:id])
 
@@ -24,8 +27,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/new
-  # GET /comments/new.xml
+  #this should also be removed
   def new
     @comment = Comment.new
 
@@ -35,26 +37,27 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1/edit
+
+  #admin area/stuff
+  #Or remove
   def edit
     @comment = Comment.find(params[:id])
   end
 
-  # POST /comments
-  # POST /comments.xml
+
   def create
-    @comment = Comment.new(params[:comment])
-    @comment.bookmark_id = params[:bookmark_id]
-    @comment.user_id = current_user.id
+    @commentable = find_commentable #Fetches Articles model from the params
+    @comment = @commentable.comments.build(params[:comment]) #Creates comments on the article model
+
+    #@comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'
-        format.html { redirect_to :back }
-        #format.html { redirect_to(@comment) }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.html { redirect_to @commentable }
+        format.js
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        format.html { redirect_to @commentable }
+        format.js
       end
     end
   end
@@ -62,7 +65,8 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.xml
   def update
-    @comment = Comment.find(params[:id])
+    @commentable = find_commentable #Fetches Articles model from the params
+    @comment = @commentable.comments.find(params[:id]) #Creates comments on the article model
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
@@ -79,12 +83,22 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+    @commentable = find_commentable #Fetches Articles model from the params
+    @comment = @commentable.comments.find(params[:id]) #Creates comments on the article model
 
     respond_to do |format|
       format.html { redirect_to(comments_url) }
       format.xml  { head :ok }
     end
   end
+  
+  private
+  def find_commentable
+    params.each do |name,value|
+      if name=~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end 
+  end
+    
 end
