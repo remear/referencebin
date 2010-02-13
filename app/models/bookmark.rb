@@ -20,7 +20,7 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :language
   belongs_to :user
-  has_many :comments
+  has_many :comments, :as => :commentable
   after_create :generate_permalink
   after_create :generate_thumb
   

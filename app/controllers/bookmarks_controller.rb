@@ -34,7 +34,7 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.find_by_id(params[:id], :include => "comments")
+    @bookmark = Bookmark.find_by_id(params[:id])
     
     @url_status = url_lookup(@bookmark.url)
     
