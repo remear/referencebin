@@ -3,21 +3,21 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     @subject    += 'Please activate your new account'
   
-    @body[:url]  = "http://edge.reanstudios.org/activate/#{user.activation_code}"
+    @body[:url]  = "http://referencebin.com/activate/#{user.activation_code}"
   
   end
   
   def activation(user)
     setup_email(user)
     @subject    += 'Your account has been activated!'
-    @body[:url]  = "http://edge.reanstudios.org"
+    @body[:url]  = "http://referencebin.com"
   end
   
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"
-      @from        = "[prb] Administration"
-      @subject     = "[prb] "
+      @from        = "[referencebin] Administration"
+      @subject     = "[referencebin] "
       @sent_on     = Time.now
       @body[:user] = user
     end

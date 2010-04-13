@@ -2,7 +2,7 @@ class Notifier < ActionMailer::Base
   #default_url_options[:host] = "referencebin.com"
 
   def verification_instructions(user)
-    subject "prb - Email Verification"
+    subject "referencebin - Email Verification"
     from    "sysadmin@referencebin.com"
 
     recipients user.email
