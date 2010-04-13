@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :flag_categories
 
-  map.resources :articles, :has_many => :comments
+  #map.resources :articles, :has_many => :comments
 
   map.resources :flags
   
@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   
   #map.new_bookmark '/bookmarks/new', :controller => 'bookmarks', :action => 'new'
   
-  map.resources :bookmarks, :except => :show
+  map.resources :bookmarks, :except => :show, :has_many => :comments
   map.bookmark_post_question '/bookmarks/:id/postquestion', :controller => 'bookmarks', :action => 'post_question'
   map.bookmarks_by_tag '/bookmarks/tags/:tag', :controller => 'bookmarks', :action => 'tags'
   map.bookmark_tag_cloud '/bookmarks/tagcloud', :controller => 'bookmarks', :action => 'tag_cloud'

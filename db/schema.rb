@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100116184100) do
+ActiveRecord::Schema.define(:version => 20100413060344) do
 
   create_table "articles", :force => true do |t|
     t.text     "content"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20100116184100) do
     t.string   "commentable_type"
     t.string   "name"
     t.string   "email"
+    t.integer  "user_id"
   end
 
   create_table "flag_categories", :force => true do |t|

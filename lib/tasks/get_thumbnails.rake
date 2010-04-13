@@ -8,7 +8,7 @@ namespace :thumbs do
       
       #@bookmark = Bookmark.find(bookmark_id)
       require 'page_glimpse'
-      require 'ftools'
+      require 'fileutils'
 
       PageGlimpse.developer_key = '85fd3e91a4874a31c048797113c9bf8e'
 

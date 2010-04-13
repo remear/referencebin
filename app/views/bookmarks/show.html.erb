@@ -3,6 +3,7 @@
   <li><%= link_to @bookmark.language.name, bookmarks_path + "/#{@bookmark.language.permalink}" %></li>
   <li>Bookmarks</li>
 <% end %>
+
 <% content_for(:actions) do %>
 <% if admin? %>
   <li><%= link_to 'Edit', edit_bookmark_path(@bookmark) %></li>
@@ -33,39 +34,38 @@
   <% end %>
 </p>
 
-<h2 class="section">Topics <span style="float:right"><a href="#topic_form" rel="facebox" class="addleft">Add Topic</a></span></h2>
-<% if ! @bookmark.topic_list.empty? %>
-  <p class="sosumi"><%= @bookmark.topic_list %></p>
-<% else %>
-  <p class="sosumi">Bookmark has no tags</p>
-<% end %>
+<div class="clearer"></div>
+
+
+<h2 class="section">Topics</h2>
+<div id="topics" style="margin-bottom:30px;">
+  <% if ! @bookmark.topics.blank? %>
+    <% @bookmark.topics.each do |topic| %>
+      <%= topic %>
+    <% end %>
+  <% else %>
+    <p class="sosumi">No topics have been tagged yet</p>
+  <% end %>
 </div>
 
 
-<div class="clearer"></div>
-
-<h2 class="section">Questions <span style="float:right"><a href="#question_form" rel="facebox" class="addleft">Add Question</a></span></h2>
-<% if ! @bookmark.questions.blank? %>
-  <h2 class="section" style="margin-top:50px;">Questions Answered</h2>
-  <p class="sosumi">If you see your question below, click the thumbs up next to it!</p>
-  <%= render :partial => "questions" %>
-  <% if current_user %>
-    <h3 class="gray" style="margin-top:30px">
-      Did this bookmark help you answer your question but don't see it above? 
-      <%= link_to 'Add Question', '#question_form', :rel => 'facebox', :class => 'add', :style => 'margin:150px 20px 0 0' %>
-    </h3>
-  <% end %>
+<h2 class="section">Comments</h2>
+<br />
+<div id="topic_form">
+<% form_for [@bookmark, Comment.new] do |f| %>
+  <p>
+    <%= f.text_area :body, :cols => '103', :rows => '4' %>
+  </p>
+  <p><%= f.submit 'Add Comment', :style => 'float:right' %></p>
+  <div class="clearer"></div>
+  <br />
 <% end %>
-
-<% if ! @bookmark.comments.blank? %>
-  <h2 class="section" style="margin-top:50px;">
-    Comments
-    <% if current_user %>
-      <span style="float:right"><a href="#comment_form" rel="facebox" class="comment">Post Comment</a></span>
-    <% end %>
-  </h2>
-  <%= render :partial => "comments" %>
+</div>
+<div id="comments">
+<% @bookmark.comments.each do |comment| %>
+  <%= render :partial => 'comment', :object => comment %>
 <% end %>
+</div>
 
 
 <div id="question_form" style="display:none">

@@ -51,7 +51,7 @@
                         <% if current_user %>
                         <p class="promotion round">
                           <%= image_tag current_user.gravatar_url(:size => 40), :style => "margin-right:10px;", :class => 'side_thumb photo fn' %>
-                          <span id="me_name"><%= current_user.nickname %></span>
+                          <span id="me_name"><%= current_user.nickname %></span><br/>
                         </p>
                         <% end %>
 
@@ -60,7 +60,6 @@
                         <ul id="primary_nav" class="sidebar-menu">
                           <li><%= link_to 'Bookmarks', bookmarks_path %></li>
                           <% if current_user %>
-                            <li id="jots"><%= link_to 'Jots', jots_path %></li>
                             <% if admin? %>
                             <li id="administration"><%= link_to 'Administration', administration_path %></li>
                             <% end %>
@@ -82,7 +81,8 @@
 
 
                         <div id="following" class="collapsible collapsed">
-                          <a href="/timeline/render_following_avatars" class="fetch-contents"></a><h2 class="sidebar-title" id="fm_menu"><span>Feeds</span></h2>
+                          <!--
+                          <a href="/timeline/render_following_avatars" class="fetch-contents"></a><h2 class="sidebar-title" id="fm_menu"><span>Feeds</span></h2> -->
                         </div>
 
 

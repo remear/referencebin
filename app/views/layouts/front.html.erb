@@ -86,11 +86,12 @@
         <% end %>
       </div>
     </div>
-
+<!--
     <div id="trend_info">
       <span>RECENT BOOKMARKS</span>
     </div>
 
+    
     <div id="trends" class="nocorners bookmarks">
       <% @bookmarks.in_groups_of(4, false) do |bookmark_row| %>
         <ul>
@@ -103,22 +104,25 @@
       <br />
       <p style="text-align:right"><% link_to bookmarks_path do %><%= image_tag '/images/btn_browse_bookmarks.png' %><% end %></p>
     </div>
-    
+    -->
     <div id="trend_info">
-      <span>RECENT ARTICLES</span>
+      <span>RECENT BOOKMARKS</span>
     </div>
 
     <div id="trends">
       <% @bookmarks.in_groups_of(4, false) do |bookmark_row| %>
         <ul>
           <% for bookmark in bookmark_row %>
-            <li><% link_to bookmark.title, bookmark_path(bookmark.language.permalink, bookmark) %></li>
+            <li><%= link_to truncate(bookmark.title, :length => 45), bookmark_path(bookmark.language.permalink, bookmark) %></li>
           <% end %>
         </ul>
       <% end %>
       <div class="clearer"></div>
       <br />
-      <p style="text-align:right"><% link_to articles_path do %><%= image_tag '/images/btn_browse_articles.png' %><% end %></p>
+      <p style="text-align:right"><% link_to bookmarks_path do %><%= image_tag '/images/btn_browse_bookmarks.png' %><% end %></p>
+      <div class="clearer"></div>
+      <br />
+     
     </div>
   </div>
 </body>

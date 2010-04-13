@@ -4,11 +4,11 @@
   <span style="float:left; margin-right:20px;"><% link_to bookmark.url do %><%= image_tag bookmark.thumb(:small) %><% end %></span>
   
   <div style="float:right; margin-left:20px;">
-    <div class="sosumi" style="background:#FFFBDA; padding:5px 10px 5px 10px; color:gray; -webkit-border-radius:10px; text-align:center">
-      <%= bookmark.comments.count %> comments
+    <div class="sosumi" style="background:#004375; padding:5px 10px 5px 10px; color:#FFFFFF; -webkit-border-radius:5px; text-align:center">
+      <%= bookmark.comments.count %> <% if bookmark.comments.count == 1 %>comment <% else %>comments<% end %>
     </div>
     <br />
-    <div class="sosumi" style="background:#D9FFDA; padding:5px 10px 5px 10px; color:gray; -webkit-border-radius:10px; text-align:center">
+    <div class="sosumi" style="background:#b8daf4; padding:5px 10px 5px 10px; color:#333333; -webkit-border-radius:5px; text-align:center">
       <%= bookmark.questions.count %> <% if bookmark.questions.count == 1 %>question <% else %>questions<% end %> answered 
     </div>
   </div>

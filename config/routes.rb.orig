@@ -1,10 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-<<<<<<< HEAD
   map.resources :flag_categories
-=======
-  map.resources :articles, :has_many => :comments
->>>>>>> 295d5527eb80c8ffc0b9fd523c00167bc012f44c
-
+  #map.resources :articles, :has_many => :comments
   map.resources :flags
   
   #jots

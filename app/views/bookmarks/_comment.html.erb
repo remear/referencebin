@@ -1,0 +1,13 @@
+<div class="comment normal">
+  <div style="width:620px; float:left; padding:0 0 0 20px;">
+    <p class="info">
+      <span class="title"><%= comment.id %></span> Posted <strong><%= comment.created_at.to_s(:long) %></strong> by 
+      <strong><%= comment.user.nickname %></strong>
+    </p>
+    <%= markdown(comment.body) %>
+  </div>
+  <div class="author" style="width:80px; float:right;">
+    <%= image_tag comment.user.gravatar_url(:size => 60) %>
+  </div>
+  <div class="clearer"></div>
+</div>

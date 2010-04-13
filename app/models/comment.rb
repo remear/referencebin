@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
   # belongs_to :bookmark
   # belongs_to :language
   belongs_to :commentable, :polymorphic => true
+  belongs_to :user
   #has_many :codes
   
 #   syntaxify :body, :line_numbers => :table, :css => :class

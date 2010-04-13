@@ -48,7 +48,8 @@
   def create
     @commentable = find_commentable #Fetches Articles model from the params
     @comment = @commentable.comments.build(params[:comment]) #Creates comments on the article model
-
+    @comment.user_id = current_user.id
+    
     #@comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save

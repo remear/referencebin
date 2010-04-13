@@ -21,6 +21,10 @@
         <td><%= f.text_field :lastname %></td>
       </tr>
       <tr>
+        <th><%= f.label :email %></th>
+        <td><%= f.text_field :email %></td>
+      </tr>
+      <tr>
         <th><%= f.label :password %></th>
         <td><%= f.password_field :password %></td>
       </tr>
@@ -33,4 +37,3 @@
     <p style="margin-left:139px"><%= f.submit "Save" %></p>
   <% end %>
 </fieldset>
-<%= link_to 'Back', root_url %>

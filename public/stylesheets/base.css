@@ -156,7 +156,7 @@ a.comment.right { background:url(/images/icons/icon_comment.gif) right no-repeat
 a.delete { background:url(/images/icons/delete15x15.png) 50% no-repeat;  text-indent:-9999px; display:block; }
 a.arrow { background:url(/images/arrow_next.gif) right no-repeat; padding-right: 20px; }
 a.add { background:url(/images/icons/plus.png) right no-repeat; padding-right: 20px; }
-a.addleft { background:url(/images/icons/plus.png) left no-repeat; padding-left: 20px; }
+.addleft { background:url(/images/icons/plus.png) left no-repeat; padding-left: 20px; }
 a.thumbsup { background:url(/images/icons/thumbsup.gif) left no-repeat; padding: 2px 0 2px 10px; }
 a.rss { background:url(/images/icons/rss22x12.png) left no-repeat !important; padding-left: 30px; }
 a.flag { background:url(/images/icons/flag.png) left no-repeat !important; padding-left: 25px; }
