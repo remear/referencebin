@@ -21,12 +21,13 @@ class ApplicationController < ActionController::Base
 
   def require_user
     if ! current_user
-      flash[:notice] = "Please login"
-      redirect_to login_path
+      access_denied
+      flash[:error] = "Please login"
     end
   end
 
   def access_denied
+    store_location
     redirect_to login_path
   end
   
@@ -34,8 +35,21 @@ class ApplicationController < ActionController::Base
     current_user || access_denied
   end
   
-  def admin_required
+  def require_admin
     current_user.admin?
+  end
+
+  # Store the URI of the current request in the session.
+  # We can return to this location by calling #redirect_back_or_default.
+  def store_location
+    session[:return_to] = request.referrer
+  end
+
+  # Redirect to the URI stored by the most recent store_location call or
+  # to the passed default.
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
   end
   
   def url_lookup(url)

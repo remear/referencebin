@@ -27,7 +27,7 @@
 <fieldset id="signin_menu">
   <% form_for :user_session, :url => { :controller => 'user_sessions', :action => 'create' } do |f| %>
     <p>
-    <label for="username">Username</label>
+    <label for="username">Email</label>
     <%= f.text_field :email %>
     </p>
     <p>
