@@ -56,7 +56,6 @@
                         <ul id="primary_nav" class="sidebar-menu">
                           <li><%= link_to 'Bookmarks', bookmarks_path %></li>
                           <% if current_user %>
-                            <li id="jots"><%= link_to 'Jots', jots_path %></li>
                             <% if admin? %>
                             <li id="administration"><%= link_to 'Administration', administration_path %></li>
                             <% end %>
