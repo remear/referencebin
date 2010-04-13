@@ -19,16 +19,11 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic'
   config.gem "bcrypt-ruby", :lib => "bcrypt"
   config.gem 'bluecloth'
-  config.gem 'coderay'
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem 'haml-edge', :lib => 'haml'
-  config.gem 'monkeytest'
   config.gem 'page_glimpse'
-  config.gem 'redgreen'
   config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
-  config.gem 'thinking-sphinx', :lib => 'thinking_sphinx', :version => '>=1.2.12', :source => 'http://gemcutter.org'
-  config.gem "thoughtbot-factory_girl", :lib => 'factory_girl', :source => 'http://gems.github.com'
-  config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+  #config.gem 'thinking-sphinx', :lib => 'thinking_sphinx', :source => 'http://gemcutter.org'
   config.gem 'whenever', :lib => false, :source => 'http://gemcutter.org'
   config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
   
@@ -54,6 +49,4 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-require 'fastercsv'
-
-Rubaidh::GoogleAnalytics.tracker_id = 'UA-2807904-6'
+Rubaidh::GoogleAnalytics.tracker_id = 'UA-15342999-2'
