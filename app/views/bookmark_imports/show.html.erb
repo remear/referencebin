@@ -11,7 +11,8 @@
 <% content_for(:commands) do %>
   <li><%= link_to 'Make Live', convert_bookmark_path, :class => 'arrow' %></li>
 <% end %>
-<h2>Viewing Imported Bookmark</h2>
+
+<h1>Viewing Imported Bookmark</h1>
 
 <% if ! @errors.blank? %>
 <div id="errorExplanation">

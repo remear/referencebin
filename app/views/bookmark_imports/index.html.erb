@@ -28,7 +28,7 @@
       <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.title, :length => 45, :omission => "...") %></td>
       <td onclick="location.href='<%= bookmark_import_path(bookmark) %>'"><%=h truncate(bookmark.url, :length => 45, :omission => "...") %></td>
       <td>
-        <% if ! bookmark.title.blank? && ! bookmark.url.blank? && ! bookmark.language_id.blank? && ! bookmark.description.blank? && ! bookmark.tag_list.blank? %>
+        <% if ! bookmark.title.blank? && ! bookmark.url.blank? && ! bookmark.language_id.blank? && ! bookmark.description.blank? && ! bookmark.topic_list.blank? %>
           <div style="width:80px; height:20px; background:url(/images/icons/check.png) 50% no-repeat;"></div>
         <% else %>
           <div style="width:80px; height:20px; background:url(/images/icons/warning.gif) 50% no-repeat;"></div>

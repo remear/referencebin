@@ -1,23 +1,39 @@
-<% form_for @bookmark_import do |f| %>
-  <%= f.error_messages %>
-  <p class="tag green"><%= f.label :title %></p>
-  <p><%= f.text_field :title %></p>
+<fieldset class="common-form standard-form">
+  <% form_for(@bookmark_import) do |f| %>
+    <%= f.error_messages %>
+    
+    <table border="0" cellspacing="5" cellpadding="5">
+      <tr>
+        <th><%= f.label :language %></th>
+        <td><%= collection_select :bookmark_import, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :title %></th>
+        <td><%= @bookmark_import.title %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :url %></th>
+        <td><%= f.text_field :url, :size => 70 %></td>
+      </tr>
+      <tr>
+        <th style="vertical-align:top"><%= f.label :description %></th>
+        <td><%= f.text_area :description, :cols => 85, :rows => 10 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label 'Topics' %> (comma-separated)</th>
+        <td><%= f.text_field :topic_list, :size => 80 %></td>
+      </tr>      
+    </table>
+
   
-  <p class="tag green"><%= f.label :url %></p>
-  <p><%= f.text_field :url, :size => 105 %></p>
+    <h3 class="section" style="margin-top:30px">Did this bookmark help you answer a question?</h3>
+    <p class="sosumi">
+      Please enter the question this bookmark helped you to answer. This helps others find a solution.
+      (comma separate multiple questions)
+    </p>
+    <p><%= f.text_field :question_list, :size => 100 %></p>
   
-  <p class="tag green">Language</p>
-  <p><%= collection_select :bookmark_import, :language_id, Language.find(:all, :order => 'name'), :id, :name, { :prompt => 'Select Language...' } %></p>
-  
-  <p class="tag green"><%= f.label :description %></p>
-  <p><%= f.text_area :description, :cols => 103, :rows => 10 %></p>
-  
-  <p class="tag green"><%= f.label :tag_list %></p>
-  <p><%= f.text_field :tag_list, :size => 80 %></p>
-  
-  <% if params[:action] == "new" %>
-  <p><%= image_submit_tag "/images/buttons/create.png" %></p>
-  <% elsif params[:action] == "edit" %>
-  <p><%= image_submit_tag "/images/buttons/update.png" %></p>
+    <br />
+    <p style="text-align:right"><%= f.submit 'Update' %></p>
   <% end %>
-<% end %>
+</fieldset>
