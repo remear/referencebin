@@ -47,6 +47,9 @@ fieldset.common-form input[type="password"]
   background:url(/images/bg_breadcrumb.png) no-repeat;
 }
 
+a.bubbleitem { background:#e0e9fa; padding:3px 5px 3px 5px; -webkit-border-radius:5px; -moz-border-radius:5px; -border-radius:5px; border:1px #CCC solid; }
+a.bubbleitem:hover { background:#0f9be9; color:#FFFFFF; }
+
 #toolbar #breadcrumbs { width:600px !important; float:left; }
 #toolbar #breadcrumbs li { display:inline !important; list-style:none; color:#666; padding:10px 20px 8px 10px; background:url(/images/breadcrumb_sep.png) bottom right no-repeat; height:31px; }
 #toolbar #breadcrumbs li { color:#2260BE; }
@@ -161,7 +164,7 @@ table.bookmark_imports.interactive tbody tr:hover { background:#ddecff; cursor:p
   list-style: square;
 }
 
-body { margin-top:20px; text-align:center; font:.75em 'Lucida Grande', sans-serif; color:#333; }
+body { margin-top:20px; text-align:center; font:.75em 'Lucida Grande', sans-serif; color:#333; height:100%; }
 
 #bird { margin-left:-1px; }
 #topnav { margin:0px 0 -20px 0; }

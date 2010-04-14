@@ -1,4 +1,4 @@
-body { margin-top:20px; text-align:center; font:.75em 'Lucida Grande', sans-serif; color:#333; }
+body { margin-top:20px; text-align:center; font:.75em 'Lucida Grande', sans-serif; color:#333; height:100%; }
 
 #bird { margin-left:-1px; }
 #topnav { margin:0px 0 -20px 0; }

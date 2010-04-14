@@ -37,34 +37,44 @@
 <div class="clearer"></div>
 
 
-<h2 class="section">Topics</h2>
+<h2 class="section">Topics <span style="float:right"><a href="#topic_form" class="addleft" onclick="$('#topic_form').toggle()">Add Topic</a></span></h2>
+<br />
+<div id="topic_form" style="display:none">
+  <p>FOO</p>
+</div>
 <div id="topics" style="margin-bottom:30px;">
   <% if ! @bookmark.topics.blank? %>
     <% @bookmark.topics.each do |topic| %>
-      <%= topic %>
+      <%= link_to topic, url_for(:controller=>'search', :action=>'query', :query => "#{topic}"), :class => 'bubbleitem' %></span>
     <% end %>
   <% else %>
-    <p class="sosumi">No topics have been tagged yet</p>
+    <p class="sosumi">No topics have been tagged</p>
   <% end %>
 </div>
 
 
-<h2 class="section">Comments</h2>
+<h2 class="section">Comments <% if current_user %><span style="float:right"><a href="#topic_form" class="addleft" onclick="$('#comment_form').toggle()">Add Comment</a></span><% end %></h2>
 <br />
-<div id="topic_form">
-<% form_for [@bookmark, Comment.new] do |f| %>
-  <p>
-    <%= f.text_area :body, :cols => '103', :rows => '4' %>
-  </p>
-  <p><%= f.submit 'Add Comment', :style => 'float:right' %></p>
-  <div class="clearer"></div>
-  <br />
+<% if current_user %>
+  <div id="comment_form" style="display:none">
+  <% form_for [@bookmark, Comment.new] do |f| %>
+    <p>
+      <%= f.text_area :body, :cols => '103', :rows => '4' %>
+    </p>
+    <p><%= f.submit 'Add Comment', :style => 'float:right' %></p>
+    <div class="clearer"></div>
+    <br />
+  <% end %>
+  </div>
 <% end %>
-</div>
 <div id="comments">
-<% @bookmark.comments.each do |comment| %>
-  <%= render :partial => 'comment', :object => comment %>
-<% end %>
+  <% if ! @bookmark.comments.blank? %>
+    <% @bookmark.comments.each do |comment| %>
+      <%= render :partial => 'comment', :object => comment %>
+    <% end %>
+  <% else %>
+    <p class="sosumi">No comments have been added</p>
+  <% end %>
 </div>
 
 

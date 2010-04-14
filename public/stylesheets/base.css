@@ -70,7 +70,7 @@ p.last, ul.last, ol.last, li.last { _width:auto !important; _float:none !importa
 #container, #content, .grid2col, .grid2cola, .grid2colb, .grid2colc, .grid2cold, .grid2cole, .grid2colf, .grid3col, .grid3cola, .grid4col, .grid5col, .grid6col { _zoom:1; }
  
 /* TYPE */
-body { font: 11px/14px "Lucida Grande", Geneva, Arial, Verdana, sans-serif !important; background-color:#e3e3e3; color:#333; margin-top:20px; }
+body { font: 11px/14px "Lucida Grande", Geneva, Arial, Verdana, sans-serif !important; background-color:#e3e3e3; color:#333; margin-top:20px; height:100%; }
 
 .right { text-align:right; }
 
@@ -81,7 +81,7 @@ sup { padding-left:1px; font-size:10px !important; font-weight:normal !important
 .sosumi { font-size: 10px !important; color:#76797c; }
 .center { text-align:center; }
 p.intro { font-weight: bold; }
-h2.section { padding-bottom:5px; border-bottom:1px solid #EEEEEE; color:#888; }
+h2.section { padding-bottom:5px; border-bottom:1px solid #EEEEEE; color:#666; font-weight:normal; margin-bottom:20px; }
 
 
 /* TYPE */
