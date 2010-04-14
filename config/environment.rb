@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   config.gem 'bluecloth'
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem 'haml-edge', :lib => 'haml'
-  #config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
+  config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
   config.gem 'page_glimpse'
   config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
   #config.gem 'thinking-sphinx', :lib => 'thinking_sphinx', :source => 'http://gemcutter.org'
