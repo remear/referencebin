@@ -18,7 +18,7 @@ ActionMailer::Base.smtp_settings = {
   :address        => "smtp.gmail.com",
   :port           => 587,
   :domain         => "unfiniti.com",
-  :user_name      => "sysadmin@unfiniti.com",
-  :password       => "Yoshi360",
+  :user_name      => "daemon@unfiniti.com",
+  :password       => "mail64",
   :authentication => :plain
 }
