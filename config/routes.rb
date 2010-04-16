@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   #bookmark imports
   map.convert_all_bookmarks '/bookmark_imports/convert_all', :controller => 'bookmark_imports', :action => 'convert_all'
   map.convert_bookmark '/bookmark_imports/:id/convert', :controller => 'bookmark_imports', :action => 'convert'
+  map.destory_all_bookmark_imports '/bookmark_imports/destroy_all', :controller => 'bookmark_imports', :action => 'destroy_all'
   map.import_bookmarks '/bookmarks/import', :controller => 'bookmark_imports', :action => 'import'
   map.do_bookmark_import '/bookmark_imports/do_import', :controller => 'bookmark_imports', :action => 'do_import'
   map.resources :bookmark_imports

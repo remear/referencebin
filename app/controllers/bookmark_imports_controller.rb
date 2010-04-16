@@ -62,26 +62,36 @@ class BookmarkImportsController < ApplicationController
     
     Bookmark.transaction do
       @bookmark_imports.each do |bookmarkimport|
+        logger.debug("BOOKMARK TO IMPORT : #{bookmarkimport.title}")
         @bookmark = Bookmark.new(bookmarkimport.attributes)
         if @bookmark.save
           bookmarkimport.destroy
           importcount += 1
+          flash[:notice] = "Made #{importcount} bookmarks live"
+        else
+           logger.debug("///////////// COULDN'T SAVE BOOKMARK")
+           @bookmark.errors.each do |error|
+             logger.debug(error)
+           end
+           logger.debug("////////////")
+          flash[:error] = "Unable to make some bookmarks live"
         end
       end
     end
     
-    flash[:notice] = "Made #{importcount} bookmarks live"
+    
     redirect_to bookmarks_path
   end
   
   def do_import
+    require 'csv'
     begin 
       file = params[:do_import][:file]
       rowcount = 0
       importcount = 0
 
       BookmarkImport.transaction do
-        FasterCSV.parse(file, :row_sep => "\r") do |row|
+        CSV.parse(file, :row_sep => "\r") do |row|
           title, url = row
           @bookmark_pass = Bookmark.all(:conditions => ["BINARY bookmarks.url = ?", url])
           @bookmark_import_pass = BookmarkImport.all(:conditions => ["BINARY bookmark_imports.url = ?", url])
@@ -92,8 +102,8 @@ class BookmarkImportsController < ApplicationController
           rowcount += 1
         end
       end
-      rescue FasterCSV::MalformedCSVError
-        @error = "FasterCSV::MalformedCSVError"
+      rescue CSV::MalformedCSVError
+        @error = "CSV::MalformedCSVError"
         render :file => "#{RAILS_ROOT}/public/error.html.erb"
       else
         flash[:notice] = "Imported #{importcount} of #{rowcount} bookmarks" 
@@ -123,6 +133,15 @@ class BookmarkImportsController < ApplicationController
     else
       render :action => 'edit'
     end
+  end
+  
+  def destroy_all
+    @bookmark_imports = BookmarkImport.find_all_by_user_id(current_user.id)
+    @bookmark_imports.each do |bookmark|
+      bookmark.destroy
+    end
+    flash[:notice] = "Removed all imported bookmarks."
+    redirect_to bookmark_imports_url
   end
   
   def destroy

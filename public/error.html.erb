@@ -1,5 +1,5 @@
 <% case @error
-     when "FasterCSV::MalformedCSVError"
+     when "CSV::MalformedCSVError"
        @notice = "Import Rejected"
        @message = "The uploaded file does not appear to be formatted correctly."
      when "Stuff"
@@ -17,7 +17,7 @@ end %>
 	<title>Programmer Reference Bin - <%= @notice %></title>
 	<%= stylesheet_link_tag 'base' %>
 	<%= stylesheet_link_tag 'new' %>
-	<%= stylesheet_link_tag 'new_nav' %>
+	<%= stylesheet_link_tag 'standard' %>
 	<%= stylesheet_link_tag 'coderay' %>
 	<!--[if IE]>
     <%= stylesheet_link_tag "ie.css" %>
@@ -70,7 +70,7 @@ end %>
   	<div id="main" class="clearfix">    
   	  <div id="col-nav" style="color:#FFFFFF; background:#333333; width:180px; position:absolute; right:0px; top:20px; height:0px; text-align:left; padding:0 20px 0 20px; clear:both; font-size:10px;">
         <ul id="categories">
-          <%= render :partial => 'languages/side_nav' %>
+          <%= render :partial => 'languages/lang_nav' %>
         </ul>
         <% if yield :commands %>
         <ul class="block">
